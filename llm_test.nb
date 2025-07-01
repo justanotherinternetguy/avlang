@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[   1773742,      27998]
-NotebookOptionsPosition[   1770922,      27943]
-NotebookOutlinePosition[   1771344,      27960]
-CellTagsIndexPosition[   1771301,      27957]
+NotebookDataLength[   1800190,      28362]
+NotebookOptionsPosition[   1797259,      28306]
+NotebookOutlinePosition[   1797681,      28323]
+CellTagsIndexPosition[   1797638,      28320]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -28,8 +28,8 @@ Cell[BoxData[
 Cell[BoxData["\<\"sun\"\>"], "Output",
  CellChangeTimes->{
   3.9603848984284163`*^9, {3.960386028936759*^9, 3.960386036798881*^9}, 
-   3.9603881203101597`*^9},
- CellLabel->"Out[1]=",ExpressionUUID->"35e125ca-0cc9-4a1f-b6dc-bb00b055f9a4"]
+   3.9603881203101597`*^9, 3.960397588266868*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"5c89ba0a-41c5-414b-ad99-9a759044b505"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -291,8 +291,8 @@ Cell[BoxData[
    3.960377015587432*^9, 3.96038396267837*^9, 3.9603840013912086`*^9, {
    3.9603840853152*^9, 3.960384113606757*^9}, {3.960384610700255*^9, 
    3.960384611560103*^9}, 3.9603849032362967`*^9, {3.9603860298724337`*^9, 
-   3.960386037655086*^9}, 3.96038812152604*^9},
- CellLabel->"Out[3]=",ExpressionUUID->"ad6d9ba9-f3d3-4d88-bf01-887c87f284ba"]
+   3.960386037655086*^9}, 3.96038812152604*^9, 3.960397589511429*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"0482094d-125d-415a-beac-348bc6a82929"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -379,8 +379,8 @@ Cell[BoxData[
    3.960369308386573*^9, 3.9603723728644447`*^9, 3.9603770157908173`*^9, 
    3.96038396293821*^9, 3.9603840042173357`*^9, 3.9603841165692043`*^9, 
    3.960384764427483*^9, {3.9603860299543457`*^9, 3.960386037715465*^9}, 
-   3.960388121980822*^9},
- CellLabel->"Out[4]=",ExpressionUUID->"2d1fa240-5a57-4959-9421-8f05a82b9b6f"]
+   3.960388121980822*^9, 3.960397589943799*^9},
+ CellLabel->"Out[4]=",ExpressionUUID->"f0af8094-fb0c-4913-8c3c-60770d5a7db1"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -460,19 +460,8 @@ Cell[BoxData[
  CellChangeTimes->{3.960369641899912*^9, 3.960370238479701*^9, 
   3.9603723813139067`*^9, 3.9603770185978622`*^9, 3.960383968074877*^9, 
   3.9603840362533197`*^9, 3.960384883962029*^9, 3.960384982610181*^9, 
-  3.960386037766135*^9, 3.960388122053392*^9},
- CellLabel->"Out[6]=",ExpressionUUID->"7f1947df-2e8c-4c4e-808e-6f7fd15caef0"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData["HTTPErrorResponse"], "Input",
- CellChangeTimes->{{3.960386447827038*^9, 3.960386527958007*^9}},
- CellLabel->"In[7]:=",ExpressionUUID->"06392bb5-7e59-481e-ba3d-6d40a629d531"],
-
-Cell[BoxData["HTTPErrorResponse"], "Output",
- CellChangeTimes->{3.960388123479196*^9},
- CellLabel->"Out[7]=",ExpressionUUID->"ee85ad93-b717-4cfd-b939-64f9cdef7c8c"]
+  3.960386037766135*^9, 3.960388122053392*^9, 3.960397590016836*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"8ed189f5-4fdc-4b3a-82d6-0d4e1abf4272"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -27422,7 +27411,7 @@ Cell[BoxData[
           ButtonFunction :> 
           BoxForm`EmbedSummaryInterpretation[
            "Choose", NetChain, 474601712, 
-            8985130788146066066112696923163676705606235998247700557768, 
+            8985155047568611240387580139796435785795765370290130219424, 
             EvaluationBox[], 
             Dynamic[Typeset`embedState$$], StandardForm, 
             ElisionsDump`embedSummaryBoxes], DefaultBaseStyle -> 
@@ -27438,88 +27427,19 @@ Cell[BoxData[
    DisplayFunction->(#& ),
    InterpretationFunction->("NetChain[<2>]"& )],
   False,
-  BoxID -> 8985130788146066066112696923163676705606235998247700557768,
+  BoxID -> 8985155047568611240387580139796435785795765370290130219424,
   Editable->False,
   SelectWithContents->True,
   Selectable->False]], "Output",
- CellChangeTimes->{3.960386130505013*^9, 3.960388129179634*^9},
- CellLabel->"Out[8]=",ExpressionUUID->"cc897529-debb-45ee-8adc-d14bbb6ce758"],
-
-Cell[BoxData[
- DynamicModuleBox[{Progress`ProgressDump`forceRedraw$$ = {{}, {}}, 
-  Progress`ProgressDump`open$$ = True, Progress`ProgressDump`clock$$ = 0, 
-  Progress`ProgressDump`maxTime$$ = DirectedInfinity[1]}, 
-  OverlayBox[{
-   AnimatorBox[Dynamic[Progress`ProgressDump`clock$$], {0., 
-     DirectedInfinity[1], 0.4},
-    AnimationRate->1,
-    AnimationRunTime->0.,
-    AppearanceElements->None,
-    ImageSize->{1, 1}], 
-   DynamicWrapperBox[
-    DynamicBox[ToBoxes[
-      Progress`GenerateProgressPanel[<|
-       "Text" :> "Loading NeuralNetworks libraries\[Ellipsis]"|>, <|{
-        "Title" -> "Computing...", "Type" -> "Panel", "Environment" -> 
-         "Notebook", 
-         "Parameters" -> <|
-          "Text" :> "Loading NeuralNetworks libraries\[Ellipsis]"|>, 
-         "PreemptibleQ" -> False, "ConsoleQ" -> True, "Evaluator" -> "Local", 
-         "EvaluationCell" -> 
-         CellObject[
-          "cc897529-debb-45ee-8adc-d14bbb6ce758", 
-           "eaa66b19-1d9a-4a8c-ae03-943cc31a6688"], "TimeStart" -> 
-         3.960383167519848`16.350312195158516*^9, "TimeStartLocal" -> 
-         3.960383167519848`16.350312195158516*^9, "InitialTimeEstimate" -> 
-         Indeterminate, "UpdateInterval" -> 0.4, "OuterUpdateInterval" -> 
-         DirectedInfinity[1], "Buttons" -> None, "Optional" -> {}, 
-         "ContainerQ" -> False, "CreateContainerQ" -> False, 
-         "CurrentContainer" -> None, "PreviousContainer" -> None, 
-         "ContainerName" -> None, "Cell" -> 
-         Hold[Progress`ProgressDump`cell$20221], "Clock" :> 
-         Dynamic[Progress`ProgressDump`clock$$], "Redraw" -> 
-         Progress`ProgressDump`forceRedraw$$, "Open" :> 
-         Dynamic[Progress`ProgressDump`open$$]}|>], StandardForm],
-     ImageSizeCache->{282., {10.607343750000002`, 15.259687500000002`}},
-     TrackedSymbols:>{Progress`ProgressDump`forceRedraw$$}], Refresh[
-    Progress`ProgressDump`forceRedraw$$ = 
-     With[{Progress`ProgressDump`values = Quiet[
-          
-          Values[<|"Text" :> 
-            "Loading NeuralNetworks libraries\[Ellipsis]"|>]]}, 
-       Map[
-       Position[Progress`ProgressDump`values, #, Infinity]& , {
-        None, Automatic}]], UpdateInterval -> 
-     Lookup[<|"Title" -> "Computing...", "Type" -> "Panel", "Environment" -> 
-        "Notebook", 
-        "Parameters" -> <|
-         "Text" :> "Loading NeuralNetworks libraries\[Ellipsis]"|>, 
-        "PreemptibleQ" -> False, "ConsoleQ" -> True, "Evaluator" -> "Local", 
-        "EvaluationCell" -> 
-        CellObject[
-         "cc897529-debb-45ee-8adc-d14bbb6ce758", 
-          "eaa66b19-1d9a-4a8c-ae03-943cc31a6688"], "TimeStart" -> 
-        3.960383167519848`16.350312195158516*^9, "TimeStartLocal" -> 
-        3.960383167519848`16.350312195158516*^9, "InitialTimeEstimate" -> 
-        Indeterminate, "UpdateInterval" -> 0.4, "OuterUpdateInterval" -> 
-        DirectedInfinity[1], "Buttons" -> None, "Optional" -> {}, 
-        "ContainerQ" -> False, "CreateContainerQ" -> False, 
-        "CurrentContainer" -> None, "PreviousContainer" -> None, 
-        "ContainerName" -> None, "Cell" -> 
-        Hold[Progress`ProgressDump`cell$20221], "Clock" -> Dynamic[None]|>, 
-       "OuterUpdateInterval"], TrackedSymbols :> {}],
-    ImageSizeCache->{282., {10.607343750000002`, 15.259687500000002`}}]}, All,
-    2],
-  DynamicModuleValues:>{}]], "PrintTemporary",
- ShowCellLabel->True,
- CellChangeTimes->{3.960397567537404*^9},
- CellLabel->"",ExpressionUUID->"49cbbfde-2903-40fa-873d-14dd932aad4b"]
+ CellChangeTimes->{3.960386130505013*^9, 3.960388129179634*^9, 
+  3.9603975956870728`*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"e26e77a2-3976-47d8-af07-c7eb037add18"]
 }, Open  ]],
 
 Cell[BoxData[{
  RowBox[{
   RowBox[{
-   RowBox[{"text", "=", "\"\<fun\>\""}], ";"}], "\n"}], "\[IndentingNewLine]", 
+   RowBox[{"text", "=", "\"\<fun\>\""}], ";"}], "\[IndentingNewLine]"}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{"bodyTemplate", "=", 
@@ -27531,14 +27451,15 @@ support=1&ak_bib=1751397776593&ak_bfs=1751399187679&ak_bkpc=1&ak_bkp=76%3B&ak_\
 bmc=127%3B181%2C84133%3B45266%2C-181%3B141%2C162%3B55%2C6420%3B&ak_bmcc=5&ak_\
 bmk=&ak_bck=&ak_bmmc=11&ak_btmc=0&ak_bsc=0&ak_bte=&ak_btec=0&ak_bmm=3211%\
 2C219%3B426%2C28%3B104%2C57%3B66%2C330%3B8%2C7%3B50%2C37%3B51%2C151%3B25%\
-2C294%3B28%2C154%3B58%2C23%3B58%2C364%3B\>\"", "]"}]}], ";"}], "\n"}], "\[IndentingNewLine]", 
+2C294%3B28%2C154%3B58%2C23%3B58%2C364%3B\>\"", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{"bodyString", "=", 
     RowBox[{"bodyTemplate", "[", 
      RowBox[{"<|", 
       RowBox[{"\"\<text\>\"", "->", "text"}], "|>"}], "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\n", 
+  "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"response", "=", 
@@ -27602,8 +27523,7 @@ Gecko/20100101 Firefox/126.1\>\""}], ",",
    3.960391452758683*^9}, {3.9603914948630247`*^9, 3.96039149770151*^9}, {
    3.9603936091281023`*^9, 3.960393643081291*^9}, {3.960393736332535*^9, 
    3.960393816578747*^9}},
- CellLabel->
-  "In[415]:=",ExpressionUUID->"447a4f0a-10e0-4e33-872c-e673182e4d39"],
+ CellLabel->"In[9]:=",ExpressionUUID->"447a4f0a-10e0-4e33-872c-e673182e4d39"],
 
 Cell[CellGroupData[{
 
@@ -27611,8 +27531,7 @@ Cell[BoxData[
  RowBox[{"html", "//", "InputForm"}]], "Input",
  CellChangeTimes->{{3.960393747274322*^9, 3.960393788084826*^9}, {
   3.960393922307578*^9, 3.9603939230494328`*^9}},
- CellLabel->
-  "In[424]:=",ExpressionUUID->"8c2677a5-47f1-45cc-aa40-0dff5383d5a2"],
+ CellLabel->"In[14]:=",ExpressionUUID->"8c2677a5-47f1-45cc-aa40-0dff5383d5a2"],
 
 Cell["\<\
 \"Skip to content       Main Navigation   \\n   toPhonetics         \
@@ -27794,10 +27713,10 @@ most of these are in British dictionary though.    \\n \\
 \\n               \\n  wpDiscuz\\n\\nInsert\"\
 \>", "Output",
  CellChangeTimes->{{3.960393747660323*^9, 3.96039381775056*^9}, 
-   3.9603938827023487`*^9, 3.960393923577485*^9},
+   3.9603938827023487`*^9, 3.960393923577485*^9, 3.960397597714931*^9},
  CellLabel->
-  "Out[424]//InputForm=",ExpressionUUID->"7e991263-0d67-4216-889b-\
-e86e779ef538"]
+  "Out[14]//InputForm=",ExpressionUUID->"215219af-2058-4ed3-ad90-\
+eea652d75926"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -27805,14 +27724,168 @@ Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{"extractIPA", "[", "html", "]"}]], "Input",
  CellChangeTimes->{{3.9603914365429077`*^9, 3.960391439579177*^9}},
- CellLabel->
-  "In[275]:=",ExpressionUUID->"6912d70f-0486-4489-a714-e422a4243a39"],
+ CellLabel->"In[15]:=",ExpressionUUID->"6912d70f-0486-4489-a714-e422a4243a39"],
 
-Cell[BoxData["\<\"f\:028cn\"\>"], "Output",
+Cell[BoxData[
+ RowBox[{"extractIPA", 
+  "[", "\<\"Skip to content       Main Navigation   \\n   toPhonetics         \
+\\n\\ntoTube New Keyboard Blog FAQ Roadmap        \\n   \\n\\nEnglish  Espa\
+\[NTilde]ol  Fran\[CCedilla]ais  Portugu\[EHat]s  \:0423\:043a\:0440\:0430\
+\:0457\:043d\:0441\:044c\:043a\:0430  \:d55c\:ad6d\:c5b4  \:65e5\:672c\:8a9e  \
+\:4e2d\:6587  Ti\:1ebfng Vi\:1ec7t  Tagalog  \:0420\:0443\:0441\:0441\:043a\
+\:0438\:0439      \\n \\n\\n \\n \\n \\n   \\n   \\n \\n \\n  Paste your \
+English text here:  \\n  fun     \\n               \\n \\n \\n \\n    British \
+    American        \\n \\n \\n    Transcription only     Side by side with \
+English text     Line by line with English text        \\n \\n \\n    Show \
+weak forms      \\n \\n   \\n  Parentheses                      \\n \\n\\n  \
+You need to enable JavaScript to use this feature.  \\n\\nf\:028cn  \\n\\n    \
+                      Examples    \\n              Edit IPA                 \
+Share      \\n\\n \\n\\n \\n \\n \\n        \\n \\n          \\nHi! Got an \
+English text and want to see how to pronounce it? This online converter of \
+English text to IPA phonetic transcription will translate your English text \
+into its phonetic transcription using the International Phonetic Alphabet. \
+Paste or type your English text in the text field above and click \
+\[OpenCurlyDoubleQuote]Show transcription\[CloseCurlyDoubleQuote] button (or \
+use [Ctrl+Enter] shortcut from the text input area).  \\nFeatures:  \\nChoose \
+between British and American* pronunciation. When British option is selected \
+the [r] sound at the end of the word is only voiced if followed by a vowel, \
+which follows British phonetic convention. The International Phonetic \
+Alphabet (IPA) symbols used. The structure of the text and sentences in it \
+(line breaks, punctuation marks, etc.) is preserved in phonetic transcription \
+output making it easier to read. An option to vary pronunciation depending on \
+whether words are in stressed or weak position in the sentence, as in \
+connected speech (checkbox \[OpenCurlyDoubleQuote]Show weak forms\
+\[CloseCurlyDoubleQuote]). Weak forms are italicized in the output. Words in \
+CAPS are interpreted as acronyms if the word is not found in the database. \
+Acronym transcriptions will be shown with hyphens between letters. In \
+addition to commonly used vocabulary the database contains a very substantial \
+amount of place names (including names of countries, their capitals, US \
+states, UK counties), nationalities and popular names. You can output the \
+text and its phonetic transcription along each other side-by-side or \
+line-by-line to make back-reference to the original text easier. Just tick \
+the appropriate checkbox in the input form. Where a word has a number of \
+different pronunciations (highlighted in blue in the output) you can select \
+the one that agrees with the context by clicking on it. To see a popup with a \
+list of possible pronunciations move your mouse cursor over the word.\\n Note \
+that different pronunciations of one word may have different meanings or may \
+represent variations in pronunciation with the same meaning. If unsure which \
+pronunciation is relevant in your particular case, consult a dictionary. The \
+dictionary database is regularly amended with most popular missing words \
+(shown in red in the output). The text can be read out loud in browsers with \
+speech synthesis support (Safari, Chrome).  \\n*) American transcriptions are \
+based on the open Carnegie Mellon University Pronouncing Dictionary.  \\nWe \
+encourage students of linguistics/phonetics to do their own work during their \
+assignments and remind them that submitting transcriptions produced by this \
+website for academic credit is a breach of academic integrity.  \\n\\n \\n \
+\\n\\n\\n \\n   \\n \\n \\n  Subscribe      \\n \\n       \\n   \\nNotify of  \
+\\n  new follow-up comments new replies to my comments    \\n     \\n         \
+ \\n   \\n \\n \\n \\n     \\n \\n  Label    \\n \\n                    {}   \
+[+]  \\n             \\n \\n \\n   \\n \\n \\n \\n      Name*    \\n \\n      \
+Email*    \\n \\n      Website      \\n \\n                         \\n       \
+\\n\\n\[CapitalDelta]     \\n \\n \\n \\n   \\n \\n \\n \\n     \\n \\n  \
+Label    \\n \\n                    {}   [+]  \\n             \\n \\n \\n   \
+\\n \\n \\n \\n      Name*    \\n \\n      Email*    \\n \\n      Website     \
+ \\n \\n                         \\n       \\n\\n\[CapitalDelta]         \
+\\nThis site uses Akismet to reduce spam. Learn how your comment data is \
+processed. \\n \\n \\n  3.7K Comments  \\n \\n \\n   \\n   \\n  Newest    \\n \
+ Oldest          \\n \\nInline Feedbacks  \\nView all comments    \\n \\n\\n \
+\\n \\n        \\n \\n \\n  toPhonetics    \\n   8 months ago   \\n \\n   \\n \
+\\n       \\n \\nNB: Audio playback!\\n The speech playback feature is \
+heavily dependant on the OS/browser combination you use. If you want your \
+comments about audio quality to be helpful, please, mention your OS and \
+browser (ideally with versions).  \\nAt the moment we recommend Chrome on \
+desktops for full audio playback functionality, which includes  \\nwider \
+choice of voice models, looping and speech highlighter features.  \\nSafari \
+dev team has been progressively destroying its in-browser voice support over \
+the last few years and has other TTS implementation issues they don\
+\[CloseCurlyQuote]t seem to be willing to address. There\[CloseCurlyQuote]s \
+little we can do about it at the moment, unfortunately.  \\nOn Android , \
+Firefox seems to work best, then Edge . Chrome or Brave on Android aren\
+\[CloseCurlyQuote]t recommended, while Opera doesn\[CloseCurlyQuote]t seem to \
+support speech at all.  \\nLet us know how Audio playback works for you by \
+replying to this comment, especially if you use less common OS/browsers. \
+Thanks!  \\nLast edited 1 month ago by toPhonetics  \\n \\n    Reply    \\n \
+\\n         \\n\\n \\n \\n        \\n \\n \\n Anon   \\n   8 months ago   \\n \
+\\n       \\n   Reply to  toPhonetics     \\n \\nI\[CloseCurlyQuote]m on \
+Firefox/Windows, and it\[CloseCurlyQuote]s not working for me.    \\n \\n    \
+Reply    \\n     \\n\\n \\n \\n        \\n \\n \\n Andrea   \\n   4 months \
+ago   \\n \\n       \\n   Reply to  toPhonetics     \\n \\nHi, audio playback \
+is extremely fast, too fast for a non-native English speaker to learn, unless \
+I\[CloseCurlyQuote]m doing something wrong..?  \\nThanks    \\n \\n    Reply  \
+  \\n \\n         \\n\\n \\n \\n        \\n \\n \\n  toPhonetics    \\n   4 \
+months ago   \\n \\n       \\n   Reply to  Andrea     \\n \\nYou can change \
+the playback rate with the slider next to the playback controls. The default \
+speech rate may differ based on your OS and the browser. What OS/browser are \
+you using?    \\n \\n    Reply    \\n \\n         \\n\\n \\n \\n        \\n \
+\\n \\n Andrea   \\n   4 months ago   \\n \\n       \\n   Reply to  \
+toPhonetics     \\n \\nThanks guys, I\[CloseCurlyQuote]ve tried that but it \
+is not correlating at all to changing speed? Great page by the way!    \\n \
+\\n    Reply    \\n \\n         \\n\\n \\n \\n        \\n \\n \\n Andrea   \
+\\n   4 months ago   \\n \\n       \\n   Reply to  Andrea     \\n \\nChrome \
+..    \\n \\n    Reply    \\n     \\n\\n \\n \\n        \\n \\n \\n  \
+toPhonetics    \\n   4 months ago   \\n \\n       \\n   Reply to  Andrea     \
+\\n \\nWhat happens, the speech rate is not affected at all? What OS are you \
+on, is it Chrome on Android by any chance?    \\n \\n    Reply    \\n     \\n\
+\\n \\n \\n        \\n \\n \\n Rebecca   \\n   22 days ago   \\n \\n       \
+\\n   Reply to  Andrea     \\n \\nThere\[CloseCurlyQuote]s a round bar to \
+move left or right to adjust the audio speed.    \\n \\n    Reply    \\n     \
+\\n\\n \\n \\n        \\n \\n \\n  Khadija    \\n   1 month ago   \\n \\n     \
+  \\n   Reply to  toPhonetics     \\n \\nIt doesn\[CloseCurlyQuote]t work \
+well for me, the audio cuts off when I put an intermediate text and it\
+\[CloseCurlyQuote]s not that long, it\[CloseCurlyQuote]s just a short text \
+but no, no, I read the text, it just reads the first two words and it cuts \
+off and I\[CloseCurlyQuote]m using Chrome and it doesn\[CloseCurlyQuote]t \
+work for me but on the computer it does but not on the tablet, my tablet is a \
+Samsung Galaxy 9 a    \\n \\n    Reply    \\n \\n         \\n\\n \\n \\n      \
+  \\n \\n \\n  toPhonetics    \\n   1 month ago   \\n \\n       \\n   Reply \
+to  Khadija     \\n \\nOk, thanks for the feedback. The speech cuts off in \
+Chrome on Android, but ok in Chrome on mac or PC?\\n On Android, Firefox \
+seems to work best, then Edge. Chrome, Brave on Android \
+didn\[CloseCurlyQuote]t work for me, while Opera doesn\[CloseCurlyQuote]t \
+seem to support speech at all.    \\n \\n    Reply    \\n     \\n\\n \\n \\n  \
+      \\n \\n \\n Grigori   \\n   3 days ago   \\n \\n       \\n \\n\[Theta]\
+\[AE]\:014bks \:0259 l\:0251t!    \\n \\n    Reply    \\n     \\n\\n \\n \\n  \
+      \\n \\n \\n Original   \\n   5 days ago   \\n \\n       \\n \\nHumanoid \
+doesn\[CloseCurlyQuote]t work?    \\n \\n    Reply    \\n     \\n\\n \\n \\n  \
+      \\n \\n \\n Aitor J   \\n   14 days ago   \\n \\n       \\n \\nHello,  \
+\\nI wanted to submit a phonetic transcription that wasn\[CloseCurlyQuote]t \
+inside your database for the word, \[CloseCurlyDoubleQuote] Murcian \
+\[CloseCurlyDoubleQuote], for more info check this wikipedia article: \
+https://en.wikipedia.org/wiki/Murcian_Spanish .  \\nBritish phonetic \
+transcription for Murcian : [ \:02c8m\:025c\:02d0\:0283\:1d4an ] American \
+phonetic transciption for Murcian : [ \:02c8m\:025cr\:0283\:0259n ]  \\nI\
+\[CloseCurlyQuote]m a spanish person and I would be glad if you could add \
+this transcription to your database, thank you!  \\n(Please check if it\
+\[CloseCurlyQuote]s correct and I didn\[CloseCurlyQuote]t commit any errors)  \
+  \\n \\n    Reply    \\n     \\n\\n \\n \\n        \\n \\n \\n  IPA 101    \
+\\n   15 days ago   \\n \\n       \\n \\nNice tool, and if you start to learn \
+IPA try https://ipa101.com/    \\n \\n    Reply    \\n     \\n\\n \\n \\n     \
+   \\n \\n \\n thanh   \\n   23 days ago   \\n \\n       \\n \\ntoo much add  \
+  \\n \\n    Reply    \\n     \\n\\n \\n \\n        \\n \\n \\n anon   \\n   \
+23 days ago   \\n \\n       \\n \\nmissing words: transliterate \
+transliterator and similar; iterable; iterator    \\n \\n    Reply    \\n     \
+\\n\\n \\n \\n        \\n \\n \\n Nazmul   \\n   26 days ago   \\n \\n       \
+\\n \\ngame changer for me    \\n \\n    Reply    \\n     \\n\\n \\n \\n      \
+  \\n \\n \\n Autumn   \\n   26 days ago   \\n \\n       \\n \\nYou put a \
+\[OpenCurlyDoubleQuote]t\[CloseCurlyDoubleQuote] in the IPA of \
+\[OpenCurlyDoubleQuote]beret\[CloseCurlyDoubleQuote] even though that is not \
+the way it is said and not the way the recording on your site pronounced it.  \
+  \\n \\n    Reply    \\n \\n         \\n\\n \\n \\n        \\n \\n \\n  \
+toPhonetics    \\n   26 days ago   \\n \\n       \\n   Reply to  Autumn     \
+\\n \\nThanks!    \\n \\n    Reply    \\n     \\n\\n \\n \\n        \\n \\n \
+\\n dat   \\n   1 month ago   \\n \\n       \\n \\nthank you    \\n \\n    \
+Reply    \\n     \\n\\n \\n \\n        \\n \\n \\n Amy   \\n   1 month ago   \
+\\n \\n       \\n \\nSome words that aren\[CloseCurlyQuote]t transcribed:\\n \
+acquiescent\\n \[Ellipsis]\\n why\[CloseCurlyQuote]re\\n when\
+\[CloseCurlyQuote]re    \\n \\n    Reply    \\n \\n         \\n\\n \\n \\n    \
+    \\n \\n \\n  toPhonetics    \\n   1 month ago   \\n \\n       \\n   Reply \
+to  Amy     \\n \\nThank you. Noted for American dialect, most of these are \
+in British dictionary though.    \\n \\n    Reply    \\n     \\n\\n \\n   \
+Load More Comments                \\n \\n               \\n  \
+wpDiscuz\\n\\nInsert\"\>", "]"}]], "Output",
  CellChangeTimes->{{3.960391439913023*^9, 3.960391474520056*^9}, 
-   3.960391504973235*^9},
- CellLabel->
-  "Out[275]=",ExpressionUUID->"f9397b93-be2b-480a-8820-d082833fd273"]
+   3.960391504973235*^9, 3.96039759785492*^9},
+ CellLabel->"Out[15]=",ExpressionUUID->"64b6e385-b53f-4982-adae-96321e4e84e0"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -27920,25 +27993,315 @@ rv:126.0) Gecko/20100101 Firefox/126.1\>\""}], ",",
  CellChangeTimes->{{3.96039401908228*^9, 3.9603940190823727`*^9}, {
   3.960394086275838*^9, 3.9603940864354477`*^9}, {3.960394209854555*^9, 
   3.9603942156756353`*^9}},
- CellLabel->
-  "In[436]:=",ExpressionUUID->"3b898245-f0f1-4af7-8bb2-8041c693ba7b"],
+ CellLabel->"In[16]:=",ExpressionUUID->"3b898245-f0f1-4af7-8bb2-8041c693ba7b"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"TranscribeToIPAEnglish", "[", "\"\<hendry\>\"", "]"}]], "Input",
+ RowBox[{"TranscribeToIPAEnglish", "[", "\"\<transcription not found\>\"", 
+  "]"}]], "Input",
  CellChangeTimes->{{3.960394020603529*^9, 3.960394039886085*^9}, {
   3.960394159664337*^9, 3.960394166194812*^9}, {3.9603942119236383`*^9, 
-  3.960394217988822*^9}},
- CellLabel->
-  "In[437]:=",ExpressionUUID->"ff79a4c0-23f5-4dd0-943b-e1761a9dd35e"],
+  3.960394217988822*^9}, {3.9603978836815443`*^9, 3.960397923208239*^9}},
+ CellLabel->"In[21]:=",ExpressionUUID->"ff79a4c0-23f5-4dd0-943b-e1761a9dd35e"],
 
-Cell[BoxData["\<\"\:02c8h\:025bndri\"\>"], "Output",
+Cell[BoxData["\<\"\:02cctr\[AE]n\:02c8skr\:026ap\:0283\:0259n n\:0251t fa\
+\:028and\"\>"], "Output",
  CellChangeTimes->{{3.960394026811903*^9, 3.960394040870255*^9}, 
    3.960394087948452*^9, {3.960394160972405*^9, 3.960394167146021*^9}, {
-   3.960394213067443*^9, 3.960394219003161*^9}},
+   3.960394213067443*^9, 3.960394219003161*^9}, 3.960397598779402*^9, {
+   3.960397888643272*^9, 3.960397924289514*^9}},
+ CellLabel->"Out[21]=",ExpressionUUID->"b7b87d4d-956d-4c9d-a919-e3c19a76bb5f"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"TranscribeToIPASpanish", "[", "text_String", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "bodyTemplate", ",", "bodyString", ",", "response", ",", "html", ",", 
+       "pattern"}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"bodyTemplate", "=", 
+       RowBox[{
+       "StringTemplate", 
+        "[", "\"\<text_to_transcribe=`text`%0D%0A^&submit=Mostrar+transcripci%\
+C3%B3n^&output_dialect=am^&output_style=only_tr^&preBracket=^&postBracket=^&\
+speech_support=1^&ak_bib=1751409007118^&ak_bfs=1751409008543^&ak_bkpc=5^&ak_\
+bkp=102%3B133%2C23%3B73%2C51%3B83%2C2%3B67%2C140%3B^&ak_bmc=69%3B33%2C2634%3B^\
+&ak_bmcc=2^&ak_bmk=^&ak_bck=^&ak_bmmc=1^&ak_btmc=0^&ak_bsc=0^&ak_bte=^&ak_\
+btec=0^&ak_bmm=400%2C706%3B\>\"", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"bodyString", "=", 
+       RowBox[{"bodyTemplate", "[", 
+        RowBox[{"<|", 
+         RowBox[{"\"\<text\>\"", "->", "text"}], "|>"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"response", "=", 
+       RowBox[{"URLRead", "[", 
+        RowBox[{"HTTPRequest", "[", 
+         RowBox[{"\"\<https://tophonetics.com/es/\>\"", ",", 
+          RowBox[{"<|", 
+           RowBox[{
+            RowBox[{"\"\<Method\>\"", "->", "\"\<POST\>\""}], ",", 
+            RowBox[{"\"\<Headers\>\"", "->", 
+             RowBox[{"{", 
+              RowBox[{
+               
+               RowBox[{"\"\<User-Agent\>\"", 
+                "->", "\"\<Mozilla/5.0 (Windows NT 10.0; Win64; x64; \
+rv:126.0) Gecko/20100101 Firefox/126.1\>\""}], ",", 
+               
+               RowBox[{"\"\<Accept\>\"", 
+                "->", "\"\<text/html,application/xhtml+xml,application/xml;q=\
+0.9,*/*;q=0.8\>\""}], ",", 
+               
+               RowBox[{"\"\<Accept-Language\>\"", 
+                "->", "\"\<en-US,en;q=0.5\>\""}], ",", 
+               
+               RowBox[{"\"\<Accept-Encoding\>\"", 
+                "->", "\"\<gzip, deflate, br, zstd\>\""}], ",", 
+               
+               RowBox[{"\"\<Content-Type\>\"", 
+                "->", "\"\<application/x-www-form-urlencoded\>\""}], ",", 
+               
+               RowBox[{"\"\<Origin\>\"", 
+                "->", "\"\<https://tophonetics.com\>\""}], ",", 
+               RowBox[{"\"\<DNT\>\"", "->", "\"\<1\>\""}], ",", 
+               RowBox[{"\"\<Connection\>\"", "->", "\"\<keep-alive\>\""}], ",", 
+               
+               RowBox[{"\"\<Referer\>\"", 
+                "->", "\"\<https://tophonetics.com/es/\>\""}], ",", 
+               RowBox[{"\"\<Cookie\>\"", "->", "\"\<output_dialect=am\>\""}], 
+               ",", 
+               
+               RowBox[{"\"\<Upgrade-Insecure-Requests\>\"", 
+                "->", "\"\<1\>\""}], ",", 
+               RowBox[{"\"\<Sec-Fetch-Dest\>\"", "->", "\"\<document\>\""}], ",", 
+               RowBox[{"\"\<Sec-Fetch-Mode\>\"", "->", "\"\<navigate\>\""}], ",", 
+               
+               RowBox[{"\"\<Sec-Fetch-Site\>\"", 
+                "->", "\"\<same-origin\>\""}], ",", 
+               RowBox[{"\"\<Sec-Fetch-User\>\"", "->", "\"\<?1\>\""}], ",", 
+               RowBox[{"\"\<Sec-GPC\>\"", "->", "\"\<1\>\""}], ",", 
+               RowBox[{"\"\<Priority\>\"", "->", "\"\<u=0, i\>\""}], ",", 
+               RowBox[{"\"\<TE\>\"", "->", "\"\<trailers\>\""}]}], "}"}]}], ",", 
+            RowBox[{"\"\<Body\>\"", "->", "bodyString"}]}], "|>"}]}], "]"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"html", "=", 
+       RowBox[{"Import", "[", 
+        RowBox[{"response", ",", "\"\<Plaintext\>\""}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", "html", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"pattern", "=", 
+       RowBox[{
+       "RegularExpression", 
+        "[", "\"\<Transcription\\\\:</strong>\\\\s*</p>\\\\s*<div[^>]*>\\\\s*(\
+.*?)\\\\s*</div>\>\"", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Quiet", "@", 
+       RowBox[{"Check", "[", 
+        RowBox[{
+         RowBox[{"StringTrim", "@", 
+          RowBox[{"StringReplace", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"StringCases", "[", 
+              RowBox[{"html", ",", 
+               RowBox[{"pattern", "->", "\"\<$1\>\""}]}], "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"\"\<<[^>]+>\>\"", "->", "\"\<\>\""}], ",", 
+              RowBox[{"\"\<&nbsp;\>\"", "->", "\"\< \>\""}]}], "}"}]}], 
+           "]"}]}], ",", 
+         RowBox[{"Missing", "[", "\"\<Transcription not found\>\"", "]"}]}], 
+        "]"}]}]}]}], "]"}]}], "\n"}]], "Input",
+ CellChangeTimes->{{3.960397928138962*^9, 3.960397952577663*^9}},
+ CellLabel->"In[24]:=",ExpressionUUID->"12b3d962-4f82-4738-8e0f-5162ba9241c5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TranscribeToIPASpanish", "[", "\"\<hola\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.960397929406034*^9, 3.960397933619321*^9}},
+ CellLabel->"In[25]:=",ExpressionUUID->"e85cf42f-aec0-4a7e-b8c5-97e011594a03"],
+
+Cell[BoxData["\<\"Skip to content       Main Navigation   \\n   toPhonetics   \
+      \\n\\ntoTube New Keyboard Blog FAQ Roadmap        \\n   \\n\\nEnglish  \
+Espa\[NTilde]ol  Fran\[CCedilla]ais  Portugu\[EHat]s  \
+\:0423\:043a\:0440\:0430\:0457\:043d\:0441\:044c\:043a\:0430  \:d55c\:ad6d\
+\:c5b4  \:65e5\:672c\:8a9e  \:4e2d\:6587  Ti\:1ebfng Vi\:1ec7t  Tagalog  \
+\:0420\:0443\:0441\:0441\:043a\:0438\:0439      \\n \\n\\n \\n \\n \\n   \\n  \
+ \\n \\n \\n  Pega tu texto en ingl\[EAcute]s aqu\[IAcute]:  \\n  hola ^    \
+\\n               \\n \\n \\n \\n    Brit\[AAcute]nica     Americana        \
+\\n \\n \\n    Transcripci\[OAcute]n solamente     Lado a lado con el texto \
+en ingl\[EAcute]s     L\[IAcute]nea por l\[IAcute]nea con el texto en ingl\
+\[EAcute]s        \\n \\n \\n    Mostrar formas d\[EAcute]biles      \\n \\n  \
+ \\n  Par\[EAcute]ntesis                      \\n \\n\\n \\nhola  \\n^\\n\\n  \
+                        Ejemplos    \\n              Editar AFI               \
+  Compartir      \\n\\n \\n\\n \\n \\n \\n        \\n \\n          \\n\
+\[DownExclamation]Hola! \[DownQuestion]Tienes un texto en ingl\[EAcute]s y \
+quieres saber c\[OAcute]mo pronunciarlo? Este transcriptor en l\[IAcute]nea \
+de texto en ingl\[EAcute]s a transcripci\[OAcute]n fon\[EAcute]tica AFI \
+convertir\[AAcute] tu texto en ingl\[EAcute]s en su transcripci\[OAcute]n fon\
+\[EAcute]tica usando el Alfab\[EAcute]tico Fon\[EAcute]tico Internacional. \
+Pega o tipea tu texto en ingl\[EAcute]s en el campo de texto de arriba y haz \
+clic en el bot\[OAcute]n \[OpenCurlyDoubleQuote]Mostrar transcripci\[OAcute]n\
+\[CloseCurlyDoubleQuote] (o usa el atajo [Ctrl+Enter] desde el \[AAcute]rea \
+de ingreso de texto).  \\nCaracter\[IAcute]sticas:  \\nElija entre la \
+pronunciaci\[OAcute]n brit\[AAcute]nica y americana*. Cuando se selecciona el \
+dialecto brit\[AAcute]nico, el sonido [r] al final de una palabra \
+s\[OAcute]lo se pronuncia si es seguido por una vocal, lo que tambi\[EAcute]n \
+sigue la convenci\[OAcute]n fon\[EAcute]tica brit\[AAcute]nica. Se usan los s\
+\[IAcute]mbolos del Alfabeto Fon\[EAcute]tico Internacional (AFI). La \
+estructura del texto y de las oraciones dentro de \[EAcute]l (cortes de l\
+\[IAcute]nea, signos de puntuaci\[OAcute]n, etc.) se conservan en la \
+transcripci\[OAcute]n fon\[EAcute]tica, haciendo que sea m\[AAcute]s f\
+\[AAcute]cil de leer. Una opci\[OAcute]n para variar la pronunciaci\[OAcute]n \
+dependiendo de si las palabras est\[AAcute]n en posici\[OAcute]n acentuada o \
+d\[EAcute]bil en la oraci\[OAcute]n, como en el discurso fluido (casilla \
+\[OpenCurlyDoubleQuote]Mostrar formas \
+d\[EAcute]biles\[CloseCurlyDoubleQuote]). Las formas d\[EAcute]biles se \
+muestran en cursiva. Las palabras en MAY\[CapitalUAcute]SCULAS se interpretan \
+como siglas si la palabra no se encuentra en la base de datos. Las \
+transcripciones de siglas se muestran con guiones entre las letras. Adem\
+\[AAcute]s del vocabulario de uso com\[UAcute]n, la base de datos contiene \
+una cantidad sustancial de nombres de lugares (incluyendo nombres de pa\
+\[IAcute]ses, sus capitales, estados de EE.UU, condados del Reino Unido), \
+nacionalidades y nombres populares. Para facilitar la referencia al texto \
+original, puedes hacer que el texto y su transcripci\[OAcute]n \
+fon\[EAcute]tica salgan lado a lado en dos columnas. S\[OAcute]lo selecciona \
+la casilla apropiada en el formulario de entrada. Si una palabra tiene varias \
+pronunciaciones diferentes (estas palabras est\[AAcute]n se\[NTilde]aladas en \
+azul), puedes seleccionar la m\[AAcute]s apropiada al contexto haciendo clic \
+sobre ella. Para ver una ventana emergente con una lista de las posibles \
+pronunciaciones, mueve el cursor de tu mouse por encima de la palabra.\\n Ten \
+en cuenta que las diferentes pronunciaciones de una palabra pueden tener \
+significados diferentes o pueden representar variaciones de pronunciaci\
+\[OAcute]n con el mismo significado. Si no est\[AAcute]s seguro de \
+qu\[EAcute] pronunciaci\[OAcute]n es relevante en tu caso particular, \
+consulta un diccionario. La base de datos del diccionario es enmendada \
+regularmente con las palabras faltantes m\[AAcute]s populares (mostradas en \
+rojo). El texto puede ser le\[IAcute]do en voz alta en los navegadores con \
+soporte de s\[IAcute]ntesis de voz (Safari, Chrome).  \\n*) American \
+transcriptions are based on the open Carnegie Mellon University Pronouncing \
+Dictionary.  \\n\\n \\n \\n\\n\\n \\n   \\n \\n \\n  Subscribe      \\n \\n   \
+    \\n   \\nNotify of  \\n  new follow-up comments new replies to my \
+comments    \\n     \\n          \\n   \\n \\n \\n \\n     \\n \\n  Label    \
+\\n \\n                    {}   [+]  \\n             \\n \\n \\n   \\n \\n \
+\\n \\n      Name*    \\n \\n      Email*    \\n \\n      Website      \\n \
+\\n                         \\n       \\n\\n\[CapitalDelta]     \\n \\n \\n \
+\\n   \\n \\n \\n \\n     \\n \\n  Label    \\n \\n                    {}   \
+[+]  \\n             \\n \\n \\n   \\n \\n \\n \\n      Name*    \\n \\n      \
+Email*    \\n \\n      Website      \\n \\n                         \\n       \
+\\n\\n\[CapitalDelta]         \\nThis site uses Akismet to reduce spam. Learn \
+how your comment data is processed. \\n \\n \\n  3.7K Comments  \\n \\n \\n   \
+\\n   \\n  Newest    \\n  Oldest          \\n \\nInline Feedbacks  \\nView \
+all comments    \\n \\n\\n \\n \\n        \\n \\n \\n  toPhonetics    \\n   8 \
+months ago   \\n \\n   \\n \\n       \\n \\nNB: Audio playback!\\n The speech \
+playback feature is heavily dependant on the OS/browser combination you use. \
+If you want your comments about audio quality to be helpful, please, mention \
+your OS and browser (ideally with versions).  \\nAt the moment we recommend \
+Chrome on desktops for full audio playback functionality, which includes  \
+\\nwider choice of voice models, looping and speech highlighter features.  \
+\\nSafari dev team has been progressively destroying its in-browser voice \
+support over the last few years and has other TTS implementation issues they \
+don\[CloseCurlyQuote]t seem to be willing to address. \
+There\[CloseCurlyQuote]s little we can do about it at the moment, \
+unfortunately.  \\nOn Android , Firefox seems to work best, then Edge . \
+Chrome or Brave on Android aren\[CloseCurlyQuote]t recommended, while Opera \
+doesn\[CloseCurlyQuote]t seem to support speech at all.  \\nLet us know how \
+Audio playback works for you by replying to this comment, especially if you \
+use less common OS/browsers. Thanks!  \\nLast edited 1 month ago by \
+toPhonetics  \\n \\n    Reply    \\n \\n         \\n\\n \\n \\n        \\n \
+\\n \\n Anon   \\n   8 months ago   \\n \\n       \\n   Reply to  toPhonetics \
+    \\n \\nI\[CloseCurlyQuote]m on Firefox/Windows, and it\[CloseCurlyQuote]s \
+not working for me.    \\n \\n    Reply    \\n     \\n\\n \\n \\n        \\n \
+\\n \\n Andrea   \\n   4 months ago   \\n \\n       \\n   Reply to  \
+toPhonetics     \\n \\nHi, audio playback is extremely fast, too fast for a \
+non-native English speaker to learn, unless I\[CloseCurlyQuote]m doing \
+something wrong..?  \\nThanks    \\n \\n    Reply    \\n \\n         \\n\\n \
+\\n \\n        \\n \\n \\n  toPhonetics    \\n   4 months ago   \\n \\n       \
+\\n   Reply to  Andrea     \\n \\nYou can change the playback rate with the \
+slider next to the playback controls. The default speech rate may differ \
+based on your OS and the browser. What OS/browser are you using?    \\n \\n   \
+ Reply    \\n \\n         \\n\\n \\n \\n        \\n \\n \\n Andrea   \\n   4 \
+months ago   \\n \\n       \\n   Reply to  toPhonetics     \\n \\nThanks \
+guys, I\[CloseCurlyQuote]ve tried that but it is not correlating at all to \
+changing speed? Great page by the way!    \\n \\n    Reply    \\n \\n         \
+\\n\\n \\n \\n        \\n \\n \\n Andrea   \\n   4 months ago   \\n \\n       \
+\\n   Reply to  Andrea     \\n \\nChrome ..    \\n \\n    Reply    \\n     \
+\\n\\n \\n \\n        \\n \\n \\n  toPhonetics    \\n   4 months ago   \\n \
+\\n       \\n   Reply to  Andrea     \\n \\nWhat happens, the speech rate is \
+not affected at all? What OS are you on, is it Chrome on Android by any \
+chance?    \\n \\n    Reply    \\n     \\n\\n \\n \\n        \\n \\n \\n \
+Rebecca   \\n   22 days ago   \\n \\n       \\n   Reply to  Andrea     \\n \
+\\nThere\[CloseCurlyQuote]s a round bar to move left or right to adjust the \
+audio speed.    \\n \\n    Reply    \\n     \\n\\n \\n \\n        \\n \\n \\n \
+ Khadija    \\n   1 month ago   \\n \\n       \\n   Reply to  toPhonetics     \
+\\n \\nIt doesn\[CloseCurlyQuote]t work well for me, the audio cuts off when \
+I put an intermediate text and it\[CloseCurlyQuote]s not that long, it\
+\[CloseCurlyQuote]s just a short text but no, no, I read the text, it just \
+reads the first two words and it cuts off and I\[CloseCurlyQuote]m using \
+Chrome and it doesn\[CloseCurlyQuote]t work for me but on the computer it \
+does but not on the tablet, my tablet is a Samsung Galaxy 9 a    \\n \\n    \
+Reply    \\n \\n         \\n\\n \\n \\n        \\n \\n \\n  toPhonetics    \
+\\n   1 month ago   \\n \\n       \\n   Reply to  Khadija     \\n \\nOk, \
+thanks for the feedback. The speech cuts off in Chrome on Android, but ok in \
+Chrome on mac or PC?\\n On Android, Firefox seems to work best, then Edge. \
+Chrome, Brave on Android didn\[CloseCurlyQuote]t work for me, while Opera \
+doesn\[CloseCurlyQuote]t seem to support speech at all.    \\n \\n    Reply   \
+ \\n     \\n\\n \\n \\n        \\n \\n \\n Grigori   \\n   3 days ago   \\n \
+\\n       \\n \\n\[Theta]\[AE]\:014bks \:0259 l\:0251t!    \\n \\n    Reply   \
+ \\n     \\n\\n \\n \\n        \\n \\n \\n Original   \\n   5 days ago   \\n \
+\\n       \\n \\nHumanoid doesn\[CloseCurlyQuote]t work?    \\n \\n    Reply  \
+  \\n     \\n\\n \\n \\n        \\n \\n \\n Aitor J   \\n   14 days ago   \\n \
+\\n       \\n \\nHello,  \\nI wanted to submit a phonetic transcription that \
+wasn\[CloseCurlyQuote]t inside your database for the word, \
+\[CloseCurlyDoubleQuote] Murcian \[CloseCurlyDoubleQuote], for more info \
+check this wikipedia article: https://en.wikipedia.org/wiki/Murcian_Spanish . \
+ \\nBritish phonetic transcription for Murcian : [ \:02c8m\:025c\:02d0\:0283\
+\:1d4an ] American phonetic transciption for Murcian : [ \:02c8m\:025cr\:0283\
+\:0259n ]  \\nI\[CloseCurlyQuote]m a spanish person and I would be glad if \
+you could add this transcription to your database, thank you!  \\n(Please \
+check if it\[CloseCurlyQuote]s correct and I didn\[CloseCurlyQuote]t commit \
+any errors)    \\n \\n    Reply    \\n     \\n\\n \\n \\n        \\n \\n \\n  \
+IPA 101    \\n   15 days ago   \\n \\n       \\n \\nNice tool, and if you \
+start to learn IPA try https://ipa101.com/    \\n \\n    Reply    \\n     \\n\
+\\n \\n \\n        \\n \\n \\n thanh   \\n   23 days ago   \\n \\n       \\n \
+\\ntoo much add    \\n \\n    Reply    \\n     \\n\\n \\n \\n        \\n \\n \
+\\n anon   \\n   23 days ago   \\n \\n       \\n \\nmissing words: \
+transliterate transliterator and similar; iterable; iterator    \\n \\n    \
+Reply    \\n     \\n\\n \\n \\n        \\n \\n \\n Nazmul   \\n   26 days ago \
+  \\n \\n       \\n \\ngame changer for me    \\n \\n    Reply    \\n     \\n\
+\\n \\n \\n        \\n \\n \\n Autumn   \\n   26 days ago   \\n \\n       \\n \
+\\nYou put a \[OpenCurlyDoubleQuote]t\[CloseCurlyDoubleQuote] in the IPA of \
+\[OpenCurlyDoubleQuote]beret\[CloseCurlyDoubleQuote] even though that is not \
+the way it is said and not the way the recording on your site pronounced it.  \
+  \\n \\n    Reply    \\n \\n         \\n\\n \\n \\n        \\n \\n \\n  \
+toPhonetics    \\n   26 days ago   \\n \\n       \\n   Reply to  Autumn     \
+\\n \\nThanks!    \\n \\n    Reply    \\n     \\n\\n \\n \\n        \\n \\n \
+\\n dat   \\n   1 month ago   \\n \\n       \\n \\nthank you    \\n \\n    \
+Reply    \\n     \\n\\n \\n \\n        \\n \\n \\n Amy   \\n   1 month ago   \
+\\n \\n       \\n \\nSome words that aren\[CloseCurlyQuote]t transcribed:\\n \
+acquiescent\\n \[Ellipsis]\\n why\[CloseCurlyQuote]re\\n when\
+\[CloseCurlyQuote]re    \\n \\n    Reply    \\n \\n         \\n\\n \\n \\n    \
+    \\n \\n \\n  toPhonetics    \\n   1 month ago   \\n \\n       \\n   Reply \
+to  Amy     \\n \\nThank you. Noted for American dialect, most of these are \
+in British dictionary though.    \\n \\n    Reply    \\n     \\n\\n \\n   \
+Load More Comments                \\n \\n               \\n  \
+wpDiscuz\\n\\nInsert\"\>"], "Print",
+ CellChangeTimes->{3.960397954648692*^9},
  CellLabel->
-  "Out[437]=",ExpressionUUID->"981733d0-263b-4b65-ab44-80cbc340274c"]
+  "During evaluation of \
+In[25]:=",ExpressionUUID->"95d6eca5-26bd-4c12-925f-3c9d16c6ce3b"],
+
+Cell[BoxData[
+ RowBox[{"Missing", "[", "\<\"Transcription not found\"\>", "]"}]], "Output",
+ CellChangeTimes->{{3.960397934755005*^9, 3.960397954755048*^9}},
+ CellLabel->"Out[25]=",ExpressionUUID->"a9a63749-8b0d-470e-9e53-4d5748b19edb"]
 }, Open  ]]
 },
 WindowSize->{1080, 625.5},
@@ -27961,44 +28324,45 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[576, 22, 209, 3, 23, "Input",ExpressionUUID->"e309a9e9-5af9-4dc5-a737-919e46eb8f83"],
-Cell[788, 27, 237, 4, 26, "Output",ExpressionUUID->"35e125ca-0cc9-4a1f-b6dc-bb00b055f9a4"]
+Cell[788, 27, 259, 4, 26, "Output",ExpressionUUID->"5c89ba0a-41c5-414b-ad99-9a759044b505"]
 }, Open  ]],
-Cell[1040, 34, 914, 18, 25, "Input",ExpressionUUID->"a2c2bfdb-0859-40c8-8493-748b3cb02123"],
+Cell[1062, 34, 914, 18, 25, "Input",ExpressionUUID->"a2c2bfdb-0859-40c8-8493-748b3cb02123"],
 Cell[CellGroupData[{
-Cell[1979, 56, 290, 4, 23, "Input",ExpressionUUID->"ca8c356b-ef41-4505-8415-38d514355fda"],
-Cell[2272, 62, 13409, 232, 29, "Output",ExpressionUUID->"ad6d9ba9-f3d3-4d88-bf01-887c87f284ba"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[15718, 299, 384, 6, 23, "Input",ExpressionUUID->"69b8df6e-805d-4b31-894b-3c0aab869290"],
-Cell[16105, 307, 5253, 75, 203, "Output",ExpressionUUID->"2d1fa240-5a57-4959-9421-8f05a82b9b6f"]
-}, Open  ]],
-Cell[21373, 385, 515, 13, 23, "Input",ExpressionUUID->"11ad0a60-826e-406f-986c-b2d15803f55f"],
-Cell[CellGroupData[{
-Cell[21913, 402, 186, 2, 23, "Input",ExpressionUUID->"18da7c75-0d45-4b6a-be6e-de78f460b32e"],
-Cell[22102, 406, 3934, 57, 125, "Output",ExpressionUUID->"7f1947df-2e8c-4c4e-808e-6f7fd15caef0"]
+Cell[2001, 56, 290, 4, 23, "Input",ExpressionUUID->"ca8c356b-ef41-4505-8415-38d514355fda"],
+Cell[2294, 62, 13431, 232, 29, "Output",ExpressionUUID->"0482094d-125d-415a-beac-348bc6a82929"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[26073, 468, 187, 2, 23, "Input",ExpressionUUID->"06392bb5-7e59-481e-ba3d-6d40a629d531"],
-Cell[26263, 472, 164, 2, 26, "Output",ExpressionUUID->"ee85ad93-b717-4cfd-b939-64f9cdef7c8c"]
+Cell[15762, 299, 384, 6, 23, "Input",ExpressionUUID->"69b8df6e-805d-4b31-894b-3c0aab869290"],
+Cell[16149, 307, 5275, 75, 203, "Output",ExpressionUUID->"f0af8094-fb0c-4913-8c3c-60770d5a7db1"]
+}, Open  ]],
+Cell[21439, 385, 515, 13, 23, "Input",ExpressionUUID->"11ad0a60-826e-406f-986c-b2d15803f55f"],
+Cell[CellGroupData[{
+Cell[21979, 402, 186, 2, 23, "Input",ExpressionUUID->"18da7c75-0d45-4b6a-be6e-de78f460b32e"],
+Cell[22168, 406, 3956, 57, 125, "Output",ExpressionUUID->"8ed189f5-4fdc-4b3a-82d6-0d4e1abf4272"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[26464, 479, 258, 4, 25, "Input",ExpressionUUID->"45c91d29-8cca-443a-ae95-f3e69407df2b"],
-Cell[26725, 485, 1718177, 26960, 69, "Output",ExpressionUUID->"cc897529-debb-45ee-8adc-d14bbb6ce758"],
-Cell[1744905, 27447, 3494, 68, 70, "PrintTemporary",ExpressionUUID->"49cbbfde-2903-40fa-873d-14dd932aad4b"]
+Cell[26161, 468, 258, 4, 25, "Input",ExpressionUUID->"45c91d29-8cca-443a-ae95-f3e69407df2b"],
+Cell[26422, 474, 1718204, 26961, 69, "Output",ExpressionUUID->"e26e77a2-3976-47d8-af07-c7eb037add18"]
 }, Open  ]],
-Cell[1748414, 27518, 4112, 87, 379, "Input",ExpressionUUID->"447a4f0a-10e0-4e33-872c-e673182e4d39"],
+Cell[1744641, 27438, 4110, 87, 379, "Input",ExpressionUUID->"447a4f0a-10e0-4e33-872c-e673182e4d39"],
 Cell[CellGroupData[{
-Cell[1752551, 27609, 261, 5, 23, "Input",ExpressionUUID->"8c2677a5-47f1-45cc-aa40-0dff5383d5a2"],
-Cell[1752815, 27616, 12183, 183, 768, "Output",ExpressionUUID->"7e991263-0d67-4216-889b-e86e779ef538"]
+Cell[1748776, 27529, 257, 4, 23, "Input",ExpressionUUID->"8c2677a5-47f1-45cc-aa40-0dff5383d5a2"],
+Cell[1749036, 27535, 12204, 183, 768, "Output",ExpressionUUID->"215219af-2058-4ed3-ad90-eea652d75926"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1765035, 27804, 217, 4, 23, "Input",ExpressionUUID->"6912d70f-0486-4489-a714-e422a4243a39"],
-Cell[1765255, 27810, 218, 4, 38, "Output",ExpressionUUID->"f9397b93-be2b-480a-8820-d082833fd273"]
+Cell[1761277, 27723, 213, 3, 23, "Input",ExpressionUUID->"6912d70f-0486-4489-a714-e422a4243a39"],
+Cell[1761493, 27728, 12112, 159, 8871, "Output",ExpressionUUID->"64b6e385-b53f-4982-adae-96321e4e84e0"]
 }, Open  ]],
-Cell[1765488, 27817, 4730, 106, 346, "Input",ExpressionUUID->"3b898245-f0f1-4af7-8bb2-8041c693ba7b"],
+Cell[1773620, 27890, 4726, 105, 346, "Input",ExpressionUUID->"3b898245-f0f1-4af7-8bb2-8041c693ba7b"],
 Cell[CellGroupData[{
-Cell[1770243, 27927, 337, 6, 23, "Input",ExpressionUUID->"ff79a4c0-23f5-4dd0-943b-e1761a9dd35e"],
-Cell[1770583, 27935, 323, 5, 38, "Output",ExpressionUUID->"981733d0-263b-4b65-ab44-80cbc340274c"]
+Cell[1778371, 27999, 401, 6, 25, "Input",ExpressionUUID->"ff79a4c0-23f5-4dd0-943b-e1761a9dd35e"],
+Cell[1778775, 28007, 439, 6, 26, "Output",ExpressionUUID->"b7b87d4d-956d-4c9d-a919-e3c19a76bb5f"]
+}, Open  ]],
+Cell[1779229, 28016, 4816, 105, 346, "Input",ExpressionUUID->"12b3d962-4f82-4738-8e0f-5162ba9241c5"],
+Cell[CellGroupData[{
+Cell[1784070, 28125, 231, 3, 23, "Input",ExpressionUUID->"e85cf42f-aec0-4a7e-b8c5-97e011594a03"],
+Cell[1784304, 28130, 12700, 168, 8218, "Print",ExpressionUUID->"95d6eca5-26bd-4c12-925f-3c9d16c6ce3b"],
+Cell[1797007, 28300, 236, 3, 27, "Output",ExpressionUUID->"a9a63749-8b0d-470e-9e53-4d5748b19edb"]
 }, Open  ]]
 }
 ]
