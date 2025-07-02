@@ -1,0 +1,170 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      6368,        162]
+NotebookOptionsPosition[      5198,        133]
+NotebookOutlinePosition[      5662,        151]
+CellTagsIndexPosition[      5619,        148]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+\[Mu]Lang \[LongDash] Computationally Generating a Morphologically Average \
+Conlang using Multilingual Translations\
+\>", "Title",
+ CellChangeTimes->{{3.960458639128196*^9, 3.960458721130856*^9}, {
+  3.960458942578291*^9, 3.960458992711426*^9}, {3.960459740981415*^9, 
+  3.9604597430632877`*^9}, {3.960462263845292*^9, 
+  3.960462282477881*^9}},ExpressionUUID->"4d796416-c448-4369-98ef-\
+0f9893ea5a14"],
+
+Cell["\<\
+Constructed languages, or conlangs, are languages that were artificially \
+created instead of being naturally evolved over several generations. A \
+crucial part of every conlang is the lexicon \[LongDash] the vocabulary. \
+While most lexicons are generated manually or through the help of randomized \
+selection, I present several methods to generating a quantitatively \
+\[OpenCurlyDoubleQuote]average\[CloseCurlyDoubleQuote] lexicon, that is, \
+generating new words that may have similar features, spelling, or \
+pronunciation compared to several translations of the same word in different \
+languages.\
+\>", "Text",
+ CellChangeTimes->{{3.960459511582996*^9, 3.960459541643633*^9}, {
+  3.9604597378749313`*^9, 3.9604598759295683`*^9}, {3.9604599704977503`*^9, 
+  3.9604600058224688`*^9}, {3.960460131073436*^9, 3.960460146822055*^9}, {
+  3.9604602668087187`*^9, 3.960460279421069*^9}, {3.960460310324501*^9, 
+  3.960460382388337*^9}, {3.960460481968258*^9, 3.960460534437071*^9}, {
+  3.960460690832755*^9, 3.960460696014526*^9}, {3.960460735346459*^9, 
+  3.960460796053145*^9}, {3.960461023620883*^9, 3.960461041196834*^9}, {
+  3.9604616202418413`*^9, 
+  3.960461633249464*^9}},ExpressionUUID->"6a924ad1-565f-4edc-8689-\
+5f75d515efcf"],
+
+Cell[CellGroupData[{
+
+Cell["Initial Exploration", "Chapter",
+ CellChangeTimes->{{3.960462089293933*^9, 
+  3.960462095636661*^9}},ExpressionUUID->"f885ab54-4139-4688-99d7-\
+237a3f119041"],
+
+Cell["\<\
+We start with a simple word and using only translations from a small subset \
+of Romance languages as a proof-of-concept. In this case, \
+I\[CloseCurlyQuote]m using \[OpenCurlyDoubleQuote]sun\[CloseCurlyDoubleQuote] \
+and translations into Spanish, French, Portuguese, Latin, Italian, and \
+Romanian provided by the Wolfram Language.\
+\>", "Text",
+ CellChangeTimes->{{3.960462232709156*^9, 3.960462253771413*^9}, {
+  3.96046242159262*^9, 
+  3.960462527723065*^9}},ExpressionUUID->"384fe46a-cf8c-4582-827e-\
+292902b97bb6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"KEYWORD", " ", "=", " ", "\"\<sun\>\""}], ";"}]], "Code",
+ CellChangeTimes->{{3.960462539212104*^9, 3.960462546578495*^9}},
+ CellLabel->
+  "In[183]:=",ExpressionUUID->"d641e382-89a3-4078-bd2b-ed5527f355e0"],
+
+Cell["Generate a List of translations", "CodeText",
+ CellChangeTimes->{{3.960462608889132*^9, 
+  3.9604626250866013`*^9}},ExpressionUUID->"d3d1bb95-dbf4-4e55-af3e-\
+17577e2254a3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"translatedList", " ", "=", " ", 
+  RowBox[{"ToLowerCase", "[", 
+   RowBox[{"Transliterate", "[", 
+    RowBox[{"{", 
+     RowBox[{"\"\<sun\>\"", ",", " ", 
+      RowBox[{
+       RowBox[{"WordTranslation", "[", 
+        RowBox[{"KEYWORD", ",", " ", "\"\<Spanish\>\""}], "]"}], "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", " ", 
+      RowBox[{
+       RowBox[{"WordTranslation", "[", 
+        RowBox[{"KEYWORD", ",", " ", "\"\<French\>\""}], "]"}], "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", " ", 
+      RowBox[{
+       RowBox[{"WordTranslation", "[", 
+        RowBox[{"KEYWORD", ",", " ", "\"\<Portuguese\>\""}], "]"}], "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", " ", 
+      RowBox[{
+       RowBox[{"WordTranslation", "[", 
+        RowBox[{"KEYWORD", ",", " ", "\"\<Latin\>\""}], "]"}], "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", " ", 
+      RowBox[{
+       RowBox[{"WordTranslation", "[", 
+        RowBox[{"KEYWORD", ",", " ", "\"\<Italian\>\""}], "]"}], "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", " ", 
+      RowBox[{
+       RowBox[{"WordTranslation", "[", 
+        RowBox[{"KEYWORD", ",", " ", "\"\<Romanian\>\""}], "]"}], "[", 
+       RowBox[{"[", "1", "]"}], "]"}]}], "}"}], "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{3.960462552765077*^9},
+ CellLabel->
+  "In[185]:=",ExpressionUUID->"e7b4411f-4001-4123-b139-8f8a70865848"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"sun\"\>", ",", "\<\"sol\"\>", ",", "\<\"soleil\"\>", 
+   ",", "\<\"sol\"\>", ",", "\<\"phoebus\"\>", ",", "\<\"sole\"\>", 
+   ",", "\<\"soare\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{3.9604625543687773`*^9, 3.9604626275291*^9},
+ CellLabel->
+  "Out[185]=",ExpressionUUID->"c7b19703-71b4-4893-85a2-e741fa9d5e5d"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1080, 625.5},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+TaggingRules-><|"TryRealOnly" -> False|>,
+Magnification:>0.7 Inherited,
+FrontEndVersion->"14.2 for Linux x86 (64-bit) (March 16, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"55a6dd07-27c7-4171-af8c-cc98780366a2"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 413, 8, 109, "Title",ExpressionUUID->"4d796416-c448-4369-98ef-0f9893ea5a14"],
+Cell[992, 32, 1247, 20, 54, "Text",ExpressionUUID->"6a924ad1-565f-4edc-8689-5f75d515efcf"],
+Cell[CellGroupData[{
+Cell[2264, 56, 164, 3, 47, "Chapter",ExpressionUUID->"f885ab54-4139-4688-99d7-237a3f119041"],
+Cell[2431, 61, 531, 10, 39, "Text",ExpressionUUID->"384fe46a-cf8c-4582-827e-292902b97bb6"],
+Cell[2965, 73, 241, 5, 37, "Code",ExpressionUUID->"d641e382-89a3-4078-bd2b-ed5527f355e0"],
+Cell[3209, 80, 179, 3, 25, "CodeText",ExpressionUUID->"d3d1bb95-dbf4-4e55-af3e-17577e2254a3"],
+Cell[CellGroupData[{
+Cell[3413, 87, 1384, 32, 51, "Input",ExpressionUUID->"e7b4411f-4001-4123-b139-8f8a70865848"],
+Cell[4800, 121, 358, 7, 23, "Output",ExpressionUUID->"c7b19703-71b4-4893-85a2-e741fa9d5e5d"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
