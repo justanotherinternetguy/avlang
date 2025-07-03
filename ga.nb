@@ -19572,7 +19572,7 @@ Cell[BoxData[{
   RowBox[{
    RowBox[{"charSet", "=", 
     RowBox[{"Flatten", "[", "topDigramsByPosition", "]"}]}], ";"}], 
-  "\[IndentingNewLine]", "\[IndentingNewLine]"}], "\n", 
+  "\[IndentingNewLine]", "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{
@@ -19584,7 +19584,7 @@ Cell[BoxData[{
         RowBox[{
          RowBox[{"EditDistance", "[", 
           RowBox[{"candidate", ",", "#"}], "]"}], "&"}], "/@", "words"}], 
-       "]"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", "\n"}], "\[IndentingNewLine]", 
+       "]"}], "]"}]}]}], ";"}], "\n", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{
