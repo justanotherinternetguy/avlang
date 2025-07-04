@@ -1,0 +1,352 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     13494,        344]
+NotebookOptionsPosition[     11263,        300]
+NotebookOutlinePosition[     11655,        316]
+CellTagsIndexPosition[     11612,        313]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"g", "=", 
+  RowBox[{"Graph", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"1", "->", "2"}], ",", " ", 
+     RowBox[{"2", "->", "3"}], ",", " ", 
+     RowBox[{"3", "->", "1"}]}], "}"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.960639277568493*^9, 3.960639310895775*^9}},
+ CellLabel->
+  "In[221]:=",ExpressionUUID->"7ea81164-c634-4f37-9fd7-d0d26d78f778"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3}, {{{1, 2}, {2, 3}, {3, 1}}, Null}]]}, 
+    TagBox[
+     GraphicsGroupBox[
+      GraphicsComplexBox[{{-0.8660254037844384, -0.4999999999999994}, {
+       0.8660254037844389, -0.5000000000000012}, {1.8369701987210297`*^-16, 
+       1.}}, {
+        {Hue[0.6, 0.7, 0.7], Opacity[0.7], CapForm["Round"], Arrowheads[
+         Medium], 
+         ArrowBox[{{1, 2}, {2, 3}, {3, 1}}, 0.020399597244776385`]}, 
+        {Hue[0.6, 0.5, 1.], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+         DiskBox[1, 0.020399597244776385], DiskBox[2, 0.020399597244776385], 
+         DiskBox[3, 0.020399597244776385]}}]],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->"NetworkGraphics",
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Output",
+ CellChangeTimes->{{3.960639286952612*^9, 3.9606393111929827`*^9}},
+ CellLabel->
+  "Out[221]=",ExpressionUUID->"11214565-503d-4761-b5e2-c12f8dd8d96a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"EdgeList", "[", "g", "]"}]], "Input",
+ CellChangeTimes->{{3.9606393008764343`*^9, 3.9606393157547503`*^9}},
+ CellLabel->
+  "In[222]:=",ExpressionUUID->"189894c5-2898-4bc0-b0e0-de58fa11b2de"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+   RowBox[{"2", "\[DirectedEdge]", "3"}], ",", 
+   RowBox[{"3", "\[DirectedEdge]", "1"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.960639316029951*^9},
+ CellLabel->
+  "Out[222]=",ExpressionUUID->"856578ab-a7f6-4212-9588-a063a2c0b240"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CompleteGraph", "[", "5", "]"}]], "Input",
+ CellChangeTimes->{{3.960639320111972*^9, 3.960639324982004*^9}},
+ CellLabel->
+  "In[223]:=",ExpressionUUID->"d3ba703d-61c7-44e7-8a78-3db5a3b4d2f8"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3, 4, 5}, {Null, 
+       SparseArray[
+       Automatic, {5, 5}, 0, {
+        1, {{0, 4, 8, 12, 16, 20}, {{2}, {3}, {4}, {5}, {1}, {3}, {4}, {5}, {
+          1}, {2}, {4}, {5}, {1}, {2}, {3}, {5}, {1}, {2}, {3}, {4}}}, 
+         Pattern}]}, {
+      GraphLayout -> {"CircularEmbedding", "OptimalOrder" -> False}}]]}, 
+    TagBox[
+     GraphicsGroupBox[
+      GraphicsComplexBox[{{-0.9510565162951538, 
+       0.3090169943749484}, {-0.5877852522924726, -0.8090169943749468}, {
+       0.5877852522924738, -0.8090169943749481}, {0.9510565162951533, 
+       0.30901699437494634`}, {-7.044813998280222*^-16, 1.}}, {
+        {Hue[0.6, 0.7, 0.7], Opacity[0.7], CapForm["Round"], Arrowheads[0.], 
+         ArrowBox[{{1, 2}, {1, 3}, {1, 4}, {1, 5}, {2, 3}, {2, 4}, {2, 5}, {3,
+           4}, {3, 5}, {4, 5}}, 0.021812234931106983`]}, 
+        {Hue[0.6, 0.5, 1.], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+         DiskBox[1, 0.021812234931106983], DiskBox[2, 0.021812234931106983], 
+         DiskBox[3, 0.021812234931106983], DiskBox[4, 0.021812234931106983], 
+         DiskBox[5, 0.021812234931106983]}}]],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->"NetworkGraphics",
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Output",
+ CellChangeTimes->{3.9606393254061203`*^9},
+ CellLabel->
+  "Out[223]=",ExpressionUUID->"54e13e1d-09b0-41c4-b4e0-fea7aabb99c3"]
+}, Open  ]],
+
+Cell["all vertices are connected to all other vertices (K_n)", "Text",
+ CellChangeTimes->{{3.9606393365212727`*^9, 
+  3.9606393492630873`*^9}},ExpressionUUID->"4337df3b-4d74-4c39-b2b6-\
+50a5f6389ffa"],
+
+Cell["bipartite graph", "Text",
+ CellChangeTimes->{{3.960639362247953*^9, 
+  3.960639380347382*^9}},ExpressionUUID->"e80f94ba-db83-431d-a79d-\
+c1472f809e15"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CompleteGraph", "[", 
+  RowBox[{"{", 
+   RowBox[{"3", ",", " ", "2"}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.960639382705386*^9, 3.960639393453904*^9}},
+ CellLabel->
+  "In[227]:=",ExpressionUUID->"743f3220-3c44-41e7-a1bb-e9a7dc89fc2c"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3, 4, 5}, {Null, 
+       SparseArray[
+       Automatic, {5, 5}, 0, {
+        1, {{0, 2, 4, 6, 9, 12}, {{4}, {5}, {4}, {5}, {4}, {5}, {1}, {2}, {
+          3}, {1}, {2}, {3}}}, Pattern}]}, {
+      GraphLayout -> {"MultipartiteLayout", "VertexPartition" -> {3, 2}}}]]}, 
+    
+    TagBox[
+     GraphicsGroupBox[
+      GraphicsComplexBox[{{0., -0.35901699437494755`}, {0., 0.}, {0., 
+       0.35901699437494755`}, {1., -0.17950849718747378`}, {1., 
+       0.17950849718747378`}}, {
+        {Hue[0.6, 0.7, 0.7], Opacity[0.7], CapForm["Round"], Arrowheads[0.], 
+         ArrowBox[{{1, 4}, {1, 5}, {2, 4}, {2, 5}, {3, 4}, {3, 5}}, 0.01273]}, 
+        {Hue[0.6, 0.5, 1.], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+         DiskBox[1, 0.01273], DiskBox[2, 0.01273], DiskBox[3, 0.01273], 
+         DiskBox[4, 0.01273], DiskBox[5, 0.01273]}}]],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->"NetworkGraphics",
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Output",
+ CellChangeTimes->{{3.960639387268557*^9, 3.960639393725046*^9}},
+ CellLabel->
+  "Out[227]=",ExpressionUUID->"ece8273d-8a25-4eb4-885f-71db92a28cd9"]
+}, Open  ]],
+
+Cell["\<\
+within those two sets ,there are no edges
+complete bipartite - connected to other set\
+\>", "Text",
+ CellChangeTimes->{{3.960639398346574*^9, 
+  3.960639412375547*^9}},ExpressionUUID->"4b66bbb7-a684-4b1c-b2bb-\
+f08b13e88c13"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CycleGraph", "[", "5", "]"}]], "Input",
+ CellChangeTimes->{{3.960639394451586*^9, 3.9606394276817017`*^9}},
+ CellLabel->
+  "In[229]:=",ExpressionUUID->"9d38432a-2ce1-4b62-8b7d-212633827d97"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3, 4, 5}, {Null, 
+       SparseArray[
+       Automatic, {5, 5}, 0, {
+        1, {{0, 2, 4, 6, 8, 10}, {{2}, {5}, {1}, {3}, {2}, {4}, {3}, {5}, {
+          1}, {4}}}, Pattern}]}, {GraphLayout -> "CircularEmbedding"}]]}, 
+    TagBox[
+     GraphicsGroupBox[
+      GraphicsComplexBox[{{-0.9510565162951538, 
+       0.3090169943749484}, {-7.044813998280222*^-16, 1.}, {
+       0.9510565162951533, 0.30901699437494634`}, {
+       0.5877852522924738, -0.8090169943749481}, {-0.5877852522924726, \
+-0.8090169943749468}}, {
+        {Hue[0.6, 0.7, 0.7], Opacity[0.7], CapForm["Round"], Arrowheads[0.], 
+         ArrowBox[{{1, 2}, {1, 5}, {2, 3}, {3, 4}, {4, 5}}, 
+          0.021812234931106983`]}, 
+        {Hue[0.6, 0.5, 1.], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+         DiskBox[1, 0.021812234931106983], DiskBox[2, 0.021812234931106983], 
+         DiskBox[3, 0.021812234931106983], DiskBox[4, 0.021812234931106983], 
+         DiskBox[5, 0.021812234931106983]}}]],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->"NetworkGraphics",
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Output",
+ CellChangeTimes->{{3.96063942387283*^9, 3.9606394280782557`*^9}},
+ CellLabel->
+  "Out[229]=",ExpressionUUID->"0b8bb146-aa13-4784-9f1f-265c4e77ad6f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PathGraph", "[", 
+  RowBox[{"Range", "[", "5", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.9606394298336782`*^9, 3.960639433545409*^9}},
+ CellLabel->
+  "In[230]:=",ExpressionUUID->"bea947eb-1537-46d3-b1de-44a7937fbef9"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3, 4, 5}, {Null, {{1, 2}, {2, 3}, {3, 4}, {4, 5}}}]]}, 
+    TagBox[
+     GraphicsGroupBox[
+      GraphicsComplexBox[{{0., 7.347880794884119*^-16}, {1., 
+       6.123233995736766*^-16}, {2., 4.898587196589413*^-16}, {3., 
+       2.4492935982947064`*^-16}, {4., 0.}}, {
+        {Hue[0.6, 0.7, 0.7], Opacity[0.7], CapForm["Round"], Arrowheads[0.], 
+         ArrowBox[{{1, 2}, {2, 3}, {3, 4}, {4, 5}}, 0.03700564971751412]}, 
+        {Hue[0.6, 0.5, 1.], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+         DiskBox[1, 0.03700564971751412], DiskBox[2, 0.03700564971751412], 
+         DiskBox[3, 0.03700564971751412], DiskBox[4, 0.03700564971751412], 
+         DiskBox[5, 0.03700564971751412]}}]],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->"NetworkGraphics",
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Output",
+ CellChangeTimes->{3.96063943388199*^9},
+ CellLabel->
+  "Out[230]=",ExpressionUUID->"f70e37f7-4ea9-4a37-b252-6cd29c6b19ca"]
+}, Open  ]],
+
+Cell["\<\
+degree = number of edges incident to that vertex
+handshake lemma
+sum of degrees of all vertices = 2x number of edges\t\t\t\t\
+\>", "Text",
+ CellChangeTimes->{{3.96063943704704*^9, 3.960639445727582*^9}, {
+  3.960639486568293*^9, 3.960639502385075*^9}, {3.960639556848097*^9, 
+  3.960639559911158*^9}},ExpressionUUID->"19675143-f787-498e-bfcb-\
+2bb0acc7ea26"],
+
+Cell["\<\
+proper coloring - any two adjacent vertices (conected by edge) receive \
+different colors
+chromatic number = smallest number of colors required for a proper coloring
+
+cn of complete graph = # of v
+
+cyclic: 2 if n even, 3 if n odd
+
+brooks thm: odd cycles, complete graphs\
+\>", "Text",
+ CellChangeTimes->{{3.960639566044231*^9, 3.960639612464913*^9}, {
+  3.960639648028447*^9, 3.960639657666719*^9}, {3.9606397690752707`*^9, 
+  3.960639774102545*^9}},ExpressionUUID->"dd3116cb-8b7f-4c7d-b37f-\
+1db9f4fe6faf"],
+
+Cell["\<\
+at a party, there are 6 people. each pair of people are either friends or \
+strangers.is it possible that there is no set of three people who are all \
+friends or all strangers\
+\>", "Text",
+ CellChangeTimes->{{3.960639659290893*^9, 3.960639659493146*^9}, {
+  3.960640392331767*^9, 
+  3.96064043115549*^9}},ExpressionUUID->"46cdde78-dcd7-4372-99d9-\
+b219c30b79a3"],
+
+Cell["\<\
+for any n and m there exists some number r(n, m) such that any 2 coloring of \
+K_r(n, m) contains either a red K_n or blue K_m\
+\>", "Text",
+ CellChangeTimes->{{3.960640925776939*^9, 
+  3.960640949160193*^9}},ExpressionUUID->"12cd11e5-3be8-4986-a57d-\
+0dbee987bcf1"]
+},
+WindowSize->{1080, 625.5},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"14.2 for Linux x86 (64-bit) (March 16, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"e9a7c8a0-9694-49d0-9c23-b9bfd82752a9"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 380, 10, 30, "Input",ExpressionUUID->"7ea81164-c634-4f37-9fd7-d0d26d78f778"],
+Cell[959, 34, 1065, 23, 331, "Output",ExpressionUUID->"11214565-503d-4761-b5e2-c12f8dd8d96a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2061, 62, 214, 4, 29, "Input",ExpressionUUID->"189894c5-2898-4bc0-b0e0-de58fa11b2de"],
+Cell[2278, 68, 322, 8, 33, "Output",ExpressionUUID->"856578ab-a7f6-4212-9588-a063a2c0b240"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2637, 81, 215, 4, 29, "Input",ExpressionUUID->"d3ba703d-61c7-44e7-8a78-3db5a3b4d2f8"],
+Cell[2855, 87, 1540, 31, 359, "Output",ExpressionUUID->"54e13e1d-09b0-41c4-b4e0-fea7aabb99c3"]
+}, Open  ]],
+Cell[4410, 121, 200, 3, 33, "Text",ExpressionUUID->"4337df3b-4d74-4c39-b2b6-50a5f6389ffa"],
+Cell[4613, 126, 157, 3, 33, "Text",ExpressionUUID->"e80f94ba-db83-431d-a79d-c1472f809e15"],
+Cell[CellGroupData[{
+Cell[4795, 133, 267, 6, 30, "Input",ExpressionUUID->"743f3220-3c44-41e7-a1bb-e9a7dc89fc2c"],
+Cell[5065, 141, 1299, 28, 281, "Output",ExpressionUUID->"ece8273d-8a25-4eb4-885f-71db92a28cd9"]
+}, Open  ]],
+Cell[6379, 172, 235, 6, 55, "Text",ExpressionUUID->"4b66bbb7-a684-4b1c-b2bb-f08b13e88c13"],
+Cell[CellGroupData[{
+Cell[6639, 182, 214, 4, 29, "Input",ExpressionUUID->"9d38432a-2ce1-4b62-8b7d-212633827d97"],
+Cell[6856, 188, 1429, 30, 359, "Output",ExpressionUUID->"0b8bb146-aa13-4784-9f1f-265c4e77ad6f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8322, 223, 245, 5, 29, "Input",ExpressionUUID->"bea947eb-1537-46d3-b1de-44a7937fbef9"],
+Cell[8570, 230, 1130, 23, 38, "Output",ExpressionUUID->"f70e37f7-4ea9-4a37-b252-6cd29c6b19ca"]
+}, Open  ]],
+Cell[9715, 256, 368, 8, 77, "Text",ExpressionUUID->"19675143-f787-498e-bfcb-2bb0acc7ea26"],
+Cell[10086, 266, 517, 14, 186, "Text",ExpressionUUID->"dd3116cb-8b7f-4c7d-b37f-1db9f4fe6faf"],
+Cell[10606, 282, 374, 8, 55, "Text",ExpressionUUID->"46cdde78-dcd7-4372-99d9-b219c30b79a3"],
+Cell[10983, 292, 276, 6, 33, "Text",ExpressionUUID->"12cd11e5-3be8-4986-a57d-0dbee987bcf1"]
+}
+]
+*)
+
