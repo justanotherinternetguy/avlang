@@ -1,0 +1,715 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     24756,        707]
+NotebookOptionsPosition[     24060,        686]
+NotebookOutlinePosition[     24452,        702]
+CellTagsIndexPosition[     24409,        699]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"colors", "=", 
+  RowBox[{"RandomColor", "[", "10", "]"}]}]], "Input",
+ CellChangeTimes->{{3.960744192429853*^9, 3.960744252512555*^9}},
+ CellLabel->
+  "In[140]:=",ExpressionUUID->"103f6dd4-3d64-46e1-ab19-862514a11bc6"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TemplateBox[<|
+    "color" -> RGBColor[
+      0.6624734724103976, 0.9543534905600213, 0.7367199154464017]|>,
+    "RGBColorSwatchTemplate"], ",", 
+   TemplateBox[<|
+    "color" -> RGBColor[
+      0.4246480028813564, 0.6159459765518009, 0.9606966288818344]|>,
+    "RGBColorSwatchTemplate"], ",", 
+   TemplateBox[<|
+    "color" -> RGBColor[
+      0.049581974907254356`, 0.20786477206410647`, 0.22849221907665784`]|>,
+    "RGBColorSwatchTemplate"], ",", 
+   TemplateBox[<|
+    "color" -> RGBColor[
+      0.0490649934749916, 0.2860273431081357, 0.03663621364467118]|>,
+    "RGBColorSwatchTemplate"], ",", 
+   TemplateBox[<|
+    "color" -> RGBColor[
+      0.6655246955725407, 0.25778339753341095`, 0.5327251489424838]|>,
+    "RGBColorSwatchTemplate"], ",", 
+   TemplateBox[<|
+    "color" -> RGBColor[
+      0.6971186492656496, 0.7435698776752282, 0.6985518840764207]|>,
+    "RGBColorSwatchTemplate"], ",", 
+   TemplateBox[<|
+    "color" -> RGBColor[
+      0.5024376434285716, 0.9710919540724694, 0.08114138486968447]|>,
+    "RGBColorSwatchTemplate"], ",", 
+   TemplateBox[<|
+    "color" -> RGBColor[
+      0.24223610724625644`, 0.7446776191974436, 0.10787617200555988`]|>,
+    "RGBColorSwatchTemplate"], ",", 
+   TemplateBox[<|
+    "color" -> RGBColor[
+      0.1412698125664813, 0.49448855439103445`, 0.6645656741534005]|>,
+    "RGBColorSwatchTemplate"], ",", 
+   TemplateBox[<|
+    "color" -> RGBColor[
+      0.810949024420833, 0.09274358373936065, 0.6327229828073575]|>,
+    "RGBColorSwatchTemplate"]}], "}"}]], "Output",
+ CellChangeTimes->{{3.960744227683382*^9, 3.96074425281365*^9}},
+ CellLabel->
+  "Out[140]=",ExpressionUUID->"5ed85045-e0d0-434f-b13d-b9d4c7338cd1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FeatureSpacePlot3D", "[", "colors", "]"}]], "Input",
+ CellChangeTimes->{{3.960744242714973*^9, 3.960744246193368*^9}},
+ CellLabel->
+  "In[141]:=",ExpressionUUID->"7b77e75d-2ceb-4258-ab3b-f59617b5f2e3"],
+
+Cell[BoxData[
+ Graphics3DBox[{{
+    {Opacity[0], 
+     Point3DBox[{-15.136262893676758`, 11.855109214782715`, 
+      25.747108459472656`}], 
+     Point3DBox[{-3.3335413932800293`, -5.063384532928467, \
+-7.217446327209473}], 
+     Point3DBox[{
+      24.76932716369629, -12.616775512695312`, -16.796802520751953`}], 
+     Point3DBox[{
+      32.385406494140625`, -8.241539001464844, -10.90298080444336}], 
+     Point3DBox[{-3.590416669845581, -16.460628509521484`, \
+-30.804746627807617`}], 
+     Point3DBox[{-13.202703475952148`, 3.8042819499969482`, 
+      18.256105422973633`}], 
+     Point3DBox[{-12.275422096252441`, 27.512910842895508`, 
+      34.9472541809082}], 
+     Point3DBox[{-3.206824779510498, 27.602386474609375`, 29.55238151550293}],
+      Point3DBox[{6.434847831726074, -8.488271713256836, -9.680153846740723}],
+      Point3DBox[{-12.844409942626953`, -19.90408706665039, \
+-33.10071563720703}]}, {}, {{}, {Inset3DBox[
+       GraphicsBox[InsetBox[
+         PaneBox[
+          FrameBox[
+           PaneBox[
+            StyleBox[
+             TagBox[
+              TooltipBox[
+               
+               TemplateBox[<|
+                "color" -> 
+                 RGBColor[
+                  0.6624734724103976, 0.9543534905600213, 0.7367199154464017]|>,
+                "RGBColorSwatchTemplate"],
+               
+               TemplateBox[<|
+                "color" -> 
+                 RGBColor[
+                  0.6624734724103976, 0.9543534905600213, 
+                   0.7367199154464017]|>, "RGBColorSwatchTemplate"]],
+              Annotation[#, 
+               RGBColor[
+               0.6624734724103976, 0.9543534905600213, 0.7367199154464017], 
+               "Tooltip"]& ],
+             StripOnInput->False,
+             LineOpacity->1,
+             FrontFaceOpacity->1,
+             BackFaceOpacity->1,
+             Opacity->1,
+             FontOpacity->1],
+            ImageSize->Automatic,
+            ImageSizeAction->"ResizeToFit"],
+           LabelStyle -> {},
+           Frame -> True,
+           LabelingSize -> DirectedInfinity[1],
+           Background->Directive[
+             Opacity[0]],
+           BaselinePosition->Automatic,
+           ContentPadding->False,
+           FrameMargins->2,
+           FrameStyle->None,
+           RoundingRadius->4,
+           StripOnInput->False],
+          FrameMargins->0], {0, 0}, NCache[
+         ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+          ImageScaled[{0.5, 0.5}]]],
+        AspectRatio->Full,
+        ImageSize->{45, 45},
+        PlotRange->{{-0.5, 0.5}, {-0.5, 0.5}}], {-15.136262893676758`, 
+       11.855109214782715`, 25.747108459472656`}, Offset[{0., 0.}, {0, 0}]], 
+      Inset3DBox[
+       GraphicsBox[InsetBox[
+         PaneBox[
+          FrameBox[
+           PaneBox[
+            StyleBox[
+             TagBox[
+              TooltipBox[
+               
+               TemplateBox[<|
+                "color" -> 
+                 RGBColor[
+                  0.4246480028813564, 0.6159459765518009, 0.9606966288818344]|>,
+                "RGBColorSwatchTemplate"],
+               
+               TemplateBox[<|
+                "color" -> 
+                 RGBColor[
+                  0.4246480028813564, 0.6159459765518009, 
+                   0.9606966288818344]|>, "RGBColorSwatchTemplate"]],
+              Annotation[#, 
+               RGBColor[
+               0.4246480028813564, 0.6159459765518009, 0.9606966288818344], 
+               "Tooltip"]& ],
+             StripOnInput->False,
+             LineOpacity->1,
+             FrontFaceOpacity->1,
+             BackFaceOpacity->1,
+             Opacity->1,
+             FontOpacity->1],
+            ImageSize->Automatic,
+            ImageSizeAction->"ResizeToFit"],
+           LabelStyle -> {},
+           Frame -> True,
+           LabelingSize -> DirectedInfinity[1],
+           Background->Directive[
+             Opacity[0]],
+           BaselinePosition->Automatic,
+           ContentPadding->False,
+           FrameMargins->2,
+           FrameStyle->None,
+           RoundingRadius->4,
+           StripOnInput->False],
+          FrameMargins->0], {0, 0}, NCache[
+         ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+          ImageScaled[{0.5, 0.5}]]],
+        AspectRatio->Full,
+        ImageSize->{45, 45},
+        PlotRange->{{-0.5, 0.5}, {-0.5, 
+         0.5}}], {-3.3335413932800293`, -5.063384532928467, \
+-7.217446327209473}, Offset[{0., 0.}, {0, 0}]], Inset3DBox[
+       GraphicsBox[InsetBox[
+         PaneBox[
+          FrameBox[
+           PaneBox[
+            StyleBox[
+             TagBox[
+              TooltipBox[
+               
+               TemplateBox[<|
+                "color" -> 
+                 RGBColor[
+                  0.049581974907254356`, 0.20786477206410647`, 
+                   0.22849221907665784`]|>,
+                "RGBColorSwatchTemplate"],
+               
+               TemplateBox[<|
+                "color" -> 
+                 RGBColor[
+                  0.049581974907254356`, 0.20786477206410647`, 
+                   0.22849221907665784`]|>, "RGBColorSwatchTemplate"]],
+              Annotation[#, 
+               RGBColor[
+               0.049581974907254356`, 0.20786477206410647`, 
+                0.22849221907665784`], "Tooltip"]& ],
+             StripOnInput->False,
+             LineOpacity->1,
+             FrontFaceOpacity->1,
+             BackFaceOpacity->1,
+             Opacity->1,
+             FontOpacity->1],
+            ImageSize->Automatic,
+            ImageSizeAction->"ResizeToFit"],
+           LabelStyle -> {},
+           Frame -> True,
+           LabelingSize -> DirectedInfinity[1],
+           Background->Directive[
+             Opacity[0]],
+           BaselinePosition->Automatic,
+           ContentPadding->False,
+           FrameMargins->2,
+           FrameStyle->None,
+           RoundingRadius->4,
+           StripOnInput->False],
+          FrameMargins->0], {0, 0}, NCache[
+         ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+          ImageScaled[{0.5, 0.5}]]],
+        AspectRatio->Full,
+        ImageSize->{45, 45},
+        PlotRange->{{-0.5, 0.5}, {-0.5, 0.5}}], {
+       24.76932716369629, -12.616775512695312`, -16.796802520751953`}, 
+       Offset[{0., 0.}, {0, 0}]], Inset3DBox[
+       GraphicsBox[InsetBox[
+         PaneBox[
+          FrameBox[
+           PaneBox[
+            StyleBox[
+             TagBox[
+              TooltipBox[
+               
+               TemplateBox[<|
+                "color" -> 
+                 RGBColor[
+                  0.0490649934749916, 0.2860273431081357, 
+                   0.03663621364467118]|>,
+                "RGBColorSwatchTemplate"],
+               
+               TemplateBox[<|
+                "color" -> 
+                 RGBColor[
+                  0.0490649934749916, 0.2860273431081357, 
+                   0.03663621364467118]|>, "RGBColorSwatchTemplate"]],
+              Annotation[#, 
+               RGBColor[
+               0.0490649934749916, 0.2860273431081357, 0.03663621364467118], 
+               "Tooltip"]& ],
+             StripOnInput->False,
+             LineOpacity->1,
+             FrontFaceOpacity->1,
+             BackFaceOpacity->1,
+             Opacity->1,
+             FontOpacity->1],
+            ImageSize->Automatic,
+            ImageSizeAction->"ResizeToFit"],
+           LabelStyle -> {},
+           Frame -> True,
+           LabelingSize -> DirectedInfinity[1],
+           Background->Directive[
+             Opacity[0]],
+           BaselinePosition->Automatic,
+           ContentPadding->False,
+           FrameMargins->2,
+           FrameStyle->None,
+           RoundingRadius->4,
+           StripOnInput->False],
+          FrameMargins->0], {0, 0}, NCache[
+         ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+          ImageScaled[{0.5, 0.5}]]],
+        AspectRatio->Full,
+        ImageSize->{45, 45},
+        PlotRange->{{-0.5, 0.5}, {-0.5, 0.5}}], {
+       32.385406494140625`, -8.241539001464844, -10.90298080444336}, 
+       Offset[{0., 0.}, {0, 0}]], Inset3DBox[
+       GraphicsBox[InsetBox[
+         PaneBox[
+          FrameBox[
+           PaneBox[
+            StyleBox[
+             TagBox[
+              TooltipBox[
+               
+               TemplateBox[<|
+                "color" -> 
+                 RGBColor[
+                  0.6655246955725407, 0.25778339753341095`, 
+                   0.5327251489424838]|>,
+                "RGBColorSwatchTemplate"],
+               
+               TemplateBox[<|
+                "color" -> 
+                 RGBColor[
+                  0.6655246955725407, 0.25778339753341095`, 
+                   0.5327251489424838]|>, "RGBColorSwatchTemplate"]],
+              Annotation[#, 
+               RGBColor[
+               0.6655246955725407, 0.25778339753341095`, 0.5327251489424838], 
+               "Tooltip"]& ],
+             StripOnInput->False,
+             LineOpacity->1,
+             FrontFaceOpacity->1,
+             BackFaceOpacity->1,
+             Opacity->1,
+             FontOpacity->1],
+            ImageSize->Automatic,
+            ImageSizeAction->"ResizeToFit"],
+           LabelStyle -> {},
+           Frame -> True,
+           LabelingSize -> DirectedInfinity[1],
+           Background->Directive[
+             Opacity[0]],
+           BaselinePosition->Automatic,
+           ContentPadding->False,
+           FrameMargins->2,
+           FrameStyle->None,
+           RoundingRadius->4,
+           StripOnInput->False],
+          FrameMargins->0], {0, 0}, NCache[
+         ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+          ImageScaled[{0.5, 0.5}]]],
+        AspectRatio->Full,
+        ImageSize->{45, 45},
+        PlotRange->{{-0.5, 0.5}, {-0.5, 
+         0.5}}], {-3.590416669845581, -16.460628509521484`, \
+-30.804746627807617`}, Offset[{0., 0.}, {0, 0}]], Inset3DBox[
+       GraphicsBox[InsetBox[
+         PaneBox[
+          FrameBox[
+           PaneBox[
+            StyleBox[
+             TagBox[
+              TooltipBox[
+               
+               TemplateBox[<|
+                "color" -> 
+                 RGBColor[
+                  0.6971186492656496, 0.7435698776752282, 0.6985518840764207]|>,
+                "RGBColorSwatchTemplate"],
+               
+               TemplateBox[<|
+                "color" -> 
+                 RGBColor[
+                  0.6971186492656496, 0.7435698776752282, 
+                   0.6985518840764207]|>, "RGBColorSwatchTemplate"]],
+              Annotation[#, 
+               RGBColor[
+               0.6971186492656496, 0.7435698776752282, 0.6985518840764207], 
+               "Tooltip"]& ],
+             StripOnInput->False,
+             LineOpacity->1,
+             FrontFaceOpacity->1,
+             BackFaceOpacity->1,
+             Opacity->1,
+             FontOpacity->1],
+            ImageSize->Automatic,
+            ImageSizeAction->"ResizeToFit"],
+           LabelStyle -> {},
+           Frame -> True,
+           LabelingSize -> DirectedInfinity[1],
+           Background->Directive[
+             Opacity[0]],
+           BaselinePosition->Automatic,
+           ContentPadding->False,
+           FrameMargins->2,
+           FrameStyle->None,
+           RoundingRadius->4,
+           StripOnInput->False],
+          FrameMargins->0], {0, 0}, NCache[
+         ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+          ImageScaled[{0.5, 0.5}]]],
+        AspectRatio->Full,
+        ImageSize->{45, 45},
+        PlotRange->{{-0.5, 0.5}, {-0.5, 0.5}}], {-13.202703475952148`, 
+       3.8042819499969482`, 18.256105422973633`}, Offset[{0., 0.}, {0, 0}]], 
+      Inset3DBox[
+       GraphicsBox[InsetBox[
+         PaneBox[
+          FrameBox[
+           PaneBox[
+            StyleBox[
+             TagBox[
+              TooltipBox[
+               
+               TemplateBox[<|
+                "color" -> 
+                 RGBColor[
+                  0.5024376434285716, 0.9710919540724694, 
+                   0.08114138486968447]|>,
+                "RGBColorSwatchTemplate"],
+               
+               TemplateBox[<|
+                "color" -> 
+                 RGBColor[
+                  0.5024376434285716, 0.9710919540724694, 
+                   0.08114138486968447]|>, "RGBColorSwatchTemplate"]],
+              Annotation[#, 
+               RGBColor[
+               0.5024376434285716, 0.9710919540724694, 0.08114138486968447], 
+               "Tooltip"]& ],
+             StripOnInput->False,
+             LineOpacity->1,
+             FrontFaceOpacity->1,
+             BackFaceOpacity->1,
+             Opacity->1,
+             FontOpacity->1],
+            ImageSize->Automatic,
+            ImageSizeAction->"ResizeToFit"],
+           LabelStyle -> {},
+           Frame -> True,
+           LabelingSize -> DirectedInfinity[1],
+           Background->Directive[
+             Opacity[0]],
+           BaselinePosition->Automatic,
+           ContentPadding->False,
+           FrameMargins->2,
+           FrameStyle->None,
+           RoundingRadius->4,
+           StripOnInput->False],
+          FrameMargins->0], {0, 0}, NCache[
+         ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+          ImageScaled[{0.5, 0.5}]]],
+        AspectRatio->Full,
+        ImageSize->{45, 45},
+        PlotRange->{{-0.5, 0.5}, {-0.5, 0.5}}], {-12.275422096252441`, 
+       27.512910842895508`, 34.9472541809082}, Offset[{0., 0.}, {0, 0}]], 
+      Inset3DBox[
+       GraphicsBox[InsetBox[
+         PaneBox[
+          FrameBox[
+           PaneBox[
+            StyleBox[
+             TagBox[
+              TooltipBox[
+               
+               TemplateBox[<|
+                "color" -> 
+                 RGBColor[
+                  0.24223610724625644`, 0.7446776191974436, 
+                   0.10787617200555988`]|>,
+                "RGBColorSwatchTemplate"],
+               
+               TemplateBox[<|
+                "color" -> 
+                 RGBColor[
+                  0.24223610724625644`, 0.7446776191974436, 
+                   0.10787617200555988`]|>, "RGBColorSwatchTemplate"]],
+              Annotation[#, 
+               RGBColor[
+               0.24223610724625644`, 0.7446776191974436, 
+                0.10787617200555988`], "Tooltip"]& ],
+             StripOnInput->False,
+             LineOpacity->1,
+             FrontFaceOpacity->1,
+             BackFaceOpacity->1,
+             Opacity->1,
+             FontOpacity->1],
+            ImageSize->Automatic,
+            ImageSizeAction->"ResizeToFit"],
+           LabelStyle -> {},
+           Frame -> True,
+           LabelingSize -> DirectedInfinity[1],
+           Background->Directive[
+             Opacity[0]],
+           BaselinePosition->Automatic,
+           ContentPadding->False,
+           FrameMargins->2,
+           FrameStyle->None,
+           RoundingRadius->4,
+           StripOnInput->False],
+          FrameMargins->0], {0, 0}, NCache[
+         ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+          ImageScaled[{0.5, 0.5}]]],
+        AspectRatio->Full,
+        ImageSize->{45, 45},
+        PlotRange->{{-0.5, 0.5}, {-0.5, 0.5}}], {-3.206824779510498, 
+       27.602386474609375`, 29.55238151550293}, Offset[{0., 0.}, {0, 0}]], 
+      Inset3DBox[
+       GraphicsBox[InsetBox[
+         PaneBox[
+          FrameBox[
+           PaneBox[
+            StyleBox[
+             TagBox[
+              TooltipBox[
+               
+               TemplateBox[<|
+                "color" -> 
+                 RGBColor[
+                  0.1412698125664813, 0.49448855439103445`, 
+                   0.6645656741534005]|>,
+                "RGBColorSwatchTemplate"],
+               
+               TemplateBox[<|
+                "color" -> 
+                 RGBColor[
+                  0.1412698125664813, 0.49448855439103445`, 
+                   0.6645656741534005]|>, "RGBColorSwatchTemplate"]],
+              Annotation[#, 
+               RGBColor[
+               0.1412698125664813, 0.49448855439103445`, 0.6645656741534005], 
+               "Tooltip"]& ],
+             StripOnInput->False,
+             LineOpacity->1,
+             FrontFaceOpacity->1,
+             BackFaceOpacity->1,
+             Opacity->1,
+             FontOpacity->1],
+            ImageSize->Automatic,
+            ImageSizeAction->"ResizeToFit"],
+           LabelStyle -> {},
+           Frame -> True,
+           LabelingSize -> DirectedInfinity[1],
+           Background->Directive[
+             Opacity[0]],
+           BaselinePosition->Automatic,
+           ContentPadding->False,
+           FrameMargins->2,
+           FrameStyle->None,
+           RoundingRadius->4,
+           StripOnInput->False],
+          FrameMargins->0], {0, 0}, NCache[
+         ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+          ImageScaled[{0.5, 0.5}]]],
+        AspectRatio->Full,
+        ImageSize->{45, 45},
+        PlotRange->{{-0.5, 0.5}, {-0.5, 0.5}}], {
+       6.434847831726074, -8.488271713256836, -9.680153846740723}, 
+       Offset[{0., 0.}, {0, 0}]], Inset3DBox[
+       GraphicsBox[InsetBox[
+         PaneBox[
+          FrameBox[
+           PaneBox[
+            StyleBox[
+             TagBox[
+              TooltipBox[
+               
+               TemplateBox[<|
+                "color" -> 
+                 RGBColor[
+                  0.810949024420833, 0.09274358373936065, 0.6327229828073575]|>,
+                "RGBColorSwatchTemplate"],
+               
+               TemplateBox[<|
+                "color" -> 
+                 RGBColor[
+                  0.810949024420833, 0.09274358373936065, 
+                   0.6327229828073575]|>, "RGBColorSwatchTemplate"]],
+              Annotation[#, 
+               RGBColor[
+               0.810949024420833, 0.09274358373936065, 0.6327229828073575], 
+               "Tooltip"]& ],
+             StripOnInput->False,
+             LineOpacity->1,
+             FrontFaceOpacity->1,
+             BackFaceOpacity->1,
+             Opacity->1,
+             FontOpacity->1],
+            ImageSize->Automatic,
+            ImageSizeAction->"ResizeToFit"],
+           LabelStyle -> {},
+           Frame -> True,
+           LabelingSize -> DirectedInfinity[1],
+           Background->Directive[
+             Opacity[0]],
+           BaselinePosition->Automatic,
+           ContentPadding->False,
+           FrameMargins->2,
+           FrameStyle->None,
+           RoundingRadius->4,
+           StripOnInput->False],
+          FrameMargins->0], {0, 0}, NCache[
+         ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+          ImageScaled[{0.5, 0.5}]]],
+        AspectRatio->Full,
+        ImageSize->{45, 45},
+        PlotRange->{{-0.5, 0.5}, {-0.5, 
+         0.5}}], {-12.844409942626953`, -19.90408706665039, \
+-33.10071563720703}, Offset[{0., 0.}, {0, 0}]]}}}, {}},
+  Axes->False,
+  AxesLabel->{None, None, None},
+  BoxRatios->{1, 1, 1},
+  BoxStyle->GrayLevel[0.8],
+  DisplayFunction->Identity,
+  FaceGrids->None,
+  FaceGridsStyle->Automatic,
+  ImageSize->{445.58990657761245`, 429.04650658587275`},
+  ImageSizeRaw->Automatic,
+  Lighting->{{"Ambient", 
+     GrayLevel[0.5]}, {"Directional", 
+     GrayLevel[0.5], 
+     ImageScaled[{0, 2, 2}]}, {"Directional", 
+     GrayLevel[0.5], 
+     ImageScaled[{2, 2, 2}]}, {"Directional", 
+     GrayLevel[0.5], 
+     ImageScaled[{2, 0, 2}]}},
+  Method->{
+   "AxisPadding" -> Scaled[0.02], "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultPlotStyle" -> {
+      Directive[
+       RGBColor[0.216, 0.54, 0.72]], 
+      Directive[
+       RGBColor[0.855, 0.5643, 0.12824999999999998`]], 
+      Directive[
+       RGBColor[0.40950000000000003`, 0.63, 0.189]], 
+      Directive[
+       RGBColor[0.8302733999999999, 0.3470634, 0.18826110000000001`]], 
+      Directive[
+       RGBColor[0.5202, 0.459, 0.765]], 
+      Directive[
+       RGBColor[0.6948711, 0.3883986, 0.0921483]], 
+      Directive[
+       RGBColor[0.36, 0.5760000000000001, 0.9]], 
+      Directive[
+       RGBColor[0.9, 0.675, 0.]], 
+      Directive[
+       RGBColor[0.72, 0.36, 0.6839999999999999]], 
+      Directive[
+       RGBColor[0.5733, 0.585, 0.]], 
+      Directive[
+       RGBColor[0.8235, 0.29925, 0.19125]], 
+      Directive[
+       RGBColor[0.3607400034841738, 0.4698059979094957, 0.765]], 
+      Directive[
+       RGBColor[0.8755460013936696, 0.5594800069683477, 0.06602579623709227]], 
+      Directive[
+       RGBColor[0.6631044054353109, 0.3222, 0.45272399163798316`]], 
+      Directive[
+       RGBColor[0.25223796933927034`, 0.6435, 0.3862880390227469]]}, 
+    "DomainPadding" -> Scaled[0.02], "RangePadding" -> Scaled[0.05]},
+  PlotRange->All,
+  PlotRangePadding->{{
+     Scaled[0.05], 
+     Scaled[0.05]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic, Automatic},
+  ViewPoint->{-1.2342219173090507`, -2.96294805041048, -1.0712773260938133`},
+  ViewVertical->{-0.21837541567925098`, -0.7907833766241412, 
+   0.5718162546498973}]], "Output",
+ CellChangeTimes->{{3.960744246847945*^9, 3.9607442561593657`*^9}},
+ CellLabel->
+  "Out[141]=",ExpressionUUID->"f10b07d0-0759-45b0-a0ad-ab8dd750afd3"]
+}, Open  ]]
+},
+WindowSize->{1080, 625.5},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"14.2 for Linux x86 (64-bit) (March 16, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"0f82d62a-42d0-41a0-8249-d3588e470156"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 242, 5, 29, "Input",ExpressionUUID->"103f6dd4-3d64-46e1-ab19-862514a11bc6"],
+Cell[821, 29, 1708, 45, 33, "Output",ExpressionUUID->"5ed85045-e0d0-434f-b13d-b9d4c7338cd1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2566, 79, 225, 4, 29, "Input",ExpressionUUID->"7b77e75d-2ceb-4258-ab3b-f59617b5f2e3"],
+Cell[2794, 85, 21250, 598, 446, "Output",ExpressionUUID->"f10b07d0-0759-45b0-a0ad-ab8dd750afd3"]
+}, Open  ]]
+}
+]
+*)
+
