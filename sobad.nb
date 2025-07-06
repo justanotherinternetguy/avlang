@@ -1,0 +1,1875 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     85030,       1867]
+NotebookOptionsPosition[     84222,       1846]
+NotebookOutlinePosition[     84644,       1863]
+CellTagsIndexPosition[     84601,       1860]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"srTmp", "!=", "sr"}], ",", 
+      RowBox[{
+       RowBox[{"SeedRandom", "[", "sr", "]"}], ";", 
+       RowBox[{"mode", "=", "1"}], ";", 
+       RowBox[{"srTmp", "=", "sr"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"nodes", "!=", "nodesTmp"}], ",", 
+      RowBox[{
+       RowBox[{"mode", "=", "1"}], ";", 
+       RowBox[{"nodesTmp", "=", "nodes"}]}]}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{"mmas", ",", 
+      RowBox[{"nAnts", "=", "nodes"}]}], "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"mmas", "&&", 
+       RowBox[{"mmas", "!=", "mmasTmp"}]}], ",", 
+      RowBox[{
+       RowBox[{"nAnts", "=", "nodes"}], ";", 
+       RowBox[{"\[Alpha]", "=", "1"}], ";", 
+       RowBox[{"\[Beta]", "=", "3"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"evapFac", "=", "0.98"}], ";", 
+       RowBox[{"mmasTmp", "=", "mmas"}]}]}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Which", "[", 
+     RowBox[{
+      RowBox[{"mode", "==", "1"}], ",", 
+      RowBox[{
+       RowBox[{"If", "[", 
+        RowBox[{"manualPlacement", ",", 
+         RowBox[{
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Length", "[", "pts", "]"}], "==", "0"}], ",", 
+            RowBox[{"pts", "=", 
+             RowBox[{"{", "}"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"nodes", "=", 
+           RowBox[{"Length", "[", "pts", "]"}]}], ";", "\[IndentingNewLine]", 
+          
+          RowBox[{"time", "=", 
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<Time: 0.0\>\"", ",", "12", ",", 
+             RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"currentPlot", "=", 
+           RowBox[{"EventHandler", "[", 
+            RowBox[{
+             RowBox[{"Graphics", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"Yellow", ",", 
+                 RowBox[{"PointSize", "[", "0.018", "]"}], ",", 
+                 RowBox[{"Point", "[", "pts", "]"}]}], "}"}], ",", 
+               RowBox[{"Background", "->", 
+                RowBox[{"GrayLevel", "[", "0.8", "]"}]}], ",", 
+               RowBox[{"ImageSize", "->", "440"}], ",", 
+               RowBox[{"PlotRange", "->", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", "7"}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", "7"}], "}"}]}], "}"}]}], ",", 
+               RowBox[{"ImagePadding", "->", "1"}], ",", 
+               RowBox[{"PlotLabel", "->", 
+                RowBox[{"Style", "[", 
+                 RowBox[{
+                  RowBox[{"\"\<Click to place cities (\>\"", "<>", 
+                   RowBox[{"ToString", "[", 
+                    RowBox[{"Length", "[", "pts", "]"}], "]"}], 
+                   "<>", "\"\< placed)\>\""}], ",", "12"}], "]"}]}]}], "]"}], 
+             ",", 
+             RowBox[{"\"\<MouseClicked\>\"", ":>", 
+              RowBox[{"(", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Length", "[", "pts", "]"}], "<", "maxCities"}], ",", 
+                 RowBox[{
+                  RowBox[{"pts", "=", 
+                   RowBox[{"Append", "[", 
+                    RowBox[{"pts", ",", 
+                    RowBox[{"Clip", "[", 
+                    RowBox[{
+                    RowBox[{"MousePosition", "[", "\"\<Graphics\>\"", "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"0.1", ",", "6.9"}], "}"}]}], "]"}]}], "]"}]}], ";",
+                   "\[IndentingNewLine]", 
+                  RowBox[{"nodes", "=", 
+                   RowBox[{"Length", "[", "pts", "]"}]}]}]}], "]"}], 
+               ")"}]}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"message", "=", 
+           RowBox[{"Style", "[", 
+            
+            RowBox[{"\"\<Click on plot to place cities. Need at least 4 to \
+run.\>\"", ",", "12", ",", 
+             RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], "]"}]}], ";"}], 
+         ",", 
+         RowBox[{
+          RowBox[{"pts", "=", 
+           RowBox[{"Round", "[", 
+            RowBox[{
+             RowBox[{"RandomSample", "[", 
+              RowBox[{
+               RowBox[{"Union", "[", 
+                RowBox[{"RandomReal", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"0.2", ",", "6.8"}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"100", ",", "2"}], "}"}]}], "]"}], "]"}], ",", 
+               "nodes"}], "]"}], ",", "0.001"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"time", "=", 
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<Time: 0.0\>\"", ",", "12", ",", 
+             RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"currentPlot", "=", 
+           RowBox[{"Graphics", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"Yellow", ",", 
+               RowBox[{"PointSize", "[", "0.018", "]"}], ",", 
+               RowBox[{"Point", "[", "pts", "]"}]}], "}"}], ",", 
+             RowBox[{"Background", "->", 
+              RowBox[{"GrayLevel", "[", "0.8", "]"}]}], ",", 
+             RowBox[{"ImageSize", "->", "440"}], ",", 
+             RowBox[{"PlotRange", "->", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "7"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "7"}], "}"}]}], "}"}]}], ",", 
+             RowBox[{"ImagePadding", "->", "1"}], ",", 
+             RowBox[{"PlotLabel", "->", 
+              RowBox[{"Style", "[", 
+               RowBox[{"\"\<Adjust parameters\>\"", ",", "12"}], "]"}]}]}], 
+            "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"message", "=", 
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<Click \\\"run\\\" to start\>\"", ",", "12", ",", 
+             RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], "]"}]}], 
+          ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"s", "=", "False"}], ";", 
+       RowBox[{"mode", "=", "4"}]}], ",", 
+      RowBox[{"mode", "==", "2"}], ",", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Length", "[", "pts", "]"}], "<", "4"}], ",", 
+        RowBox[{
+         RowBox[{"mode", "=", "1"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"message", "=", 
+          RowBox[{"Style", "[", 
+           
+           RowBox[{"\"\<Need at least 4 cities to run algorithm!\>\"", ",", 
+            "12", ",", 
+            RowBox[{"FontFamily", "->", "\"\<Times\>\""}], ",", "Red"}], 
+           "]"}]}]}], ",", 
+        RowBox[{
+         RowBox[{"s", "=", "False"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"Module", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+            "ants", ",", "antsPlot", ",", "commonEdges", ",", "cycleEdges", ",",
+              "cycleLengths", ",", "cycles", ",", "high", ",", 
+             "iterationBest", ",", "l1", ",", "l2", ",", "label", ",", 
+             RowBox[{"loop", "=", "0"}], ",", "low", ",", 
+             RowBox[{"maxLim", "=", 
+              RowBox[{"2", " ", "nodes"}]}], ",", 
+             RowBox[{"minLim", "=", 
+              RowBox[{
+               RowBox[{"nodes", "*", "nodes"}], "-", 
+               RowBox[{"2", " ", "nodes"}]}]}], ",", "newCycles", ",", 
+             "phMax", ",", "phMin", ",", "start", ",", "optimalTour", ",", 
+             RowBox[{"edgesAsPairs", "=", 
+              RowBox[{"Flatten", "[", 
+               RowBox[{
+                RowBox[{"Table", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"i", ",", "j"}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"i", ",", "1", ",", 
+                    RowBox[{"nodes", "-", "1"}]}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"j", ",", 
+                    RowBox[{"i", "+", "1"}], ",", "nodes"}], "}"}]}], "]"}], ",",
+                 "1"}], "]"}]}], ",", 
+             RowBox[{"edgeSegments", "=", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"pts", "[", 
+                  RowBox[{"[", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"#", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", 
+                    RowBox[{"#", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], "}"}], "]"}], "]"}], 
+                 "&"}], "/@", 
+                RowBox[{"Flatten", "[", 
+                 RowBox[{
+                  RowBox[{"Table", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"i", ",", "j"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"i", ",", "1", ",", 
+                    RowBox[{"nodes", "-", "1"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"j", ",", 
+                    RowBox[{"i", "+", "1"}], ",", "nodes"}], "}"}]}], "]"}], ",",
+                   "1"}], "]"}]}], ")"}]}], ",", 
+             RowBox[{"globalBest", "=", "100.0"}], ",", 
+             RowBox[{"globalBestCycle", "=", 
+              RowBox[{"{", 
+               RowBox[{"100.0", ",", 
+                RowBox[{"{", "}"}]}], "}"}]}], ",", "MMASphMinMaxRatio", ",", 
+             "phMatrix", ",", "updateAnt", ",", "prob", ",", 
+             "depositPheromone", ",", "TIA", ",", "nbh", ",", 
+             RowBox[{"WAM", "=", 
+              RowBox[{"Table", "[", 
+               RowBox[{
+                RowBox[{"EuclideanDistance", "[", 
+                 RowBox[{
+                  RowBox[{"pts", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], ",", 
+                  RowBox[{"pts", "[", 
+                   RowBox[{"[", "j", "]"}], "]"}]}], "]"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"i", ",", "1", ",", "nodes"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"j", ",", "1", ",", "nodes"}], "}"}]}], "]"}]}], ",", 
+             RowBox[{"cityPlot", "=", 
+              RowBox[{"Graphics", "[", 
+               RowBox[{"{", 
+                RowBox[{"Yellow", ",", 
+                 RowBox[{"PointSize", "[", "0.018", "]"}], ",", 
+                 RowBox[{"Point", "[", "pts", "]"}]}], "}"}], "]"}]}]}], 
+            "}"}], ",", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"updateAnt", "[", "path_", "]"}], ":=", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Length", "[", "path", "]"}], "<", "nodes"}], ",", 
+               RowBox[{"With", "[", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"curr", "=", 
+                   RowBox[{"path", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"-", "1"}], "]"}], "]"}]}], "}"}], ",", 
+                 RowBox[{"updateAnt", "[", 
+                  RowBox[{"Append", "[", 
+                   RowBox[{"path", ",", 
+                    RowBox[{"RandomChoice", "[", 
+                    RowBox[{"prob", "[", 
+                    RowBox[{"curr", ",", 
+                    RowBox[{"Complement", "[", 
+                    RowBox[{
+                    RowBox[{"nbh", "[", 
+                    RowBox[{"[", "curr", "]"}], "]"}], ",", "path"}], "]"}]}],
+                     "]"}], "]"}]}], "]"}], "]"}]}], "]"}], ",", "path"}], 
+              "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"prob", "[", 
+              RowBox[{"curr_Integer", ",", "nbh_List"}], "]"}], ":=", 
+             RowBox[{"With", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"ph", "=", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"phMatrix", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"curr", ",", "nbh"}], "]"}], "]"}], "^", 
+                    "\[Alpha]"}], ")"}], "*", 
+                  RowBox[{"(", 
+                   RowBox[{"1.0", "/", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"WAM", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"curr", ",", "nbh"}], "]"}], "]"}], "^", 
+                    "\[Beta]"}], ")"}]}], ")"}]}]}], "}"}], ",", 
+               RowBox[{
+                RowBox[{"ph", "/", 
+                 RowBox[{"Total", "[", "ph", "]"}]}], "->", "nbh"}]}], 
+              "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"depositPheromone", "[", 
+              RowBox[{"{", 
+               RowBox[{"tourLength_", ",", "tourEdges_"}], "}"}], "]"}], ":=", 
+             RowBox[{"With", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"p", "=", 
+                 RowBox[{"1.0", "/", "tourLength"}]}], "}"}], ",", 
+               RowBox[{"Scan", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"phMatrix", "[", 
+                    RowBox[{"[", 
+                    RowBox[{
+                    RowBox[{"#", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], ",", 
+                    RowBox[{"#", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}], "]"}], "]"}], "=", 
+                    RowBox[{
+                    RowBox[{"phMatrix", "[", 
+                    RowBox[{"[", 
+                    RowBox[{
+                    RowBox[{"#", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", 
+                    RowBox[{"#", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], "]"}], "]"}], "=", 
+                    RowBox[{
+                    RowBox[{"phMatrix", "[", 
+                    RowBox[{"[", 
+                    RowBox[{
+                    RowBox[{"#", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", 
+                    RowBox[{"#", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], "]"}], "]"}], "+", 
+                    "p"}]}]}], ")"}], "&"}], ",", "tourEdges"}], "]"}]}], 
+              "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"TIA", "[", "cyc_", "]"}], ":=", 
+             RowBox[{"Module", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"h", "=", "cyc"}], ",", 
+                 RowBox[{"flag", "=", "True"}]}], "}"}], ",", 
+               RowBox[{
+                RowBox[{"While", "[", 
+                 RowBox[{"flag", ",", 
+                  RowBox[{
+                   RowBox[{"flag", "=", "False"}], ";", "\[IndentingNewLine]", 
+                   RowBox[{"Do", "[", 
+                    RowBox[{
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"WAM", "[", 
+                    RowBox[{"[", 
+                    RowBox[{
+                    RowBox[{"h", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", 
+                    RowBox[{"h", "[", 
+                    RowBox[{"[", "3", "]"}], "]"}]}], "]"}], "]"}], "+", 
+                    RowBox[{"WAM", "[", 
+                    RowBox[{"[", 
+                    RowBox[{
+                    RowBox[{"h", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], ",", 
+                    RowBox[{"h", "[", 
+                    RowBox[{"[", "4", "]"}], "]"}]}], "]"}], "]"}]}], "<", 
+                    RowBox[{
+                    RowBox[{"WAM", "[", 
+                    RowBox[{"[", 
+                    RowBox[{
+                    RowBox[{"h", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", 
+                    RowBox[{"h", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], "]"}], "]"}], "+", 
+                    RowBox[{"WAM", "[", 
+                    RowBox[{"[", 
+                    RowBox[{
+                    RowBox[{"h", "[", 
+                    RowBox[{"[", "3", "]"}], "]"}], ",", 
+                    RowBox[{"h", "[", 
+                    RowBox[{"[", "4", "]"}], "]"}]}], "]"}], "]"}]}]}], ",", 
+                    RowBox[{
+                    RowBox[{"h", "=", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"RotateLeft", "[", 
+                    RowBox[{"h", ",", "1"}], "]"}], "/.", " ", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"x_", ",", "y_", ",", "z___"}], "}"}], "->", 
+                    RowBox[{"{", 
+                    RowBox[{"y", ",", "x", ",", "z"}], "}"}]}]}], ")"}]}], ";",
+                     "\[IndentingNewLine]", 
+                    RowBox[{"flag", "=", "True"}]}], ",", 
+                    RowBox[{"h", "=", 
+                    RowBox[{"RotateLeft", "[", 
+                    RowBox[{"h", ",", "1"}], "]"}]}]}], "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"Length", "[", "cyc", "]"}], "}"}]}], "]"}]}]}], 
+                 "]"}], ";", "\[IndentingNewLine]", 
+                RowBox[{"Append", "[", 
+                 RowBox[{"h", ",", 
+                  RowBox[{"h", "[", 
+                   RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}]}], "]"}]}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"message", "=", 
+             RowBox[{"Style", "[", 
+              RowBox[{
+               RowBox[{"\"\<Busy! \>\"", "<>", 
+                RowBox[{"ToString", "[", "nAnts", "]"}], 
+                "<>", "\"\< ants on the move.\>\""}], ",", "12", ",", 
+               RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], "]"}]}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"nbh", "=", 
+             RowBox[{"Map", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"Complement", "[", 
+                  RowBox[{
+                   RowBox[{"Range", "[", "nodes", "]"}], ",", 
+                   RowBox[{"{", "#", "}"}]}], "]"}], ")"}], "&"}], ",", 
+               RowBox[{"Range", "[", "nodes", "]"}]}], "]"}]}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{"mmas", ",", 
+              RowBox[{
+               RowBox[{"nAnts", "=", "nodes"}], ";", 
+               RowBox[{"MMASphMinMaxRatio", "=", 
+                RowBox[{"1.0", "/", 
+                 RowBox[{"(", 
+                  RowBox[{"2", " ", "nodes"}], ")"}]}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"phMatrix", "=", 
+                RowBox[{"Table", "[", 
+                 RowBox[{"100.0", ",", 
+                  RowBox[{"{", 
+                   RowBox[{"r", ",", "1", ",", "nodes"}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"c", ",", "1", ",", "nodes"}], "}"}]}], "]"}]}]}], 
+              ",", 
+              RowBox[{"phMatrix", "=", 
+               RowBox[{"Table", "[", 
+                RowBox[{"initPh", ",", 
+                 RowBox[{"{", 
+                  RowBox[{"r", ",", "1", ",", "nodes"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"c", ",", "1", ",", "nodes"}], "}"}]}], "]"}]}]}], 
+             "]"}], ";", "\[IndentingNewLine]", 
+            RowBox[{"antsPlot", "=", 
+             RowBox[{"Graphics", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"Red", ",", 
+                 RowBox[{"AbsoluteThickness", "[", "4", "]"}], ",", 
+                 RowBox[{"Line", "[", "edgeSegments", "]"}]}], "}"}], ",", 
+               RowBox[{"Background", "->", 
+                RowBox[{"GrayLevel", "[", "0.8", "]"}]}], ",", 
+               RowBox[{"PlotRange", "->", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", "7"}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", "7"}], "}"}]}], "}"}]}]}], "]"}]}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"currentPlot", "=", 
+             RowBox[{"Show", "[", 
+              RowBox[{"antsPlot", ",", "cityPlot", ",", 
+               RowBox[{"ImageSize", "->", "440"}], ",", 
+               RowBox[{"PlotLabel", "->", 
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<Level of convergence: 0.\>\"", ",", "12", ",", 
+                  RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], "]"}]}]}], 
+              "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"optimalTour", "=", 
+             RowBox[{"shortestTour", "[", "pts", "]"}]}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"start", "=", 
+             RowBox[{"AbsoluteTime", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"While", "[", 
+             RowBox[{
+              RowBox[{"mode", "==", "2"}], ",", 
+              RowBox[{
+               RowBox[{"loop", "++"}], ";", "\[IndentingNewLine]", 
+               RowBox[{"ants", "=", 
+                RowBox[{"Map", "[", 
+                 RowBox[{"updateAnt", ",", 
+                  RowBox[{"Table", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"RandomInteger", "[", 
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "nodes"}], "}"}], "]"}], "}"}], ",", 
+                    RowBox[{"{", "nAnts", "}"}]}], "]"}]}], "]"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"newCycles", "=", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"If", "[", 
+                   RowBox[{"tia", ",", 
+                    RowBox[{"TIA", "[", "#", "]"}], ",", 
+                    RowBox[{"Append", "[", 
+                    RowBox[{"#", ",", 
+                    RowBox[{"#", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}], "]"}], "&"}], "/@",
+                  "ants"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"cycleEdges", "=", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Partition", "[", 
+                   RowBox[{"#", ",", "2", ",", "1"}], "]"}], "&"}], "/@", 
+                 "newCycles"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"cycleLengths", "=", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Round", "[", 
+                   RowBox[{
+                    RowBox[{"Total", "[", 
+                    RowBox[{"Extract", "[", 
+                    RowBox[{"WAM", ",", "#"}], "]"}], "]"}], ",", "0.0001"}], 
+                   "]"}], "&"}], "/@", "cycleEdges"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"cycles", "=", 
+                RowBox[{"Sort", "[", 
+                 RowBox[{"Transpose", "[", 
+                  RowBox[{"{", 
+                   RowBox[{"cycleLengths", ",", "cycleEdges"}], "}"}], "]"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"phMatrix", "=", 
+                RowBox[{"evapFac", "*", "phMatrix"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"If", "[", 
+                RowBox[{"mmas", ",", 
+                 RowBox[{
+                  RowBox[{"Which", "[", 
+                   RowBox[{
+                    RowBox[{"loop", "<", "26"}], ",", 
+                    RowBox[{"depositPheromone", "[", 
+                    RowBox[{"cycles", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}], ",", 
+                    RowBox[{"25", "<", "loop", "<", "76"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Mod", "[", 
+                    RowBox[{"loop", ",", "5"}], "]"}], "==", "0"}], ",", 
+                    RowBox[{"depositPheromone", "[", "globalBestCycle", "]"}],
+                     ",", 
+                    RowBox[{"depositPheromone", "[", 
+                    RowBox[{"cycles", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}]}], "]"}], ",", 
+                    RowBox[{"75", "<", "loop", "<", "126"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Mod", "[", 
+                    RowBox[{"loop", ",", "3"}], "]"}], "==", "0"}], ",", 
+                    RowBox[{"depositPheromone", "[", "globalBestCycle", "]"}],
+                     ",", 
+                    RowBox[{"depositPheromone", "[", 
+                    RowBox[{"cycles", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}]}], "]"}], ",", 
+                    RowBox[{"125", "<", "loop", "<", "251"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Mod", "[", 
+                    RowBox[{"loop", ",", "2"}], "]"}], "==", "0"}], ",", 
+                    RowBox[{"depositPheromone", "[", "globalBestCycle", "]"}],
+                     ",", 
+                    RowBox[{"depositPheromone", "[", 
+                    RowBox[{"cycles", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}]}], "]"}], ",", 
+                    RowBox[{"250", "<", "loop"}], ",", 
+                    RowBox[{
+                    "depositPheromone", "[", "globalBestCycle", "]"}]}], 
+                   "]"}], ";", "\[IndentingNewLine]", 
+                  RowBox[{"iterationBest", "=", 
+                   RowBox[{"Min", "[", "cycleLengths", "]"}]}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"globalBest", "=", 
+                   RowBox[{"Min", "[", 
+                    RowBox[{"cycleLengths", ",", "globalBest"}], "]"}]}], ";",
+                   "\[IndentingNewLine]", 
+                  RowBox[{"If", "[", 
+                   RowBox[{
+                    RowBox[{"globalBest", "<", 
+                    RowBox[{"globalBestCycle", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}], ",", 
+                    RowBox[{"globalBestCycle", "=", 
+                    RowBox[{"First", "[", "cycles", "]"}]}]}], "]"}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"phMax", "=", 
+                   RowBox[{"1", "/", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"1", "-", "evapFac"}], ")"}], " ", "globalBest"}],
+                     ")"}]}]}], ";", "\[IndentingNewLine]", 
+                  RowBox[{"phMin", "=", 
+                   RowBox[{"MMASphMinMaxRatio", "*", "phMax"}]}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"phMatrix", "=", 
+                   RowBox[{"(", 
+                    RowBox[{"phMatrix", "/.", " ", 
+                    RowBox[{"x_Real", "->", 
+                    RowBox[{"Min", "[", 
+                    RowBox[{"x", ",", "phMax"}], "]"}]}]}], ")"}]}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"phMatrix", "=", 
+                   RowBox[{"(", 
+                    RowBox[{"phMatrix", "/.", " ", 
+                    RowBox[{"x_Real", "->", 
+                    RowBox[{"Max", "[", 
+                    RowBox[{"x", ",", "phMin"}], "]"}]}]}], ")"}]}]}], ",", 
+                 RowBox[{
+                  RowBox[{"depositPheromone", "[", 
+                   RowBox[{"cycles", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"phMax", "=", 
+                   RowBox[{"Max", "[", "phMatrix", "]"}]}], ";", 
+                  RowBox[{"phMin", "=", 
+                   RowBox[{"phMinMaxRatio", "*", "phMax"}]}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"phMatrix", "=", 
+                   RowBox[{"(", 
+                    RowBox[{"phMatrix", "/.", " ", 
+                    RowBox[{"x_Real", "->", 
+                    RowBox[{"Max", "[", 
+                    RowBox[{"x", ",", "phMin"}], "]"}]}]}], ")"}]}]}]}], 
+                "]"}], ";", "\[IndentingNewLine]", 
+               RowBox[{"time", "=", 
+                RowBox[{"Style", "[", 
+                 RowBox[{
+                  RowBox[{"\"\<Time: \>\"", "<>", 
+                   RowBox[{"ToString", "[", 
+                    RowBox[{"Round", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"AbsoluteTime", "[", "]"}], "-", "start"}], ",", 
+                    "0.1"}], "]"}], "]"}]}], ",", "12", ",", 
+                  RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], "]"}]}], ";",
+                "\[IndentingNewLine]", 
+               RowBox[{"antsPlot", "=", 
+                RowBox[{"Graphics", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"Red", ",", 
+                    RowBox[{"AbsoluteThickness", "[", "4", "]"}], ",", 
+                    RowBox[{"MapThread", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Opacity", "[", 
+                    RowBox[{"#1", "^", "1.2"}], "]"}], ",", 
+                    RowBox[{"Line", "[", "#2", "]"}]}], "}"}], "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Extract", "[", 
+                    RowBox[{"phMatrix", ",", "edgesAsPairs"}], "]"}], "/", 
+                    RowBox[{"Max", "[", "phMatrix", "]"}]}], ",", 
+                    "edgeSegments"}], "}"}]}], "]"}]}], "}"}], ",", 
+                  RowBox[{"Background", "->", 
+                   RowBox[{"GrayLevel", "[", "0.8", "]"}]}], ",", 
+                  RowBox[{"PlotRange", "->", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "7"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "7"}], "}"}]}], "}"}]}]}], "]"}]}], ";",
+                "\[IndentingNewLine]", 
+               RowBox[{"low", "=", 
+                RowBox[{"Count", "[", 
+                 RowBox[{"phMatrix", ",", 
+                  RowBox[{"x_", "/;", 
+                   RowBox[{"x", "<", 
+                    RowBox[{"0.05", " ", "phMax"}]}]}], ",", "2"}], "]"}]}], ";",
+                "\[IndentingNewLine]", 
+               RowBox[{"high", "=", 
+                RowBox[{"Count", "[", 
+                 RowBox[{"phMatrix", ",", 
+                  RowBox[{"x_", "/;", 
+                   RowBox[{"x", ">", 
+                    RowBox[{"0.85", " ", "phMax"}]}]}], ",", "2"}], "]"}]}], ";",
+                "\[IndentingNewLine]", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", "low", ")"}], "<", "minLim"}], "||", 
+                  RowBox[{
+                   RowBox[{"(", "high", ")"}], "<", "maxLim"}]}], ",", 
+                 RowBox[{"currentPlot", "=", 
+                  RowBox[{"Show", "[", 
+                   RowBox[{"antsPlot", ",", "cityPlot", ",", 
+                    RowBox[{"ImageSize", "->", "440"}], ",", 
+                    RowBox[{"PlotLabel", "->", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{
+                    RowBox[{"\"\<Level of convergence: \>\"", "<>", 
+                    RowBox[{"ToString", "[", 
+                    RowBox[{"Floor", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Sign", "[", "low", "]"}], " ", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"low", "+", "high"}], ")"}], "/", 
+                    RowBox[{"nodes", "^", "2"}]}]}], ",", "0.01"}], "]"}], 
+                    "]"}]}], ",", "12", ",", 
+                    RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], 
+                    "]"}]}]}], "]"}]}], ",", 
+                 RowBox[{
+                  RowBox[{"If", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"l1", "=", 
+                    RowBox[{"optimalTour", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}], ")"}], "==", 
+                    RowBox[{"(", 
+                    RowBox[{"l2", "=", 
+                    RowBox[{"cycles", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"1", ",", "1"}], "]"}], "]"}]}], ")"}]}], ",", 
+                    RowBox[{"message", "=", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{
+                    RowBox[{"\"\<Optimal tour found. Length: \>\"", "<>", 
+                    RowBox[{"ToString", "[", "l1", "]"}]}], ",", "12", ",", 
+                    RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], "]"}]}], 
+                    ",", 
+                    RowBox[{
+                    RowBox[{"commonEdges", "=", 
+                    RowBox[{"Length", "[", 
+                    RowBox[{"Intersection", "[", 
+                    RowBox[{
+                    RowBox[{"Sort", "/@", 
+                    RowBox[{"Partition", "[", 
+                    RowBox[{
+                    RowBox[{"optimalTour", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], ",", "2", ",", "1"}], 
+                    "]"}]}], ",", 
+                    RowBox[{"Sort", "/@", 
+                    RowBox[{"cycles", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"1", ",", "2"}], "]"}], "]"}]}]}], "]"}], "]"}]}],
+                     ";", "\[IndentingNewLine]", 
+                    RowBox[{"time", "=", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{
+                    RowBox[{"\"\<Time: \>\"", "<>", 
+                    RowBox[{"ToString", "[", 
+                    RowBox[{"Round", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"AbsoluteTime", "[", "]"}], "-", "start"}], ",", 
+                    "0.1"}], "]"}], "]"}], "<>", "\"\<. Common edges: \>\"", "<>", 
+                    RowBox[{"ToString", "[", "commonEdges", "]"}]}], ",", 
+                    "12", ",", 
+                    RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], "]"}]}], 
+                    ";", "\[IndentingNewLine]", 
+                    RowBox[{"message", "=", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{
+                    RowBox[{"\"\<Optimal tour (--): \>\"", "<>", 
+                    RowBox[{"ToString", "[", "l1", "]"}], 
+                    "<>", "\"\<. Ants tour: \>\"", "<>", 
+                    RowBox[{"ToString", "[", "l2", "]"}]}], ",", "12", ",", 
+                    RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], 
+                    "]"}]}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+                  RowBox[{"label", "=", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"l1", "==", "l2"}], ",", "\"\<Great Job!\>\"", 
+                    ",", "\"\<Not optimal\>\""}], "]"}]}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"currentPlot", "=", 
+                   RowBox[{"Show", "[", 
+                    RowBox[{"antsPlot", ",", 
+                    RowBox[{"Graphics", "[", 
+                    RowBox[{"{", 
+                    RowBox[{"Dashed", ",", 
+                    RowBox[{"Line", "[", 
+                    RowBox[{"pts", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"optimalTour", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], "]"}], "]"}], "]"}]}], 
+                    "}"}], "]"}], ",", "cityPlot", ",", 
+                    RowBox[{"ImageSize", "->", "440"}], ",", 
+                    RowBox[{"PlotLabel", "->", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"label", ",", "12", ",", 
+                    RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], 
+                    "]"}]}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+                  RowBox[{"mode", "=", "4"}]}]}], "]"}]}]}], "]"}]}]}], 
+          "]"}]}]}], "]"}], ",", 
+      RowBox[{"mode", "==", "3"}], ",", 
+      RowBox[{"currentPlot", "=", 
+       RowBox[{"Show", "[", 
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{"manualPlacement", ",", 
+           RowBox[{"EventHandler", "[", 
+            RowBox[{
+             RowBox[{"Graphics", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"Yellow", ",", 
+                 RowBox[{"PointSize", "[", "0.018", "]"}], ",", 
+                 RowBox[{"Point", "[", "pts", "]"}]}], "}"}], ",", 
+               RowBox[{"Background", "->", 
+                RowBox[{"GrayLevel", "[", "0.8", "]"}]}], ",", 
+               RowBox[{"ImageSize", "->", "440"}], ",", 
+               RowBox[{"PlotRange", "->", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", "7"}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", "7"}], "}"}]}], "}"}]}]}], "]"}], ",", 
+             RowBox[{"\"\<MouseClicked\>\"", ":>", 
+              RowBox[{"(", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Length", "[", "pts", "]"}], "<", "maxCities"}], ",", 
+                 RowBox[{
+                  RowBox[{"pts", "=", 
+                   RowBox[{"Append", "[", 
+                    RowBox[{"pts", ",", 
+                    RowBox[{"Clip", "[", 
+                    RowBox[{
+                    RowBox[{"MousePosition", "[", "\"\<Graphics\>\"", "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"0.1", ",", "6.9"}], "}"}]}], "]"}]}], "]"}]}], ";",
+                   "\[IndentingNewLine]", 
+                  RowBox[{"nodes", "=", 
+                   RowBox[{"Length", "[", "pts", "]"}]}]}]}], "]"}], 
+               ")"}]}]}], "]"}], ",", 
+           RowBox[{"Graphics", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"Yellow", ",", 
+               RowBox[{"PointSize", "[", "0.018", "]"}], ",", 
+               RowBox[{"Point", "[", "pts", "]"}]}], "}"}], ",", 
+             RowBox[{"Background", "->", 
+              RowBox[{"GrayLevel", "[", "0.8", "]"}]}], ",", 
+             RowBox[{"ImageSize", "->", "440"}], ",", 
+             RowBox[{"PlotRange", "->", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "7"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "7"}], "}"}]}], "}"}]}]}], "]"}]}], "]"}], 
+         ",", 
+         RowBox[{"PlotLabel", "->", 
+          RowBox[{"Style", "[", 
+           RowBox[{
+            RowBox[{"If", "[", 
+             RowBox[{"manualPlacement", ",", 
+              RowBox[{"\"\<Click to place cities (\>\"", "<>", 
+               RowBox[{"ToString", "[", 
+                RowBox[{"Length", "[", "pts", "]"}], "]"}], 
+               "<>", "\"\< placed)\>\""}], ",", "\"\<Adjust parameters\>\""}],
+              "]"}], ",", "12"}], "]"}]}]}], "]"}]}], ",", 
+      RowBox[{"mode", "==", "4"}], ",", "True"}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Which", "[", 
+     RowBox[{
+      RowBox[{"save", "==", "1"}], ",", 
+      RowBox[{
+       RowBox[{"savedTime", "=", "time"}], ";", 
+       RowBox[{"savedMessage", "=", "message"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"savedPlot", "=", "currentPlot"}], ";", 
+       RowBox[{"s", "=", "False"}], ";", 
+       RowBox[{"save", "=", "3"}]}], ",", 
+      RowBox[{"save", "==", "2"}], ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"currentPlot", ",", "savedPlot"}], "}"}], "=", 
+        RowBox[{"{", 
+         RowBox[{"savedPlot", ",", "currentPlot"}], "}"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"message", ",", "savedMessage"}], "}"}], "=", 
+        RowBox[{"{", 
+         RowBox[{"savedMessage", ",", "message"}], "}"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"time", ",", "savedTime"}], "}"}], "=", 
+        RowBox[{"{", 
+         RowBox[{"savedTime", ",", "time"}], "}"}]}], ";", 
+       RowBox[{"s", "=", 
+        RowBox[{"!", "s"}]}], ";", 
+       RowBox[{"save", "=", "3"}]}], ",", 
+      RowBox[{"save", "==", "3"}], ",", "True"}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"mode", "=", "4"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Pane", "[", 
+     RowBox[{
+      RowBox[{"Column", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Dynamic", "[", "currentPlot", "]"}], ",", 
+         RowBox[{"Dynamic", "[", "message", "]"}], ",", 
+         RowBox[{"Dynamic", "[", "time", "]"}]}], "}"}], "]"}], ",", 
+      RowBox[{"BaseStyle", "->", 
+       RowBox[{"{", 
+        RowBox[{"Background", "->", 
+         RowBox[{"If", "[", 
+          RowBox[{"s", ",", "Green", ",", 
+           RowBox[{"GrayLevel", "[", "0.8", "]"}]}], "]"}]}], "}"}]}]}], 
+     "]"}]}], ",", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<random seed\>\"", ",", "9"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"sr", ",", "123", ",", "\"\<\>\""}], "}"}], ",", "1", ",", 
+     "200", ",", "1", ",", 
+     RowBox[{"Appearance", "->", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"ImageSize", "->", "Tiny"}], ",", 
+     RowBox[{"AppearanceElements", "->", "\"\<InputField\>\""}], ",", 
+     RowBox[{"Enabled", "->", 
+      RowBox[{"(", 
+       RowBox[{"mode", "!=", "2"}], ")"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"mode", ",", "1", ",", "\"\<\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "->", "\"\<new\>\""}], ",", 
+       RowBox[{"2", "->", "\"\<run\>\""}], ",", 
+       RowBox[{"3", "->", "\"\<stop\>\""}]}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "manualPlacement", ",", "False", ",", "\"\<manual placement\>\""}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"True", ",", "False"}], "}"}], ",", 
+     RowBox[{"Enabled", "->", 
+      RowBox[{"(", 
+       RowBox[{"mode", "!=", "2"}], ")"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"nodes", ",", "25", ",", "\"\<cities\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"16", ",", "20", ",", "25", ",", "30", ",", "40", ",", "50"}], 
+      "}"}], ",", 
+     RowBox[{"Enabled", "->", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"!", "manualPlacement"}], "&&", 
+        RowBox[{"mode", "!=", "2"}]}], ")"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"maxCities", ",", "50", ",", "\"\<max cities\>\""}], "}"}], ",",
+      "10", ",", "100", ",", "1", ",", 
+     RowBox[{"Enabled", "->", 
+      RowBox[{"(", 
+       RowBox[{"manualPlacement", "&&", 
+        RowBox[{"mode", "!=", "2"}]}], ")"}]}]}], "}"}], ",", 
+   RowBox[{"Button", "[", 
+    RowBox[{"\"\<Clear All Cities\>\"", ",", 
+     RowBox[{
+      RowBox[{"pts", "=", 
+       RowBox[{"{", "}"}]}], ";", 
+      RowBox[{"nodes", "=", "0"}]}], ",", 
+     RowBox[{"Enabled", "->", 
+      RowBox[{"(", 
+       RowBox[{"manualPlacement", "&&", 
+        RowBox[{"mode", "!=", "2"}]}], ")"}]}]}], "]"}], ",", "Delimiter", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"nAnts", ",", "25", ",", "\"\<ants\>\""}], "}"}], ",", "10", ",",
+      "200", ",", "5", ",", 
+     RowBox[{"ImageSize", "->", "Tiny"}], ",", 
+     RowBox[{"Appearance", "->", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"AppearanceElements", "->", "None"}], ",", 
+     RowBox[{"Enabled", "->", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"!", "mmas"}], "&&", 
+        RowBox[{"mode", "!=", "2"}]}], ")"}]}]}], "}"}], ",", "Delimiter", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"tia", ",", "True", ",", "\"\<TIA\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"True", ",", "False"}], "}"}], ",", 
+     RowBox[{"Enabled", "->", 
+      RowBox[{"(", 
+       RowBox[{"mode", "!=", "2"}], ")"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"mmas", ",", "False", ",", "\"\<MMAS\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"True", ",", "False"}], "}"}], ",", 
+     RowBox[{"Enabled", "->", 
+      RowBox[{"(", 
+       RowBox[{"mode", "!=", "2"}], ")"}]}]}], "}"}], ",", "Delimiter", ",", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<pheromone:\\n\>\"", ",", "9"}], "]"}], ",", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<    evaporation\>\"", ",", "9"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"evapFac", ",", "0.98", ",", "\"\<\>\""}], "}"}], ",", "0.8", ",",
+      "1.0", ",", "0.01", ",", 
+     RowBox[{"ImageSize", "->", "Tiny"}], ",", 
+     RowBox[{"Appearance", "->", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"AppearanceElements", "->", "None"}], ",", 
+     RowBox[{"Enabled", "->", 
+      RowBox[{"(", 
+       RowBox[{"mode", "!=", "2"}], ")"}]}]}], "}"}], ",", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<    initial level\>\"", ",", "9"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"initPh", ",", "1.0", ",", "\"\<\>\""}], "}"}], ",", "0.1", ",",
+      "5.0", ",", "0.1", ",", 
+     RowBox[{"ImageSize", "->", "Tiny"}], ",", 
+     RowBox[{"Appearance", "->", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"AppearanceElements", "->", "None"}], ",", 
+     RowBox[{"Enabled", "->", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"!", "mmas"}], "&&", 
+        RowBox[{"mode", "!=", "2"}]}], ")"}]}]}], "}"}], ",", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<    min/max ratio\>\"", ",", "9"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"phMinMaxRatio", ",", "0.01", ",", "\"\<\>\""}], "}"}], ",", 
+     "0.001", ",", "0.04", ",", "0.001", ",", 
+     RowBox[{"ImageSize", "->", "Tiny"}], ",", 
+     RowBox[{"Appearance", "->", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"AppearanceElements", "->", "None"}], ",", 
+     RowBox[{"Enabled", "->", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"!", "mmas"}], "&&", 
+        RowBox[{"mode", "!=", "2"}]}], ")"}]}]}], "}"}], ",", "Delimiter", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Alpha]", ",", "1.0", ",", "\"\<\[Alpha]\>\""}], "}"}], ",", 
+     "0.0", ",", "5.0", ",", "0.1", ",", 
+     RowBox[{"ImageSize", "->", "Tiny"}], ",", 
+     RowBox[{"Appearance", "->", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"AppearanceElements", "->", "None"}], ",", 
+     RowBox[{"Enabled", "->", 
+      RowBox[{"(", 
+       RowBox[{"mode", "!=", "2"}], ")"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Beta]", ",", "3.0", ",", "\"\<\[Beta]\>\""}], "}"}], ",", 
+     "0.0", ",", "5.0", ",", "0.1", ",", 
+     RowBox[{"ImageSize", "->", "Tiny"}], ",", 
+     RowBox[{"Appearance", "->", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"AppearanceElements", "->", "None"}], ",", 
+     RowBox[{"Enabled", "->", 
+      RowBox[{"(", 
+       RowBox[{"mode", "!=", "2"}], ")"}]}]}], "}"}], ",", "Delimiter", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"save", ",", "3", ",", "\"\<\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "->", "\"\<save\>\""}], ",", 
+       RowBox[{"2", "->", "\"\<toggle\>\""}]}], "}"}], ",", 
+     RowBox[{"Enabled", "->", 
+      RowBox[{"(", 
+       RowBox[{"mode", "!=", "2"}], ")"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"srTmp", ",", 
+       RowBox[{"-", "1"}]}], "}"}], ",", 
+     RowBox[{"ControlType", "->", "None"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"nodesTmp", ",", "25"}], "}"}], ",", 
+     RowBox[{"ControlType", "->", "None"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"mmasTmp", ",", "False"}], "}"}], ",", 
+     RowBox[{"ControlType", "->", "None"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"pts", ",", 
+       RowBox[{"{", "}"}]}], "}"}], ",", 
+     RowBox[{"ControlType", "->", "None"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"time", ",", 
+       RowBox[{"-", "1"}]}], "}"}], ",", 
+     RowBox[{"ControlType", "->", "None"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"currentPlot", ",", 
+       RowBox[{"-", "1"}]}], "}"}], ",", 
+     RowBox[{"ControlType", "->", "None"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"message", ",", 
+       RowBox[{"-", "1"}]}], "}"}], ",", 
+     RowBox[{"ControlType", "->", "None"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"savedTime", ",", 
+       RowBox[{"-", "1"}]}], "}"}], ",", 
+     RowBox[{"ControlType", "->", "None"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"savedMessage", ",", 
+       RowBox[{"-", "1"}]}], "}"}], ",", 
+     RowBox[{"ControlType", "->", "None"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"savedPlot", ",", 
+       RowBox[{"-", "1"}]}], "}"}], ",", 
+     RowBox[{"ControlType", "->", "None"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"s", ",", 
+       RowBox[{"-", "1"}]}], "}"}], ",", 
+     RowBox[{"ControlType", "->", "None"}]}], "}"}], ",", 
+   RowBox[{"ControlPlacement", "->", "Left"}], ",", 
+   RowBox[{"TrackedSymbols", "->", "True"}], ",", 
+   RowBox[{"AutorunSequencing", "->", 
+    RowBox[{"{", "3", "}"}]}], ",", 
+   RowBox[{"Initialization", ":>", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"shortestTour", "[", "pts_", "]"}], ":=", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"ln", ",", "cyc"}], "}"}], ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"ln", ",", "cyc"}], "}"}], "=", 
+           RowBox[{"FindShortestTour", "[", "pts", "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Return", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Round", "[", 
+              RowBox[{"ln", ",", "0.0001"}], "]"}], ",", 
+             RowBox[{"Append", "[", 
+              RowBox[{"cyc", ",", 
+               RowBox[{"cyc", "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}], "}"}], "]"}]}]}], 
+        "]"}]}], ";"}], ")"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.960833688313807*^9, 3.960833697659525*^9}},
+ CellLabel->"In[18]:=",ExpressionUUID->"fdb97fb3-f815-40a1-8985-fc4911741e11"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`currentPlot$$ = EventHandler[
+     Graphics[{
+       RGBColor[1, 1, 0], 
+       PointSize[0.018], 
+       Point[CompressedData["
+1:eJxTTMoPSmViYGBQAWIQ/UrNkGONDLODX5JAhOUWToeQx0tnH1H4Yi/cfODU
+QtdP9pvmvl9+zJvDIab/0FeNGFGHi0q3f9a9EncAkll7vkg4RKVY3/fnlXR4
+WCWyzv3hK3tlsAS3A9iYDdwOM/KEmg94STrMmgkCPA65z3+v/Bgk5iB+89z3
+4GQJh2qQtqoP9geBtm37/N++dzpIwzf7497mnY4J7A67PHmYtNu/2D8Bm8fv
+cH1xgS3X9dv2TglPLyjdfmnvYBoHVCLu8AHoSvPOn/YgXU8vCDrMAaouymCH
+uovHAWSLyLrf9mtkQC6WdIDZ5wESPi7uADauUhDqT0EHmL/B5nIKOfiADE4V
+dDhZtm++1HoBBzsukEt4HFjC+HQ3zeV3qM/aUzJZgtuBrXGqc3cOF8R/j9kc
+ijMmvq2xZ3LYIdf6OnAHjwO/Lsjkf/ZnzwCBjxDUnVIOEP++tT+dappXOZPB
+QUZbYelUVxGH5fIrQz22Mzuc7rwr3w30F5hfzuMwS11yemWvsAPva/vmxblc
+DplHQ/gyXgk43Omo/jXxFLuDoYeK0O5XPA6Nl/gU76ewOlTf9ooPledwuFQc
+uOxlJbNDyVk99ad2rGD/RCkxOqzqEQ3xZBdyCK9Lu2CbxOfAx//CZKuLuENw
+ecQW1k88DuUPe+o8Voth8AFi2v6t
+        "]]}, Background -> GrayLevel[0.8], ImageSize -> 440, 
+      PlotRange -> {{0, 7}, {0, 7}}, ImagePadding -> 1, PlotLabel -> 
+      Style["Click to place cities (36 placed)", 12]], "MouseClicked" :> 
+     If[Length[$CellContext`pts$$] < $CellContext`maxCities$$, \
+$CellContext`pts$$ = Append[$CellContext`pts$$, 
+          Clip[
+           MousePosition["Graphics"], {0.1, 6.9}]]; $CellContext`nodes$$ = 
+        Length[$CellContext`pts$$]]], $CellContext`evapFac$$ = 
+    0.98, $CellContext`initPh$$ = 1., $CellContext`manualPlacement$$ = 
+    True, $CellContext`maxCities$$ = 50, $CellContext`message$$ = Style[
+    "Click on plot to place cities. Need at least 4 to run.", 12, FontFamily -> 
+     "Times"], $CellContext`mmas$$ = False, $CellContext`mmasTmp$$ = 
+    False, $CellContext`mode$$ = 4, $CellContext`nAnts$$ = 
+    25, $CellContext`nodes$$ = 36, $CellContext`nodesTmp$$ = 
+    36, $CellContext`phMinMaxRatio$$ = 
+    0.01, $CellContext`pts$$ = CompressedData["
+1:eJxTTMoPSmViYGBQAWIQ/UrNkGONDLODX5JAhOUWToeQx0tnH1H4Yi/cfODU
+QtdP9pvmvl9+zJvDIab/0FeNGFGHi0q3f9a9EncAkll7vkg4RKVY3/fnlXR4
+WCWyzv3hK3tlsAS3A9iYDdwOM/KEmg94STrMmgkCPA65z3+v/Bgk5iB+89z3
+4GQJh2qQtqoP9geBtm37/N++dzpIwzf7497mnY4J7A67PHmYtNu/2D8Bm8fv
+cH1xgS3X9dv2TglPLyjdfmnvYBoHVCLu8AHoSvPOn/YgXU8vCDrMAaouymCH
+uovHAWSLyLrf9mtkQC6WdIDZ5wESPi7uADauUhDqT0EHmL/B5nIKOfiADE4V
+dDhZtm++1HoBBzsukEt4HFjC+HQ3zeV3qM/aUzJZgtuBrXGqc3cOF8R/j9kc
+ijMmvq2xZ3LYIdf6OnAHjwO/Lsjkf/ZnzwCBjxDUnVIOEP++tT+dappXOZPB
+QUZbYelUVxGH5fIrQz22Mzuc7rwr3w30F5hfzuMwS11yemWvsAPva/vmxblc
+DplHQ/gyXgk43Omo/jXxFLuDoYeK0O5XPA6Nl/gU76ewOlTf9ooPledwuFQc
+uOxlJbNDyVk99ad2rGD/RCkxOqzqEQ3xZBdyCK9Lu2CbxOfAx//CZKuLuENw
+ecQW1k88DuUPe+o8Voth8AFi2v6t
+    "], $CellContext`s$$ = False, $CellContext`save$$ = 
+    3, $CellContext`savedMessage$$ = -1, $CellContext`savedPlot$$ = -1, \
+$CellContext`savedTime$$ = -1, $CellContext`sr$$ = 123, $CellContext`srTmp$$ =
+     123, $CellContext`tia$$ = True, $CellContext`time$$ = Style[
+    "Time: 0.0", 12, FontFamily -> "Times"], $CellContext`\[Alpha]$$ = 
+    1., $CellContext`\[Beta]$$ = 3., Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[
+       Style["random seed", 9]], Manipulate`Dump`ThisIsNotAControl, 
+      ControlType -> None}, {{
+       Hold[$CellContext`sr$$], 123, ""}, 1, 200, 1, ControlType -> 
+      Manipulator}, {{
+       Hold[$CellContext`mode$$], 1, ""}, {
+      1 -> "new", 2 -> "run", 3 -> "stop"}, ControlType -> SetterBar}, {{
+       Hold[$CellContext`manualPlacement$$], False, "manual placement"}, {
+      True, False}, ControlType -> Checkbox}, {{
+       Hold[$CellContext`nodes$$], 25, "cities"}, {16, 20, 25, 30, 40, 50}, 
+      ControlType -> PopupMenu}, {{
+       Hold[$CellContext`maxCities$$], 50, "max cities"}, 10, 100, 1, 
+      ControlType -> Manipulator}, {
+      Hold[
+       Button[
+       "Clear All Cities", $CellContext`pts$$ = {}; $CellContext`nodes$$ = 0, 
+        Enabled -> And[$CellContext`manualPlacement$$, $CellContext`mode$$ != 
+          2]]], Manipulate`Dump`ThisIsNotAControl, ControlType -> None}, {{
+       Hold[$CellContext`nAnts$$], 25, "ants"}, 10, 200, 5, ControlType -> 
+      Manipulator}, {{
+       Hold[$CellContext`tia$$], True, "TIA"}, {True, False}, ControlType -> 
+      Checkbox}, {{
+       Hold[$CellContext`mmas$$], False, "MMAS"}, {True, False}, ControlType -> 
+      Checkbox}, {
+      Hold[
+       Style["pheromone:\n", 9]], Manipulate`Dump`ThisIsNotAControl, 
+      ControlType -> None}, {
+      Hold[
+       Style["    evaporation", 9]], Manipulate`Dump`ThisIsNotAControl, 
+      ControlType -> None}, {{
+       Hold[$CellContext`evapFac$$], 0.98, ""}, 0.8, 1., 0.01, ControlType -> 
+      Manipulator}, {
+      Hold[
+       Style["    initial level", 9]], Manipulate`Dump`ThisIsNotAControl, 
+      ControlType -> None}, {{
+       Hold[$CellContext`initPh$$], 1., ""}, 0.1, 5., 0.1, ControlType -> 
+      Manipulator}, {
+      Hold[
+       Style["    min/max ratio", 9]], Manipulate`Dump`ThisIsNotAControl, 
+      ControlType -> None}, {{
+       Hold[$CellContext`phMinMaxRatio$$], 0.01, ""}, 0.001, 0.04, 0.001, 
+      ControlType -> Manipulator}, {{
+       Hold[$CellContext`\[Alpha]$$], 1., "\[Alpha]"}, 0., 5., 0.1, 
+      ControlType -> Manipulator}, {{
+       Hold[$CellContext`\[Beta]$$], 3., "\[Beta]"}, 0., 5., 0.1, ControlType -> 
+      Manipulator}, {{
+       Hold[$CellContext`save$$], 3, ""}, {1 -> "save", 2 -> "toggle"}, 
+      ControlType -> SetterBar}, {{
+       Hold[$CellContext`srTmp$$], -1}, ControlType -> None}, {{
+       Hold[$CellContext`nodesTmp$$], 25}, ControlType -> None}, {{
+       Hold[$CellContext`mmasTmp$$], False}, ControlType -> None}, {{
+       Hold[$CellContext`pts$$], {}}, ControlType -> None}, {{
+       Hold[$CellContext`time$$], -1}, ControlType -> None}, {{
+       Hold[$CellContext`currentPlot$$], -1}, ControlType -> None}, {{
+       Hold[$CellContext`message$$], -1}, ControlType -> None}, {{
+       Hold[$CellContext`savedTime$$], -1}, ControlType -> None}, {{
+       Hold[$CellContext`savedMessage$$], -1}, ControlType -> None}, {{
+       Hold[$CellContext`savedPlot$$], -1}, ControlType -> None}, {{
+       Hold[$CellContext`s$$], -1}, ControlType -> None}}, Typeset`size$$ = {
+    352., {195.51742187500003`, 200.14632812500003`}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = False, 
+    Typeset`keyframeActionsQ$$ = False, Typeset`keyframeList$$ = {}}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`currentPlot$$ = -1, $CellContext`evapFac$$ = 
+        0.98, $CellContext`initPh$$ = 1., $CellContext`manualPlacement$$ = 
+        False, $CellContext`maxCities$$ = 
+        50, $CellContext`message$$ = -1, $CellContext`mmas$$ = 
+        False, $CellContext`mmasTmp$$ = False, $CellContext`mode$$ = 
+        1, $CellContext`nAnts$$ = 25, $CellContext`nodes$$ = 
+        25, $CellContext`nodesTmp$$ = 25, $CellContext`phMinMaxRatio$$ = 
+        0.01, $CellContext`pts$$ = {}, $CellContext`s$$ = -1, \
+$CellContext`save$$ = 
+        3, $CellContext`savedMessage$$ = -1, $CellContext`savedPlot$$ = -1, \
+$CellContext`savedTime$$ = -1, $CellContext`sr$$ = 
+        123, $CellContext`srTmp$$ = -1, $CellContext`tia$$ = 
+        True, $CellContext`time$$ = -1, $CellContext`\[Alpha]$$ = 
+        1., $CellContext`\[Beta]$$ = 3.}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$, Typeset`keyframeActionsQ$$, 
+        Typeset`keyframeList$$}, 
+      "Body" :> (
+       If[$CellContext`srTmp$$ != $CellContext`sr$$, 
+         SeedRandom[$CellContext`sr$$]; $CellContext`mode$$ = 
+          1; $CellContext`srTmp$$ = $CellContext`sr$$]; 
+       If[$CellContext`nodes$$ != $CellContext`nodesTmp$$, \
+$CellContext`mode$$ = 1; $CellContext`nodesTmp$$ = $CellContext`nodes$$]; 
+       If[$CellContext`mmas$$, $CellContext`nAnts$$ = $CellContext`nodes$$]; 
+       If[
+         And[$CellContext`mmas$$, $CellContext`mmas$$ != \
+$CellContext`mmasTmp$$], $CellContext`nAnts$$ = $CellContext`nodes$$; \
+$CellContext`\[Alpha]$$ = 1; $CellContext`\[Beta]$$ = 
+          3; $CellContext`evapFac$$ = 
+          0.98; $CellContext`mmasTmp$$ = $CellContext`mmas$$]; 
+       Which[$CellContext`mode$$ == 1, 
+         If[$CellContext`manualPlacement$$, 
+           If[Length[$CellContext`pts$$] == 
+             0, $CellContext`pts$$ = {}]; $CellContext`nodes$$ = 
+            Length[$CellContext`pts$$]; $CellContext`time$$ = 
+            Style["Time: 0.0", 12, FontFamily -> 
+              "Times"]; $CellContext`currentPlot$$ = EventHandler[
+              Graphics[{Yellow, 
+                PointSize[0.018], 
+                Point[$CellContext`pts$$]}, Background -> GrayLevel[0.8], 
+               ImageSize -> 440, PlotRange -> {{0, 7}, {0, 7}}, ImagePadding -> 
+               1, PlotLabel -> Style["Click to place cities (" <> ToString[
+                   Length[$CellContext`pts$$]] <> " placed)", 12]], 
+              "MouseClicked" :> 
+              If[Length[$CellContext`pts$$] < $CellContext`maxCities$$, \
+$CellContext`pts$$ = Append[$CellContext`pts$$, 
+                   Clip[
+                    MousePosition["Graphics"], {0.1, 
+                    6.9}]]; $CellContext`nodes$$ = 
+                 Length[$CellContext`pts$$]]]; $CellContext`message$$ = 
+            Style["Click on plot to place cities. Need at least 4 to run.", 
+              12, FontFamily -> "Times"]; Null, $CellContext`pts$$ = Round[
+              RandomSample[
+               Union[
+                RandomReal[{0.2, 6.8}, {100, 2}]], $CellContext`nodes$$], 
+              0.001]; $CellContext`time$$ = 
+            Style["Time: 0.0", 12, FontFamily -> 
+              "Times"]; $CellContext`currentPlot$$ = Graphics[{Yellow, 
+               PointSize[0.018], 
+               Point[$CellContext`pts$$]}, Background -> GrayLevel[0.8], 
+              ImageSize -> 440, PlotRange -> {{0, 7}, {0, 7}}, ImagePadding -> 
+              1, PlotLabel -> 
+              Style["Adjust parameters", 12]]; $CellContext`message$$ = 
+            Style["Click \"run\" to start", 12, FontFamily -> "Times"]; 
+           Null]; $CellContext`s$$ = False; $CellContext`mode$$ = 
+          4, $CellContext`mode$$ == 2, 
+         If[
+         Length[$CellContext`pts$$] < 
+          4, $CellContext`mode$$ = 1; $CellContext`message$$ = 
+           Style["Need at least 4 cities to run algorithm!", 12, FontFamily -> 
+             "Times", Red], $CellContext`s$$ = False; 
+          Module[{$CellContext`ants$, $CellContext`antsPlot$, \
+$CellContext`commonEdges$, $CellContext`cycleEdges$, \
+$CellContext`cycleLengths$, $CellContext`cycles$, $CellContext`high$, \
+$CellContext`iterationBest$, $CellContext`l1$, $CellContext`l2$, \
+$CellContext`label$, $CellContext`loop$ = 
+             0, $CellContext`low$, $CellContext`maxLim$ = 
+             2 $CellContext`nodes$$, $CellContext`minLim$ = \
+$CellContext`nodes$$ $CellContext`nodes$$ - 
+              2 $CellContext`nodes$$, $CellContext`newCycles$, \
+$CellContext`phMax$, $CellContext`phMin$, $CellContext`start$, \
+$CellContext`optimalTour$, $CellContext`edgesAsPairs$ = Flatten[
+               
+               Table[{$CellContext`i, $CellContext`j}, {$CellContext`i, 
+                 1, $CellContext`nodes$$ - 
+                 1}, {$CellContext`j, $CellContext`i + 
+                 1, $CellContext`nodes$$}], 1], $CellContext`edgeSegments$ = 
+             Map[Part[$CellContext`pts$$, {
+                 Part[#, 1], 
+                 Part[#, 2]}]& , 
+               Flatten[
+                
+                Table[{$CellContext`i, $CellContext`j}, {$CellContext`i, 
+                  1, $CellContext`nodes$$ - 
+                  1}, {$CellContext`j, $CellContext`i + 
+                  1, $CellContext`nodes$$}], 1]], $CellContext`globalBest$ = 
+             100., $CellContext`globalBestCycle$ = {
+              100., {}}, $CellContext`MMASphMinMaxRatio$, \
+$CellContext`phMatrix$, $CellContext`updateAnt$, $CellContext`prob$, \
+$CellContext`depositPheromone$, $CellContext`TIA$, $CellContext`nbh$, \
+$CellContext`WAM$ = Table[
+               EuclideanDistance[
+                Part[$CellContext`pts$$, $CellContext`i], 
+                Part[$CellContext`pts$$, $CellContext`j]], {$CellContext`i, 
+                1, $CellContext`nodes$$}, {$CellContext`j, 
+                1, $CellContext`nodes$$}], $CellContext`cityPlot$ = 
+             Graphics[{Yellow, 
+                PointSize[0.018], 
+                Point[$CellContext`pts$$]}]}, $CellContext`updateAnt$[
+               Pattern[$CellContext`path$, 
+                Blank[]]] := 
+             If[Length[$CellContext`path$] < $CellContext`nodes$$, 
+               With[{$CellContext`curr$ = Part[$CellContext`path$, -1]}, 
+                $CellContext`updateAnt$[
+                 Append[$CellContext`path$, 
+                  RandomChoice[
+                   $CellContext`prob$[$CellContext`curr$, 
+                    Complement[
+                    
+                    Part[$CellContext`nbh$, $CellContext`curr$], \
+$CellContext`path$]]]]]], $CellContext`path$]; $CellContext`prob$[
+               Pattern[$CellContext`curr$, 
+                Blank[Integer]], 
+               Pattern[$CellContext`nbh$, 
+                Blank[List]]] := 
+             With[{$CellContext`ph$ = 
+                Part[$CellContext`phMatrix$, $CellContext`curr$, \
+$CellContext`nbh$]^$CellContext`\[Alpha]$$ (1./
+                  Part[$CellContext`WAM$, $CellContext`curr$, \
+$CellContext`nbh$]^$CellContext`\[Beta]$$)}, $CellContext`ph$/
+                Total[$CellContext`ph$] -> $CellContext`nbh$]; \
+$CellContext`depositPheromone$[{
+                Pattern[$CellContext`tourLength$, 
+                 Blank[]], 
+                Pattern[$CellContext`tourEdges$, 
+                 Blank[]]}] := 
+             With[{$CellContext`p$ = 1./$CellContext`tourLength$}, 
+               Scan[(Part[$CellContext`phMatrix$, 
+                  Part[#, 2], 
+                  Part[#, 1]] = (Part[$CellContext`phMatrix$, 
+                   Part[#, 1], 
+                   Part[#, 2]] = Part[$CellContext`phMatrix$, 
+                    Part[#, 1], 
+                    
+                    Part[#, 
+                    2]] + $CellContext`p$))& , $CellContext`tourEdges$]]; \
+$CellContext`TIA$[
+               Pattern[$CellContext`cyc$, 
+                Blank[]]] := 
+             Module[{$CellContext`h$ = $CellContext`cyc$, $CellContext`flag$ = 
+                True}, While[$CellContext`flag$, $CellContext`flag$ = False; 
+                 Do[
+                   If[Part[$CellContext`WAM$, 
+                    Part[$CellContext`h$, 1], 
+                    Part[$CellContext`h$, 3]] + Part[$CellContext`WAM$, 
+                    Part[$CellContext`h$, 2], 
+                    Part[$CellContext`h$, 4]] < Part[$CellContext`WAM$, 
+                    Part[$CellContext`h$, 1], 
+                    Part[$CellContext`h$, 2]] + Part[$CellContext`WAM$, 
+                    Part[$CellContext`h$, 3], 
+                    Part[$CellContext`h$, 4]], $CellContext`h$ = ReplaceAll[
+                    RotateLeft[$CellContext`h$, 1], {
+                    Pattern[$CellContext`x, 
+                    Blank[]], 
+                    Pattern[$CellContext`y, 
+                    Blank[]], 
+                    Pattern[$CellContext`z, 
+                    
+                    BlankNullSequence[]]} -> {$CellContext`y, $CellContext`x, \
+$CellContext`z}]; $CellContext`flag$ = True, $CellContext`h$ = 
+                    RotateLeft[$CellContext`h$, 1]], {
+                    Length[$CellContext`cyc$]}]]; Append[$CellContext`h$, 
+                 Part[$CellContext`h$, 1]]]; $CellContext`message$$ = 
+             Style["Busy! " <> ToString[$CellContext`nAnts$$] <> 
+               " ants on the move.", 12, FontFamily -> 
+               "Times"]; $CellContext`nbh$ = Map[Complement[
+                Range[$CellContext`nodes$$], {#}]& , 
+               Range[$CellContext`nodes$$]]; 
+            If[$CellContext`mmas$$, $CellContext`nAnts$$ = \
+$CellContext`nodes$$; $CellContext`MMASphMinMaxRatio$ = 
+               1./(2 $CellContext`nodes$$); $CellContext`phMatrix$ = 
+               Table[100., {$CellContext`r, 
+                  1, $CellContext`nodes$$}, {$CellContext`c, 
+                  1, $CellContext`nodes$$}], $CellContext`phMatrix$ = 
+              Table[$CellContext`initPh$$, {$CellContext`r, 
+                 1, $CellContext`nodes$$}, {$CellContext`c, 
+                 1, $CellContext`nodes$$}]]; $CellContext`antsPlot$ = 
+             Graphics[{Red, 
+                AbsoluteThickness[4], 
+                Line[$CellContext`edgeSegments$]}, Background -> 
+               GrayLevel[0.8], 
+               PlotRange -> {{0, 7}, {0, 7}}]; $CellContext`currentPlot$$ = 
+             Show[$CellContext`antsPlot$, $CellContext`cityPlot$, ImageSize -> 
+               440, PlotLabel -> 
+               Style["Level of convergence: 0.", 12, FontFamily -> 
+                 
+                 "Times"]]; $CellContext`optimalTour$ = \
+$CellContext`shortestTour[$CellContext`pts$$]; $CellContext`start$ = 
+             AbsoluteTime[]; 
+            While[$CellContext`mode$$ == 2, 
+              Increment[$CellContext`loop$]; $CellContext`ants$ = 
+               Map[$CellContext`updateAnt$, 
+                 Table[{
+                   
+                   RandomInteger[{
+                    1, $CellContext`nodes$$}]}, {$CellContext`nAnts$$}]]; \
+$CellContext`newCycles$ = Map[If[$CellContext`tia$$, 
+                  $CellContext`TIA$[#], 
+                  Append[#, 
+                   
+                   Part[#, 
+                    1]]]& , $CellContext`ants$]; $CellContext`cycleEdges$ = 
+               Map[Partition[#, 2, 
+                  1]& , $CellContext`newCycles$]; $CellContext`cycleLengths$ = 
+               Map[Round[
+                  Total[
+                   Extract[$CellContext`WAM$, #]], 
+                  0.0001]& , $CellContext`cycleEdges$]; $CellContext`cycles$ = 
+               Sort[
+                 
+                 Transpose[{$CellContext`cycleLengths$, \
+$CellContext`cycleEdges$}]]; $CellContext`phMatrix$ = $CellContext`evapFac$$ \
+$CellContext`phMatrix$; If[$CellContext`mmas$$, Which[$CellContext`loop$ < 26, 
+                  $CellContext`depositPheromone$[
+                   Part[$CellContext`cycles$, 1]], 25 < $CellContext`loop$ < 
+                  76, 
+                  If[Mod[$CellContext`loop$, 5] == 0, 
+                   $CellContext`depositPheromone$[$CellContext`\
+globalBestCycle$], 
+                   $CellContext`depositPheromone$[
+                    Part[$CellContext`cycles$, 1]]], 75 < $CellContext`loop$ < 
+                  126, 
+                  If[Mod[$CellContext`loop$, 3] == 0, 
+                   $CellContext`depositPheromone$[$CellContext`\
+globalBestCycle$], 
+                   $CellContext`depositPheromone$[
+                    Part[$CellContext`cycles$, 1]]], 125 < $CellContext`loop$ < 
+                  251, 
+                  If[Mod[$CellContext`loop$, 2] == 0, 
+                   $CellContext`depositPheromone$[$CellContext`\
+globalBestCycle$], 
+                   $CellContext`depositPheromone$[
+                    Part[$CellContext`cycles$, 1]]], 250 < $CellContext`loop$, 
+                  $CellContext`depositPheromone$[$CellContext`globalBestCycle$\
+]]; $CellContext`iterationBest$ = 
+                 Min[$CellContext`cycleLengths$]; $CellContext`globalBest$ = 
+                 Min[$CellContext`cycleLengths$, $CellContext`globalBest$]; 
+                If[$CellContext`globalBest$ < 
+                  Part[$CellContext`globalBestCycle$, 
+                    1], $CellContext`globalBestCycle$ = 
+                  First[$CellContext`cycles$]]; $CellContext`phMax$ = 
+                 1/((1 - $CellContext`evapFac$$) $CellContext`globalBest$); \
+$CellContext`phMin$ = $CellContext`MMASphMinMaxRatio$ $CellContext`phMax$; \
+$CellContext`phMatrix$ = 
+                 ReplaceAll[$CellContext`phMatrix$, Pattern[$CellContext`x$, 
+                    Blank[Real]] -> 
+                   Min[$CellContext`x$, $CellContext`phMax$]]; \
+$CellContext`phMatrix$ = 
+                 ReplaceAll[$CellContext`phMatrix$, Pattern[$CellContext`x$, 
+                    Blank[Real]] -> 
+                   Max[$CellContext`x$, $CellContext`phMin$]], \
+$CellContext`depositPheromone$[
+                  Part[$CellContext`cycles$, 1]]; $CellContext`phMax$ = 
+                 Max[$CellContext`phMatrix$]; $CellContext`phMin$ = \
+$CellContext`phMinMaxRatio$$ $CellContext`phMax$; $CellContext`phMatrix$ = 
+                 ReplaceAll[$CellContext`phMatrix$, Pattern[$CellContext`x$, 
+                    Blank[Real]] -> 
+                   Max[$CellContext`x$, $CellContext`phMin$]]]; \
+$CellContext`time$$ = Style["Time: " <> ToString[
+                   Round[AbsoluteTime[] - $CellContext`start$, 0.1]], 12, 
+                 FontFamily -> "Times"]; $CellContext`antsPlot$ = 
+               Graphics[{Red, 
+                  AbsoluteThickness[4], 
+                  MapThread[{
+                    Opacity[#^1.2], 
+                    Line[#2]}& , {
+                   Extract[$CellContext`phMatrix$, \
+$CellContext`edgesAsPairs$]/
+                    Max[$CellContext`phMatrix$], \
+$CellContext`edgeSegments$}]}, Background -> GrayLevel[0.8], 
+                 PlotRange -> {{0, 7}, {0, 7}}]; $CellContext`low$ = 
+               Count[$CellContext`phMatrix$, 
+                 Condition[
+                  Pattern[$CellContext`x$, 
+                   Blank[]], $CellContext`x$ < 0.05 $CellContext`phMax$], 
+                 2]; $CellContext`high$ = Count[$CellContext`phMatrix$, 
+                 Condition[
+                  Pattern[$CellContext`x$, 
+                   Blank[]], $CellContext`x$ > 0.85 $CellContext`phMax$], 2]; 
+              If[
+                
+                Or[$CellContext`low$ < $CellContext`minLim$, \
+$CellContext`high$ < $CellContext`maxLim$], $CellContext`currentPlot$$ = 
+                Show[$CellContext`antsPlot$, $CellContext`cityPlot$, 
+                  ImageSize -> 440, PlotLabel -> 
+                  Style["Level of convergence: " <> ToString[
+                    Floor[
+                    Sign[$CellContext`low$] (($CellContext`low$ + \
+$CellContext`high$)/$CellContext`nodes$$^2), 0.01]], 12, FontFamily -> 
+                    "Times"]], 
+                If[($CellContext`l1$ = 
+                   Part[$CellContext`optimalTour$, 1]) == ($CellContext`l2$ = 
+                   Part[$CellContext`cycles$, 1, 1]), $CellContext`message$$ = 
+                  Style["Optimal tour found. Length: " <> 
+                    ToString[$CellContext`l1$], 12, FontFamily -> 
+                    "Times"], $CellContext`commonEdges$ = Length[
+                    Intersection[
+                    Map[Sort, 
+                    Partition[
+                    Part[$CellContext`optimalTour$, 2], 2, 1]], 
+                    Map[Sort, 
+                    Part[$CellContext`cycles$, 1, 2]]]]; $CellContext`time$$ = 
+                   Style["Time: " <> ToString[
+                    Round[AbsoluteTime[] - $CellContext`start$, 0.1]] <> 
+                    ". Common edges: " <> ToString[$CellContext`commonEdges$],
+                     12, FontFamily -> "Times"]; $CellContext`message$$ = 
+                   Style["Optimal tour (--): " <> ToString[$CellContext`l1$] <> 
+                    ". Ants tour: " <> ToString[$CellContext`l2$], 12, 
+                    FontFamily -> "Times"]]; $CellContext`label$ = 
+                 If[$CellContext`l1$ == $CellContext`l2$, "Great Job!", 
+                   "Not optimal"]; $CellContext`currentPlot$$ = 
+                 Show[$CellContext`antsPlot$, 
+                   Graphics[{Dashed, 
+                    Line[
+                    Part[$CellContext`pts$$, 
+                    
+                    Part[$CellContext`optimalTour$, 
+                    2]]]}], $CellContext`cityPlot$, ImageSize -> 440, 
+                   PlotLabel -> 
+                   Style[$CellContext`label$, 12, FontFamily -> 
+                    "Times"]]; $CellContext`mode$$ = 
+                 4]]]], $CellContext`mode$$ == 3, $CellContext`currentPlot$$ = 
+         Show[
+           If[$CellContext`manualPlacement$$, 
+            EventHandler[
+             Graphics[{Yellow, 
+               PointSize[0.018], 
+               Point[$CellContext`pts$$]}, Background -> GrayLevel[0.8], 
+              ImageSize -> 440, PlotRange -> {{0, 7}, {0, 7}}], 
+             "MouseClicked" :> 
+             If[Length[$CellContext`pts$$] < $CellContext`maxCities$$, \
+$CellContext`pts$$ = Append[$CellContext`pts$$, 
+                  Clip[
+                   MousePosition["Graphics"], {0.1, 
+                   6.9}]]; $CellContext`nodes$$ = 
+                Length[$CellContext`pts$$]]], 
+            Graphics[{Yellow, 
+              PointSize[0.018], 
+              Point[$CellContext`pts$$]}, Background -> GrayLevel[0.8], 
+             ImageSize -> 440, PlotRange -> {{0, 7}, {0, 7}}]], PlotLabel -> 
+           Style[
+             
+             If[$CellContext`manualPlacement$$, "Click to place cities (" <> 
+              ToString[
+                Length[$CellContext`pts$$]] <> " placed)", 
+              "Adjust parameters"], 12]], $CellContext`mode$$ == 4, True]; 
+       Which[$CellContext`save$$ == 
+         1, $CellContext`savedTime$$ = $CellContext`time$$; \
+$CellContext`savedMessage$$ = $CellContext`message$$; \
+$CellContext`savedPlot$$ = $CellContext`currentPlot$$; $CellContext`s$$ = 
+          False; $CellContext`save$$ = 3, $CellContext`save$$ == 
+         2, {$CellContext`currentPlot$$, $CellContext`savedPlot$$} = \
+{$CellContext`savedPlot$$, $CellContext`currentPlot$$}; \
+{$CellContext`message$$, $CellContext`savedMessage$$} = \
+{$CellContext`savedMessage$$, $CellContext`message$$}; {$CellContext`time$$, \
+$CellContext`savedTime$$} = {$CellContext`savedTime$$, $CellContext`time$$}; \
+$CellContext`s$$ = Not[$CellContext`s$$]; $CellContext`save$$ = 
+          3, $CellContext`save$$ == 3, True]; $CellContext`mode$$ = 4; Pane[
+         Column[{
+           Dynamic[$CellContext`currentPlot$$], 
+           Dynamic[$CellContext`message$$], 
+           Dynamic[$CellContext`time$$]}], 
+         BaseStyle -> {Background -> If[$CellContext`s$$, Green, 
+             GrayLevel[0.8]]}]), "Specifications" :> {
+        Style[
+        "random seed", 9], {{$CellContext`sr$$, 123, ""}, 1, 200, 1, 
+         Appearance -> "Labeled", ImageSize -> Tiny, AppearanceElements -> 
+         "InputField", Enabled -> 
+         Dynamic[$CellContext`mode$$ != 2]}, {{$CellContext`mode$$, 1, ""}, {
+         1 -> "new", 2 -> "run", 3 -> 
+          "stop"}}, {{$CellContext`manualPlacement$$, False, 
+          "manual placement"}, {True, False}, Enabled -> 
+         Dynamic[$CellContext`mode$$ != 2]}, {{$CellContext`nodes$$, 25, 
+          "cities"}, {16, 20, 25, 30, 40, 50}, Enabled -> Dynamic[
+           And[
+            Not[$CellContext`manualPlacement$$], $CellContext`mode$$ != 
+            2]]}, {{$CellContext`maxCities$$, 50, "max cities"}, 10, 100, 1, 
+         Enabled -> Dynamic[
+           And[$CellContext`manualPlacement$$, $CellContext`mode$$ != 2]]}, 
+        Button[
+        "Clear All Cities", $CellContext`pts$$ = {}; $CellContext`nodes$$ = 0,
+          Enabled -> 
+         And[$CellContext`manualPlacement$$, $CellContext`mode$$ != 2]], 
+        Delimiter, {{$CellContext`nAnts$$, 25, "ants"}, 10, 200, 5, ImageSize -> 
+         Tiny, Appearance -> "Labeled", AppearanceElements -> None, Enabled -> 
+         Dynamic[
+           And[
+            Not[$CellContext`mmas$$], $CellContext`mode$$ != 2]]}, 
+        Delimiter, {{$CellContext`tia$$, True, "TIA"}, {True, False}, Enabled -> 
+         Dynamic[$CellContext`mode$$ != 2]}, {{$CellContext`mmas$$, False, 
+          "MMAS"}, {True, False}, Enabled -> 
+         Dynamic[$CellContext`mode$$ != 2]}, Delimiter, 
+        Style["pheromone:\n", 9], 
+        Style[
+        "    evaporation", 9], {{$CellContext`evapFac$$, 0.98, ""}, 0.8, 1., 
+         0.01, ImageSize -> Tiny, Appearance -> "Labeled", AppearanceElements -> 
+         None, Enabled -> Dynamic[$CellContext`mode$$ != 2]}, 
+        Style[
+        "    initial level", 9], {{$CellContext`initPh$$, 1., ""}, 0.1, 5., 
+         0.1, ImageSize -> Tiny, Appearance -> "Labeled", AppearanceElements -> 
+         None, Enabled -> Dynamic[
+           And[
+            Not[$CellContext`mmas$$], $CellContext`mode$$ != 2]]}, 
+        Style[
+        "    min/max ratio", 9], {{$CellContext`phMinMaxRatio$$, 0.01, ""}, 
+         0.001, 0.04, 0.001, ImageSize -> Tiny, Appearance -> "Labeled", 
+         AppearanceElements -> None, Enabled -> Dynamic[
+           And[
+            Not[$CellContext`mmas$$], $CellContext`mode$$ != 2]]}, 
+        Delimiter, {{$CellContext`\[Alpha]$$, 1., "\[Alpha]"}, 0., 5., 0.1, 
+         ImageSize -> Tiny, Appearance -> "Labeled", AppearanceElements -> 
+         None, Enabled -> 
+         Dynamic[$CellContext`mode$$ != 2]}, {{$CellContext`\[Beta]$$, 3., 
+          "\[Beta]"}, 0., 5., 0.1, ImageSize -> Tiny, Appearance -> "Labeled",
+          AppearanceElements -> None, Enabled -> 
+         Dynamic[$CellContext`mode$$ != 2]}, 
+        Delimiter, {{$CellContext`save$$, 3, ""}, {
+         1 -> "save", 2 -> "toggle"}, Enabled -> 
+         Dynamic[$CellContext`mode$$ != 2]}, {{$CellContext`srTmp$$, -1}, 
+         ControlType -> None}, {{$CellContext`nodesTmp$$, 25}, ControlType -> 
+         None}, {{$CellContext`mmasTmp$$, False}, ControlType -> 
+         None}, {{$CellContext`pts$$, {}}, ControlType -> 
+         None}, {{$CellContext`time$$, -1}, ControlType -> 
+         None}, {{$CellContext`currentPlot$$, -1}, ControlType -> 
+         None}, {{$CellContext`message$$, -1}, ControlType -> 
+         None}, {{$CellContext`savedTime$$, -1}, ControlType -> 
+         None}, {{$CellContext`savedMessage$$, -1}, ControlType -> 
+         None}, {{$CellContext`savedPlot$$, -1}, ControlType -> 
+         None}, {{$CellContext`s$$, -1}, ControlType -> None}}, 
+      "Options" :> {
+       ControlPlacement -> Left, TrackedSymbols -> True, 
+        AutorunSequencing -> {3}}, "DefaultOptions" :> {}],
+     ImageSizeCache->{620.9745, {219.00093750000002`, 223.62984375000002`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>(($CellContext`shortestTour[
+         Pattern[$CellContext`pts, 
+          Blank[]]] := 
+       Module[{$CellContext`ln, $CellContext`cyc}, {$CellContext`ln, \
+$CellContext`cyc} = FindShortestTour[$CellContext`pts]; Return[{
+            Round[$CellContext`ln, 0.0001], 
+            Append[$CellContext`cyc, 
+             Part[$CellContext`cyc, 1]]}]]; Null); Typeset`initDone$$ = True),
+    
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.960833700649523*^9, 3.9608337642573357`*^9},
+ CellLabel->"Out[18]=",ExpressionUUID->"dbd1f5e0-0ff7-498d-930e-0092caafed63"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show", "gtype", 
+   "\"\\!\\(\\*RowBox[{\\\"EventHandler\\\"}]\\) is not a type of \
+graphics.\"", 2, 19, 18, 26407842632194485212, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.960833778044621*^9},
+ CellLabel->"",ExpressionUUID->"153a5a42-99ef-41e9-870b-ff5d25b1ea1a"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show", "gtype", 
+   "\"\\!\\(\\*RowBox[{\\\"EventHandler\\\"}]\\) is not a type of \
+graphics.\"", 2, 19, 19, 26407842632194485212, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.960833778166069*^9},
+ CellLabel->"",ExpressionUUID->"6541dfa3-c9fe-4e78-a7b4-ab009332c0c2"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show", "gtype", 
+   "\"\\!\\(\\*RowBox[{\\\"EventHandler\\\"}]\\) is not a type of \
+graphics.\"", 2, 19, 20, 26407842632194485212, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.960833778300838*^9},
+ CellLabel->"",ExpressionUUID->"94799787-8a2a-4b0c-b480-69286eb2ae63"]
+}, Open  ]]
+},
+WindowSize->{1080, 625.5},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+Magnification:>0.8 Inherited,
+FrontEndVersion->"14.2 for Linux x86 (64-bit) (March 16, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"91650592-33db-4f60-879e-f2ca2d9e5ff1"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 51134, 1202, 1899, "Input",ExpressionUUID->"fdb97fb3-f815-40a1-8985-fc4911741e11"],
+Cell[51713, 1226, 31464, 587, 456, "Output",ExpressionUUID->"dbd1f5e0-0ff7-498d-930e-0092caafed63"],
+Cell[83180, 1815, 340, 8, 20, "Message",ExpressionUUID->"153a5a42-99ef-41e9-870b-ff5d25b1ea1a"],
+Cell[83523, 1825, 340, 8, 20, "Message",ExpressionUUID->"6541dfa3-c9fe-4e78-a7b4-ab009332c0c2"],
+Cell[83866, 1835, 340, 8, 20, "Message",ExpressionUUID->"94799787-8a2a-4b0c-b480-69286eb2ae63"]
+}, Open  ]]
+}
+]
+*)
+
