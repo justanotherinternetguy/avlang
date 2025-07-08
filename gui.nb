@@ -10,186 +10,16 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     99634,       2178]
-NotebookOptionsPosition[     98674,       2152]
-NotebookOutlinePosition[     99096,       2169]
-CellTagsIndexPosition[     99053,       2166]
+NotebookDataLength[    105455,       2266]
+NotebookOptionsPosition[    104449,       2243]
+NotebookOutlinePosition[    104871,       2260]
+CellTagsIndexPosition[    104828,       2257]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 
 Cell[CellGroupData[{
-Cell[BoxData[{
- RowBox[{
-  RowBox[{"keyWord", " ", "=", " ", "\"\<tiger\>\""}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"languages", "=", 
-   RowBox[{
-    RowBox[{"EntityClass", "[", 
-     RowBox[{"\"\<Language\>\"", ",", 
-      RowBox[{"{", 
-       RowBox[{"\"\<TotalSpeakers\>\"", "->", 
-        RowBox[{"TakeLargest", "[", "100", "]"}]}], "}"}]}], "]"}], "//", 
-    "EntityList"}]}], ";", 
-  RowBox[{"rawTranslations", " ", "=", " ", 
-   RowBox[{"KeyValueMap", "[", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"#1", "->", 
-       RowBox[{"First", "[", "#2", "]"}]}], "&"}], ",", 
-     RowBox[{"WordTranslation", "[", 
-      RowBox[{"keyWord", ",", " ", "languages"}], "]"}]}], "]"}]}], ";", 
-  RowBox[{"translatedList", "=", 
-   RowBox[{"DeleteCases", "[", 
-    RowBox[{
-     RowBox[{"DeleteDuplicates", "[", 
-      RowBox[{"ToLowerCase", "[", 
-       RowBox[{"Select", "[", 
-        RowBox[{
-         RowBox[{"Transliterate", "[", 
-          RowBox[{"Values", "[", "rawTranslations", "]"}], "]"}], ",", 
-         RowBox[{
-          RowBox[{"StringMatchQ", "[", 
-           RowBox[{"#", ",", 
-            RowBox[{
-             RowBox[{"CharacterRange", "[", 
-              RowBox[{"\"\<A\>\"", ",", "\"\<z\>\""}], "]"}], ".."}]}], "]"}],
-           "&"}]}], "]"}], "]"}], "]"}], ",", " ", "\"\<notavailable\>\""}], 
-    "]"}]}]}]}], "Input",
- CellChangeTimes->{{3.960978303437785*^9, 3.96097832048661*^9}, {
-  3.960978514885271*^9, 3.9609785152254257`*^9}, {3.960978559587178*^9, 
-  3.960978573577711*^9}, {3.960980701028472*^9, 3.960980703581998*^9}},
- CellLabel->
-  "In[459]:=",ExpressionUUID->"9095374d-ad4d-4ad6-863d-a1a1e3126936"],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{"\<\"hu\"\>", ",", "\<\"tiger\"\>", ",", "\<\"bagha\"\>", 
-   ",", "\<\"nimr\"\>", ",", "\<\"tigre\"\>", ",", "\<\"tigr\"\>", 
-   ",", "\<\"harimau\"\>", ",", "\<\"chyta\"\>", ",", "\<\"chui\"\>", 
-   ",", "\<\"vagha\"\>", ",", "\<\"puli\"\>", ",", "\<\"kaplan\"\>", 
-   ",", "\<\"pali\"\>", ",", "\<\"ho\"\>", ",", "\<\"macan\"\>", 
-   ",", "\<\"seux\"\>", ",", "\<\"huli\"\>", ",", "\<\"tygrys\"\>", 
-   ",", "\<\"katuva\"\>", ",", "\<\"laofu\"\>", ",", "\<\"shyr\"\>", 
-   ",", "\<\"maung\"\>", ",", "\<\"agu\"\>", ",", "\<\"tigru\"\>", 
-   ",", "\<\"tijger\"\>", ",", "\<\"nahara\"\>", ",", "\<\"ingwe\"\>", 
-   ",", "\<\"shabeel\"\>", ",", "\<\"tier\"\>"}], "}"}]], "Output",
- CellChangeTimes->{3.9609793770446997`*^9, 3.960980704551693*^9},
- CellLabel->
-  "Out[460]=",ExpressionUUID->"08b72c1d-0e8a-43c2-a0ad-94830198166e"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[{
- RowBox[{
-  RowBox[{"net", "=", 
-   RowBox[{"NetModel", "[", 
-    RowBox[{"\"\<Wolfram English Character-Level Language Model V1\>\"", 
-     ",", "\"\<TrainingNet\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"vocabulary", "=", 
-   RowBox[{
-   "Characters", 
-    "[", "\"\<\\t\\n \
-!\\\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\\]^_`\
-abcdefghijklmnopqrstuvwxyz{}\[EAcute]\>\"", "]"}]}], ";", 
-  RowBox[{"net", "=", 
-   RowBox[{"NetReplacePart", "[", 
-    RowBox[{"net", ",", 
-     RowBox[{"\"\<Input\>\"", "\[Rule]", 
-      RowBox[{"NetEncoder", "[", 
-       RowBox[{"{", 
-        RowBox[{"\"\<Characters\>\"", ",", 
-         RowBox[{"{", 
-          RowBox[{"vocabulary", ",", 
-           RowBox[{
-            RowBox[{"{", 
-             RowBox[{"StartOfString", ",", "EndOfString"}], "}"}], "\[Rule]", 
-            "97"}]}], "}"}]}], "}"}], "]"}]}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"results", " ", "=", " ", "\n", " ", 
-   RowBox[{"NetTrain", "[", 
-    RowBox[{"net", ",", " ", 
-     RowBox[{"<|", 
-      RowBox[{"\"\<Input\>\"", " ", "\[Rule]", " ", "translatedList"}], 
-      "|>"}], ",", " ", "All", ",", " ", 
-     RowBox[{"LossFunction", " ", "\[Rule]", " ", "\"\<Loss\>\""}], ",", " ", 
-     " ", " ", 
-     RowBox[{"MaxTrainingRounds", " ", "\[Rule]", "500"}]}], "]"}]}], ";", 
-  RowBox[{"trainednet", "=", 
-   RowBox[{"results", "[", "\"\<TrainedNet\>\"", "]"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"generator", "=", 
-   RowBox[{"NetReplacePart", "[", 
-    RowBox[{
-     RowBox[{"NetExtract", "[", 
-      RowBox[{"trainednet", ",", "\"\<predict\>\""}], "]"}], ",", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"\"\<Input\>\"", "\[Rule]", 
-        RowBox[{"NetEncoder", "[", 
-         RowBox[{"{", 
-          RowBox[{"\"\<Characters\>\"", ",", 
-           RowBox[{"{", 
-            RowBox[{"vocabulary", ",", "EndOfString"}], "}"}], ",", 
-           RowBox[{"\"\<TargetLength\>\"", "\[Rule]", "1"}]}], "}"}], "]"}]}],
-        ",", 
-       RowBox[{"\"\<Output\>\"", "\[Rule]", 
-        RowBox[{"NetDecoder", "[", 
-         RowBox[{"{", 
-          RowBox[{"\"\<Class\>\"", ",", 
-           RowBox[{"Append", "[", 
-            RowBox[{"vocabulary", ",", "\"\<\>\""}], "]"}]}], "}"}], 
-         "]"}]}]}], "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"wordz", "[", "]"}], ":=", 
-   RowBox[{"With", "[", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"obj", "=", 
-       RowBox[{"NetStateObject", "[", "generator", "]"}]}], "}"}], ",", 
-     RowBox[{"StringJoin", "@", 
-      RowBox[{"NestWhileList", "[", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"obj", "[", 
-          RowBox[{
-           RowBox[{"Last", "[", "#", "]"}], ",", "\"\<RandomSample\>\""}], 
-          "]"}], "&"}], ",", 
-        RowBox[{"{", 
-         RowBox[{"\"\<\>\"", ",", "\"\<\>\""}], "}"}], ",", 
-        RowBox[{
-         RowBox[{"#", "=!=", 
-          RowBox[{"{", "\"\<\>\"", "}"}]}], "&"}], ",", "SYLLABLECOUNT", ",", 
-        
-        RowBox[{"SYLLABLECOUNT", "+", "2"}]}], "]"}]}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{"newAvgWords", "=", 
-  RowBox[{"Sort", "@", 
-   RowBox[{"Complement", "[", 
-    RowBox[{
-     RowBox[{"Table", "[", 
-      RowBox[{
-       RowBox[{"wordz", "[", "]"}], ",", "15"}], "]"}], ",", 
-     "translatedList"}], "]"}]}]}]}], "Input",
- CellChangeTimes->{{3.9609797234663963`*^9, 3.960979751318468*^9}},
- CellLabel->
-  "In[448]:=",ExpressionUUID->"2c9ea3e4-b0b3-4493-97de-c09a5b02af50"],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{"\<\"ilan\"\>", ",", "\<\"ria\"\>", ",", "\<\"slon\"\>", 
-   ",", "\<\"soar\"\>", ",", "\<\"sonc\"\>", ",", "\<\"sonn\"\>", 
-   ",", "\<\"sura\"\>", ",", "\<\"taey\"\>"}], "}"}]], "Output",
- CellChangeTimes->{3.960979786958496*^9},
- CellLabel->
-  "Out[453]=",ExpressionUUID->"0df3cca6-b833-4e86-924d-35943b609930"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
 Cell[BoxData[
  RowBox[{"DynamicModule", "[", 
   RowBox[{
@@ -203,7 +33,12 @@ Cell[BoxData[
      RowBox[{"bestWordGeneticPool", "=", "\"\<\>\""}], ",", 
      RowBox[{"bestWord", "=", "\"\<\>\""}], ",", 
      RowBox[{"newAvgWords", "=", 
-      RowBox[{"{", "}"}]}]}], "}"}], ",", 
+      RowBox[{"{", "}"}]}], ",", 
+     RowBox[{"newAvgWordsPhonetics", "=", 
+      RowBox[{"{", "}"}]}], ",", 
+     RowBox[{"progress", "=", "0"}], ",", 
+     RowBox[{"progressLabel", "=", "\"\<Ready\>\""}], ",", 
+     RowBox[{"isRunning", "=", "False"}]}], "}"}], ",", 
    RowBox[{"Panel", "[", 
     RowBox[{"Column", "[", 
      RowBox[{"{", 
@@ -241,15 +76,42 @@ Cell[BoxData[
              "evolutionResults", ",", "finalWord", ",", "bestDistance", ",", 
              "testPositions", ",", "positionDict", ",", "net", ",", 
              "vocabulary", ",", "results", ",", "trainednet", ",", 
-             "generator", ",", "wordz"}], "}"}], ",", 
+             "generator", ",", "wordz", ",", "netPhon", ",", "symbolMap", ",",
+              "ipaList", ",", "convertedTrainList", ",", "vocabularyPhon", ",",
+              "resultsPhon", ",", "trainednetPhon", ",", "generatorPhon", ",",
+              "wordzPhon", ",", "updateProgress"}], "}"}], ",", 
            RowBox[{"(*", 
+            RowBox[{"Initialize", " ", "progress"}], "*)"}], 
+           RowBox[{
+            RowBox[{"isRunning", "=", "True"}], ";", "\[IndentingNewLine]", 
+            RowBox[{"progress", "=", "0"}], ";", "\[IndentingNewLine]", 
+            RowBox[{"progressLabel", "=", "\"\<Starting...\>\""}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{"Progress", " ", "update", " ", "function"}], "*)"}], 
             RowBox[{
+             RowBox[{"updateProgress", "[", 
+              RowBox[{"value_", ",", "label_"}], "]"}], ":=", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"progress", "=", "value"}], ";", "\[IndentingNewLine]", 
+               RowBox[{"progressLabel", "=", "label"}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"Pause", "[", "0.1", "]"}], ";"}], " ", 
+              RowBox[{"(*", 
+               RowBox[{
+               "Small", " ", "pause", " ", "to", " ", "allow", " ", "UI", " ",
+                 "update"}], "*)"}], ")"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"(*", 
              RowBox[{
               RowBox[{
-               RowBox[{"--", 
-                RowBox[{"-", "Translation"}]}], "&"}], " ", 
-              RowBox[{"Preprocessing", "--"}]}], "-"}], "*)"}], 
-           RowBox[{
+               RowBox[{
+                RowBox[{"--", 
+                 RowBox[{"-", "Translation"}]}], "&"}], " ", 
+               RowBox[{"Preprocessing", "--"}]}], "-"}], "*)"}], 
+            RowBox[{"updateProgress", "[", 
+             RowBox[{"5", ",", "\"\<Fetching translations...\>\""}], "]"}], ";",
+             "\[IndentingNewLine]", 
             RowBox[{"languages", "=", 
              RowBox[{
               RowBox[{"EntityClass", "[", 
@@ -284,8 +146,11 @@ Cell[BoxData[
                     RowBox[{"\"\<A\>\"", ",", "\"\<z\>\""}], "]"}], ".."}]}], 
                     "]"}], "&"}]}], "]"}], "]"}], "]"}], 
                ",", "\"\<notavailable\>\""}], "]"}]}], ";", 
-            "\[IndentingNewLine]", "\[IndentingNewLine]", 
             "\[IndentingNewLine]", 
+            RowBox[{"updateProgress", "[", 
+             RowBox[{
+             "15", ",", "\"\<Processing character frequencies...\>\""}], 
+             "]"}], ";", "\[IndentingNewLine]", 
             RowBox[{"charLists", "=", 
              RowBox[{"Characters", "/@", "translatedList"}]}], ";", 
             "\[IndentingNewLine]", 
@@ -331,8 +196,8 @@ Cell[BoxData[
                     RowBox[{"#", ",", "\"\<-\>\""}], "]"}]}], ",", 
                     RowBox[{
                     RowBox[{"-", 
-                    RowBox[{"Last", "[", "#", "]"}]}], "&"}]}], "]"}]}]}]}], 
-                 "]"}], "&"}], ",", "transposed"}], "]"}]}], ";", 
+                    RowBox[{"Last", "[", "#", "]"}]}], "&"}]}], "]"}]}]}]}], "]"}
+                 ], "&"}], ",", "transposed"}], "]"}]}], ";", 
             "\[IndentingNewLine]", 
             RowBox[{"mostFreqCharWord", "=", 
              RowBox[{"StringJoin", "[", 
@@ -351,7 +216,9 @@ Cell[BoxData[
                     "ResourceFunction", "[", "\"\<WordSyllables\>\"", "]"}], "[",
                      "#", "]"}], "&"}], "/@", "translatedList"}], ")"}]}], 
                "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
-            "\[IndentingNewLine]", "\[IndentingNewLine]", 
+            RowBox[{"updateProgress", "[", 
+             RowBox[{"25", ",", "\"\<Generating digram-based words...\>\""}], 
+             "]"}], ";", "\[IndentingNewLine]", 
             RowBox[{"positionedDigrams", "=", 
              RowBox[{"Flatten", "[", 
               RowBox[{
@@ -441,8 +308,10 @@ Cell[BoxData[
                RowBox[{
                 RowBox[{"generateWord", "[", "]"}], ",", 
                 RowBox[{"{", "10", "}"}]}], "]"}], "]"}]}], ";", 
-            "\[IndentingNewLine]", "\[IndentingNewLine]", 
             "\[IndentingNewLine]", 
+            RowBox[{"updateProgress", "[", 
+             RowBox[{"35", ",", "\"\<Running genetic algorithm...\>\""}], 
+             "]"}], ";", "\[IndentingNewLine]", 
             RowBox[{"populationSize", "=", "100"}], ";", 
             "\[IndentingNewLine]", 
             RowBox[{"generations", "=", "5"}], ";", "\[IndentingNewLine]", 
@@ -650,6 +519,20 @@ Cell[BoxData[
              RowBox[{"Table", "[", 
               RowBox[{
                RowBox[{
+                RowBox[{"If", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Mod", "[", 
+                    RowBox[{"gen", ",", "2"}], "]"}], "==", "0"}], ",", 
+                  RowBox[{"updateProgress", "[", 
+                   RowBox[{
+                    RowBox[{"35", "+", 
+                    RowBox[{"gen", "*", "2"}]}], ",", 
+                    RowBox[{"\"\<Genetic algorithm generation \>\"", "<>", 
+                    RowBox[{"ToString", "[", "gen", "]"}], "<>", "\"\</\>\"", 
+                    "<>", 
+                    RowBox[{"ToString", "[", "generations", "]"}]}]}], 
+                   "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
                 RowBox[{"fitnesses", "=", 
                  RowBox[{"fitnessFunction", "/@", "population"}]}], ";", 
                 "\[IndentingNewLine]", 
@@ -703,8 +586,10 @@ Cell[BoxData[
              RowBox[{"First", "@", 
               RowBox[{"MaximalBy", "[", 
                RowBox[{"allBest", ",", "fitnessFunction"}], "]"}]}]}], ";", 
-            "\[IndentingNewLine]", "\[IndentingNewLine]", 
             "\[IndentingNewLine]", 
+            RowBox[{"updateProgress", "[", 
+             RowBox[{"50", ",", "\"\<Running evolution algorithm...\>\""}], 
+             "]"}], ";", "\[IndentingNewLine]", 
             RowBox[{"baseWord", "=", 
              RowBox[{"StringJoin", "@", 
               RowBox[{"RandomChoice", "[", 
@@ -1166,10 +1051,39 @@ Cell[BoxData[
                RowBox[{"{", "}"}], ",", 
                RowBox[{"{", "baseWord", "}"}]}], "}"}]}], ";", 
             "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{
+             "Evolution", " ", "with", " ", "progress", " ", "updates"}], 
+             "*)"}], 
             RowBox[{"evolutionResults", "=", 
-             RowBox[{"NestList", "[", 
+             RowBox[{"Table", "[", 
               RowBox[{
-              "evolutionStep", ",", "initialState", ",", "GENERATIONS"}], 
+               RowBox[{
+                RowBox[{"If", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Mod", "[", 
+                    RowBox[{"gen", ",", "100"}], "]"}], "==", "0"}], ",", 
+                  RowBox[{"updateProgress", "[", 
+                   RowBox[{
+                    RowBox[{"50", "+", 
+                    RowBox[{
+                    RowBox[{"gen", "/", "GENERATIONS"}], "*", "15"}]}], ",", 
+                    RowBox[{"\"\<Evolution step \>\"", "<>", 
+                    RowBox[{"ToString", "[", "gen", "]"}], "<>", "\"\</\>\"", 
+                    "<>", 
+                    RowBox[{"ToString", "[", "GENERATIONS", "]"}]}]}], 
+                   "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+                RowBox[{"evolutionStep", "[", 
+                 RowBox[{"If", "[", 
+                  RowBox[{
+                   RowBox[{"gen", "==", "1"}], ",", "initialState", ",", 
+                   RowBox[{"evolutionResults", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"gen", "-", "1"}], "]"}], "]"}]}], "]"}], "]"}]}],
+                ",", 
+               RowBox[{"{", 
+                RowBox[{"gen", ",", "1", ",", "GENERATIONS"}], "}"}]}], 
               "]"}]}], ";", "\[IndentingNewLine]", 
             RowBox[{
              RowBox[{"{", 
@@ -1202,8 +1116,11 @@ Cell[BoxData[
              RowBox[{"StringReplace", "[", 
               RowBox[{"bestWord", ",", 
                RowBox[{"\"\<_\>\"", "->", "\"\<\>\""}]}], "]"}]}], ";", 
-            "\[IndentingNewLine]", "\[IndentingNewLine]", 
-            "\[IndentingNewLine]", "\[IndentingNewLine]", 
+            "\[IndentingNewLine]", 
+            RowBox[{"updateProgress", "[", 
+             RowBox[{
+             "70", ",", "\"\<Training neural network (standard)...\>\""}], 
+             "]"}], ";", "\[IndentingNewLine]", 
             RowBox[{"net", "=", 
              RowBox[{"NetModel", "[", 
               
@@ -1237,8 +1154,23 @@ abcdefghijklmnopqrstuvwxyz{}\[EAcute]\>\"", "]"}]}], ";",
                 RowBox[{"\"\<Input\>\"", "->", "translatedList"}], "|>"}], ",",
                 "All", ",", 
                RowBox[{"LossFunction", "->", "\"\<Loss\>\""}], ",", 
-               RowBox[{"MaxTrainingRounds", "->", "500"}]}], "]"}]}], ";", 
-            "\[IndentingNewLine]", 
+               RowBox[{"MaxTrainingRounds", "->", "500"}], ",", 
+               RowBox[{"TrainingProgressFunction", "->", 
+                RowBox[{"Function", "[", 
+                 RowBox[{
+                  RowBox[{"{", "assoc", "}"}], ",", 
+                  RowBox[{"updateProgress", "[", 
+                   RowBox[{
+                    RowBox[{"70", "+", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"assoc", "[", "\"\<Round\>\"", "]"}], "/", 
+                    "500"}], "*", "15"}]}], ",", 
+                    RowBox[{"\"\<Training neural network: round \>\"", "<>", 
+                    RowBox[{"ToString", "[", 
+                    RowBox[{"assoc", "[", "\"\<Round\>\"", "]"}], "]"}], 
+                    "<>", "\"\</500\>\""}]}], "]"}]}], "]"}]}]}], "]"}]}], ";",
+             "\[IndentingNewLine]", 
             RowBox[{"trainednet", "=", 
              RowBox[{"results", "[", "\"\<TrainedNet\>\"", "]"}]}], ";", 
             "\[IndentingNewLine]", 
@@ -1295,12 +1227,15 @@ abcdefghijklmnopqrstuvwxyz{}\[EAcute]\>\"", "]"}]}], ";",
                  RowBox[{
                   RowBox[{"wordz", "[", "]"}], ",", "15"}], "]"}], ",", 
                 "translatedList"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
-            "\[IndentingNewLine]", 
+            RowBox[{"updateProgress", "[", 
+             RowBox[{
+             "85", ",", "\"\<Training phonetic neural network...\>\""}], 
+             "]"}], ";", "\[IndentingNewLine]", 
             RowBox[{"netPhon", "=", 
              RowBox[{"NetModel", "[", 
               
               RowBox[{"\"\<Wolfram English Character-Level Language Model \
-V1\>\"", ",", "\"\<TrainingNet\>\""}], "]"}]}], ";", "\n", 
+V1\>\"", ",", "\"\<TrainingNet\>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
             RowBox[{"symbolMap", "=", 
              RowBox[{"<|", 
               RowBox[{
@@ -1318,10 +1253,10 @@ V1\>\"", ",", "\"\<TrainingNet\>\""}], "]"}]}], ";", "\n",
                RowBox[{"\"\<\:025c\>\"", "->", "\"\<,\>\""}], ",", 
                RowBox[{"\"\<\:014b\>\"", "->", "\"\<;\>\""}], ",", 
                RowBox[{"\"\<\:0261\>\"", "->", "\"\<:\>\""}], ",", 
-               RowBox[{"\"\<\:0251\>\"", "->", "\"\<!\>\""}], " ", ",", 
-               RowBox[{"\"\<\:02c8\>\"", "->", "\"\<@\>\""}], ",", " ", 
-               RowBox[{"\"\<\:02cc\>\"", "->", "\"\<=\>\""}], ",", " ", 
-               RowBox[{"\"\<\:0252\>\"", "->", "\"\<*\>\""}], ",", " ", 
+               RowBox[{"\"\<\:0251\>\"", "->", "\"\<!\>\""}], ",", 
+               RowBox[{"\"\<\:02c8\>\"", "->", "\"\<@\>\""}], ",", 
+               RowBox[{"\"\<\:02cc\>\"", "->", "\"\<=\>\""}], ",", 
+               RowBox[{"\"\<\:0252\>\"", "->", "\"\<*\>\""}], ",", 
                RowBox[{"\"\<\:025d\>\"", "->", "\"\<[\>\""}]}], "|>"}]}], ";",
              "\[IndentingNewLine]", 
             RowBox[{"ipaList", "=", 
@@ -1333,7 +1268,7 @@ V1\>\"", ",", "\"\<TrainingNet\>\""}], "]"}]}], ";", "\n",
                  "ResourceFunction", "[", "\"\<WordPhoneticSyllabify\>\"", 
                   "]"}], "[", "#", "]"}], "[", 
                 RowBox[{"[", "2", "]"}], "]"}], "&"}], "/@", 
-              "translatedList"}]}], ";", "\n", 
+              "translatedList"}]}], ";", "\[IndentingNewLine]", 
             RowBox[{"convertedTrainList", "=", 
              RowBox[{
               RowBox[{
@@ -1376,8 +1311,23 @@ abcdefghijklmnopqrstuvwxyz{}\[Bullet]\>\"", "]"}]}], ";",
                 RowBox[{"\"\<Input\>\"", "->", "convertedTrainList"}], "|>"}],
                 ",", "All", ",", 
                RowBox[{"LossFunction", "->", "\"\<Loss\>\""}], ",", 
-               RowBox[{"MaxTrainingRounds", "->", "500"}]}], "]"}]}], ";", 
-            "\n", 
+               RowBox[{"MaxTrainingRounds", "->", "500"}], ",", 
+               RowBox[{"TrainingProgressFunction", "->", 
+                RowBox[{"Function", "[", 
+                 RowBox[{
+                  RowBox[{"{", "assoc", "}"}], ",", 
+                  RowBox[{"updateProgress", "[", 
+                   RowBox[{
+                    RowBox[{"85", "+", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"assoc", "[", "\"\<Round\>\"", "]"}], "/", 
+                    "500"}], "*", "14"}]}], ",", 
+                    RowBox[{"\"\<Training phonetic network: round \>\"", "<>", 
+                    RowBox[{"ToString", "[", 
+                    RowBox[{"assoc", "[", "\"\<Round\>\"", "]"}], "]"}], 
+                    "<>", "\"\</500\>\""}]}], "]"}]}], "]"}]}]}], "]"}]}], ";",
+             "\[IndentingNewLine]", 
             RowBox[{"trainednetPhon", "=", 
              RowBox[{"resultsPhon", "[", "\"\<TrainedNet\>\"", "]"}]}], ";", 
             "\[IndentingNewLine]", 
@@ -1449,9 +1399,37 @@ abcdefghijklmnopqrstuvwxyz{}\[Bullet]\>\"", "]"}]}], ";",
                   RowBox[{"Table", "[", 
                    RowBox[{
                     RowBox[{"wordzPhon", "[", "]"}], ",", "15"}], "]"}], 
-                  "]"}], ",", "convertedTrainList"}], "]"}]}]}]}], ";"}]}], 
-          "\[IndentingNewLine]", "\[IndentingNewLine]", "]"}], ",", 
-         RowBox[{"Method", "->", "\"\<Queued\>\""}]}], "]"}], ",", 
+                  "]"}], ",", "convertedTrainList"}], "]"}]}]}]}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"updateProgress", "[", 
+             RowBox[{"100", ",", "\"\<Complete!\>\""}], "]"}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"isRunning", "=", "False"}], ";"}]}], "]"}], ",", 
+         RowBox[{"Method", "->", "\"\<Queued\>\""}], ",", 
+         RowBox[{"Enabled", "->", 
+          RowBox[{"Dynamic", "[", 
+           RowBox[{"!", "isRunning"}], "]"}]}]}], "]"}], ",", 
+       RowBox[{"(*", 
+        RowBox[{"Progress", " ", "Bar"}], "*)"}], 
+       RowBox[{"Dynamic", "[", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"isRunning", "||", 
+           RowBox[{"progress", ">", "0"}]}], ",", 
+          RowBox[{"Column", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"ProgressIndicator", "[", 
+              RowBox[{
+               RowBox[{"Dynamic", "[", 
+                RowBox[{"progress", "/", "100"}], "]"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", "1"}], "}"}]}], "]"}], ",", 
+             RowBox[{"Style", "[", 
+              RowBox[{
+               RowBox[{"Dynamic", "[", "progressLabel", "]"}], ",", "Gray", ",",
+                "12"}], "]"}]}], "}"}], "]"}], ",", "\"\<\>\""}], "]"}], 
+        "]"}], ",", 
        RowBox[{"Dynamic", "[", 
         RowBox[{"If", "[", 
          RowBox[{
@@ -1512,20 +1490,18 @@ abcdefghijklmnopqrstuvwxyz{}\[Bullet]\>\"", "]"}]}], ";",
                     RowBox[{"0.6", ",", "0.2", ",", "0.8"}], "]"}], ",", 
                    "Bold"}], "]"}]}], "}"}], "]"}]}], "}"}], "]"}], "]"}]}], 
          "]"}], "]"}]}], "}"}], "]"}], "]"}]}], "]"}]], "Input",
- CellChangeTimes->{{3.960980021972643*^9, 3.960980027605871*^9}, {
-  3.960980082789096*^9, 3.9609800863977623`*^9}, {3.960980363437422*^9, 
-  3.9609803734781313`*^9}, {3.960980428960589*^9, 3.96098045247865*^9}, {
-  3.960980626815336*^9, 3.960980673357416*^9}, {3.960981001117598*^9, 
-  3.960981002102027*^9}},
+ CellChangeTimes->{{3.960989221594701*^9, 3.960989221594749*^9}},
  CellLabel->
-  "In[586]:=",ExpressionUUID->"d85c8d7f-6b4e-4298-8b3b-cb5735bc4a20"],
+  "In[188]:=",ExpressionUUID->"499fbc62-9a0c-4a87-ac09-291835adf0f8"],
 
 Cell[BoxData[
  DynamicModuleBox[{$CellContext`keyWord$$ = 
-  "", $CellContext`mostFreqCharWord$$ = 
+  "sun", $CellContext`mostFreqCharWord$$ = 
   "", $CellContext`mostDigramGenerated$$ = {}, $CellContext`SYLLABLECOUNT$$ = 
   0, $CellContext`bestWordGeneticPool$$ = "", $CellContext`bestWord$$ = 
-  "", $CellContext`newAvgWords$$ = {}}, 
+  "", $CellContext`newAvgWords$$ = {}, $CellContext`newAvgWordsPhonetics$$ = \
+{}, $CellContext`progress$$ = 0, $CellContext`progressLabel$$ = 
+  "Ready", $CellContext`isRunning$$ = False}, 
   PanelBox[
    TagBox[GridBox[{
       {
@@ -1563,7 +1539,22 @@ $CellContext`initialState$, $CellContext`evolutionResults$, \
 $CellContext`finalWord$, $CellContext`bestDistance$, \
 $CellContext`testPositions$, $CellContext`positionDict$, $CellContext`net$, \
 $CellContext`vocabulary$, $CellContext`results$, $CellContext`trainednet$, \
-$CellContext`generator$, $CellContext`wordz$}, $CellContext`languages$ = 
+$CellContext`generator$, $CellContext`wordz$, $CellContext`netPhon$, \
+$CellContext`symbolMap$, $CellContext`ipaList$, \
+$CellContext`convertedTrainList$, $CellContext`vocabularyPhon$, \
+$CellContext`resultsPhon$, $CellContext`trainednetPhon$, \
+$CellContext`generatorPhon$, $CellContext`wordzPhon$, \
+$CellContext`updateProgress$}, $CellContext`isRunning$$ = 
+           True; $CellContext`progress$$ = 0; $CellContext`progressLabel$$ = 
+           "Starting..."; $CellContext`updateProgress$[
+             Pattern[$CellContext`value$, 
+              Blank[]], 
+             Pattern[$CellContext`label$, 
+              
+              Blank[]]] := ($CellContext`progress$$ = $CellContext`value$; \
+$CellContext`progressLabel$$ = $CellContext`label$; Pause[0.1]; 
+            Null); $CellContext`updateProgress$[
+           5, "Fetching translations..."]; $CellContext`languages$ = 
            EntityList[
              EntityClass[
              "Language", {
@@ -1580,7 +1571,9 @@ $CellContext`languages$]]; $CellContext`translatedList$ = DeleteCases[
                  Values[$CellContext`rawTranslations$]], StringMatchQ[#, 
                  Repeated[
                   CharacterRange["A", "z"]]]& ]]], 
-             "notavailable"]; $CellContext`charLists$ = 
+             "notavailable"]; $CellContext`updateProgress$[
+           15, "Processing character frequencies..."]; \
+$CellContext`charLists$ = 
            Map[Characters, $CellContext`translatedList$]; \
 $CellContext`avgLen$ = Round[
              Mean[
@@ -1610,6 +1603,8 @@ $CellContext`mostFreqCharWord$$ = StringJoin[
                Map[
                ResourceFunction[
                 "WordSyllables"][#]& , $CellContext`translatedList$]]]]; \
+$CellContext`updateProgress$[
+           25, "Generating digram-based words..."]; \
 $CellContext`positionedDigrams$ = Flatten[
              Table[
               If[
@@ -1649,7 +1644,8 @@ $CellContext`numSyllables$]; $CellContext`syllables$ =
 $CellContext`mostDigramGenerated$$ = DeleteDuplicates[
              Table[
               $CellContext`generateWord$[], {
-              10}]]; $CellContext`populationSize$ = 
+              10}]]; $CellContext`updateProgress$[
+           35, "Running genetic algorithm..."]; $CellContext`populationSize$ = 
            100; $CellContext`generations$ = 5; $CellContext`mutationRate$ = 
            0.2; $CellContext`topDigramsByPosition$ = Table[
              Keys[
@@ -1741,7 +1737,12 @@ $CellContext`child$ = Take[$CellContext`child$, $CellContext`MAXLENGTH$]];
                RandomChoice[$CellContext`charSet$], $CellContext`c], \
 {$CellContext`c, 
                Characters[$CellContext`str$]}]]; $CellContext`allBest$ = 
-           Table[$CellContext`fitnesses$ = 
+           Table[If[Mod[$CellContext`gen, 2] == 0, 
+               $CellContext`updateProgress$[
+               35 + $CellContext`gen 2, "Genetic algorithm generation " <> 
+                ToString[$CellContext`gen] <> "/" <> 
+                ToString[$CellContext`generations$]]]; \
+$CellContext`fitnesses$ = 
               Map[$CellContext`fitnessFunction$, $CellContext`population$]; \
 $CellContext`bestCandidate$ = Part[$CellContext`population$, 
                 First[
@@ -1768,7 +1769,9 @@ $CellContext`fitnesses$}], Last,
 $CellContext`bestWordGeneticPool$$ = First[
              
              MaximalBy[$CellContext`allBest$, $CellContext`fitnessFunction$]]; \
-$CellContext`baseWord$ = StringJoin[
+$CellContext`updateProgress$[
+           50, "Running evolution algorithm..."]; $CellContext`baseWord$ = 
+           StringJoin[
              RandomChoice[
               CharacterRange["a", "z"], 
               5]]; $CellContext`testList$ = $CellContext`translatedList$; \
@@ -1792,7 +1795,6 @@ $CellContext`padChar$]& , $CellContext`wordList$]; $CellContext`allChars$ =
               Union[
                 Flatten[
                  Map[
-                 
                  Characters, $CellContext`paddedWords$]]]; \
 $CellContext`allChars$]; $CellContext`pad[
              Pattern[$CellContext`w1$, 
@@ -2000,9 +2002,17 @@ $CellContext`initialState$ = {$CellContext`baseWord$, $CellContext`baseWord$,
               Map[
               EditDistance[$CellContext`baseWord$, #]& , \
 $CellContext`testList$]], {}, {$CellContext`baseWord$}}; \
-$CellContext`evolutionResults$ = 
-           NestList[$CellContext`evolutionStep, $CellContext`initialState$, \
-$CellContext`GENERATIONS$]; {$CellContext`finalWord$, \
+$CellContext`evolutionResults$ = Table[If[Mod[$CellContext`gen, 100] == 0, 
+               $CellContext`updateProgress$[
+               50 + ($CellContext`gen/$CellContext`GENERATIONS$) 15, 
+                "Evolution step " <> ToString[$CellContext`gen] <> "/" <> 
+                ToString[$CellContext`GENERATIONS$]]]; \
+$CellContext`evolutionStep[
+               If[$CellContext`gen == 1, $CellContext`initialState$, 
+                
+                Part[$CellContext`evolutionResults$, $CellContext`gen - 
+                 1]]], {$CellContext`gen, 
+              1, $CellContext`GENERATIONS$}]; {$CellContext`finalWord$, \
 $CellContext`bestWord$$, $CellContext`bestDistance$, \
 $CellContext`targetWords$, $CellContext`baseWordStates$} = 
            Last[$CellContext`evolutionResults$]; $CellContext`testPositions$ = \
@@ -2017,7 +2027,8 @@ $CellContext`layoutTestWords[
                  3]}& , $CellContext`testPositions$]|>; \
 $CellContext`bestWord$$ = 
            StringReplace[$CellContext`bestWord$$, "_" -> 
-             ""]; $CellContext`net$ = 
+             ""]; $CellContext`updateProgress$[
+           70, "Training neural network (standard)..."]; $CellContext`net$ = 
            NetModel[
             "Wolfram English Character-Level Language Model V1", 
              "TrainingNet"]; $CellContext`vocabulary$ = 
@@ -2031,8 +2042,13 @@ $CellContext`bestWord$$ =
                  97}}]]; $CellContext`results$ = 
            NetTrain[$CellContext`net$, <|
              "Input" -> $CellContext`translatedList$|>, All, LossFunction -> 
-             "Loss", MaxTrainingRounds -> 
-             500]; $CellContext`trainednet$ = $CellContext`results$[
+             "Loss", MaxTrainingRounds -> 500, TrainingProgressFunction -> 
+             Function[{$CellContext`assoc$}, 
+               $CellContext`updateProgress$[
+               70 + ($CellContext`assoc$["Round"]/500) 15, 
+                "Training neural network: round " <> ToString[
+                  $CellContext`assoc$["Round"]] <> 
+                "/500"]]]; $CellContext`trainednet$ = $CellContext`results$[
             "TrainedNet"]; $CellContext`generator$ = NetReplacePart[
              NetExtract[$CellContext`trainednet$, "predict"], {
              "Input" -> NetEncoder[{
@@ -2051,65 +2067,88 @@ $CellContext`SYLLABLECOUNT$$ + 2]]]; $CellContext`newAvgWords$$ = Sort[
              Complement[
               Table[
                $CellContext`wordz$[], 
-               15], $CellContext`translatedList$]]; $CellContext`netPhon = 
+               15], $CellContext`translatedList$]]; \
+$CellContext`updateProgress$[
+           85, "Training phonetic neural network..."]; $CellContext`netPhon$ = 
            NetModel[
             "Wolfram English Character-Level Language Model V1", 
-             "TrainingNet"]; $CellContext`symbolMap = <|
+             "TrainingNet"]; $CellContext`symbolMap$ = <|
             "\[Theta]" -> "1", "\[Eth]" -> "2", "\:0283" -> "3", "\:0292" -> 
              "4", "\:026a" -> "5", "\:025b" -> "6", "\[AE]" -> "7", "\:0254" -> 
              "8", "\:028a" -> "9", "\:028c" -> "0", "\:0259" -> ".", "\:025c" -> 
              ",", "\:014b" -> ";", "\:0261" -> ":", "\:0251" -> "!", "\:02c8" -> 
              "@", "\:02cc" -> "=", "\:0252" -> "*", "\:025d" -> 
-             "["|>; $CellContext`ipaList = Map[Part[
+             "["|>; $CellContext`ipaList$ = Map[Part[
               ResourceFunction["WordPhoneticSyllabify"][#], 
               2]& , $CellContext`translatedList$]; \
-$CellContext`convertedTrainList = Map[StringJoin[
-              Map[Lookup[$CellContext`symbolMap, #, #]& , 
+$CellContext`convertedTrainList$ = Map[StringJoin[
+              Map[Lookup[$CellContext`symbolMap$, #, #]& , 
                Characters[#]]]& , 
              
-             StringReplace[$CellContext`ipaList, "\[Bullet]" -> 
-              ""]]; $CellContext`vocabularyPhon = 
+             StringReplace[$CellContext`ipaList$, "\[Bullet]" -> 
+              ""]]; $CellContext`vocabularyPhon$ = 
            Characters[
             "\t\n !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\
-\\]^_`abcdefghijklmnopqrstuvwxyz{}\[Bullet]"]; $CellContext`netPhon = 
-           NetReplacePart[$CellContext`netPhon, "Input" -> 
+\\]^_`abcdefghijklmnopqrstuvwxyz{}\[Bullet]"]; $CellContext`netPhon$ = 
+           NetReplacePart[$CellContext`netPhon$, "Input" -> 
              NetEncoder[{
-               "Characters", {$CellContext`vocabularyPhon, {
+               "Characters", {$CellContext`vocabularyPhon$, {
                   StartOfString, EndOfString} -> 
-                 97}}]]; $CellContext`resultsPhon = 
-           NetTrain[$CellContext`netPhon, <|
-             "Input" -> $CellContext`convertedTrainList|>, All, LossFunction -> 
-             "Loss", MaxTrainingRounds -> 
-             500]; $CellContext`trainednetPhon = $CellContext`resultsPhon[
-            "TrainedNet"]; $CellContext`generatorPhon = NetReplacePart[
-             NetExtract[$CellContext`trainednetPhon, "predict"], {
+                 97}}]]; $CellContext`resultsPhon$ = 
+           NetTrain[$CellContext`netPhon$, <|
+             "Input" -> $CellContext`convertedTrainList$|>, All, LossFunction -> 
+             "Loss", MaxTrainingRounds -> 500, TrainingProgressFunction -> 
+             Function[{$CellContext`assoc$}, 
+               $CellContext`updateProgress$[
+               85 + ($CellContext`assoc$["Round"]/500) 14, 
+                "Training phonetic network: round " <> ToString[
+                  $CellContext`assoc$["Round"]] <> 
+                "/500"]]]; $CellContext`trainednetPhon$ = \
+$CellContext`resultsPhon$["TrainedNet"]; $CellContext`generatorPhon$ = 
+           NetReplacePart[
+             NetExtract[$CellContext`trainednetPhon$, "predict"], {
              "Input" -> NetEncoder[{
-                "Characters", {$CellContext`vocabularyPhon, EndOfString}, 
+                "Characters", {$CellContext`vocabularyPhon$, EndOfString}, 
                  "TargetLength" -> 1}], "Output" -> NetDecoder[{"Class", 
                  
-                 Append[$CellContext`vocabularyPhon, 
-                  ""]}]}]; $CellContext`wordzPhon[] := 
+                 Append[$CellContext`vocabularyPhon$, 
+                  ""]}]}]; $CellContext`wordzPhon$[] := 
            With[{$CellContext`obj$ = 
-              NetStateObject[$CellContext`generatorPhon]}, 
+              NetStateObject[$CellContext`generatorPhon$]}, 
              StringJoin[
               NestWhileList[$CellContext`obj$[
                 Last[#], "RandomSample"]& , {
                "", ""}, # =!= {
                 ""}& , $CellContext`SYLLABLECOUNT$$, \
-$CellContext`SYLLABLECOUNT$$ + 2]]]; $CellContext`newAvgWordsPhonetics = 
+$CellContext`SYLLABLECOUNT$$ + 2]]]; $CellContext`newAvgWordsPhonetics$$ = 
            Map[StringJoin[
               Map[Lookup[<|
                  Map[Reverse, 
-                  Normal[$CellContext`symbolMap]]|>, #, #]& , 
+                  Normal[$CellContext`symbolMap$]]|>, #, #]& , 
                Characters[#]]]& , 
              Sort[
               Complement[
                DeleteDuplicates[
                 Table[
-                 $CellContext`wordzPhon[], 
-                 15]], $CellContext`convertedTrainList]]]; Null],
+                 $CellContext`wordzPhon$[], 
+                 15]], $CellContext`convertedTrainList$]]]; \
+$CellContext`updateProgress$[100, "Complete!"]; $CellContext`isRunning$$ = 
+           False; Null],
+        Enabled->Dynamic[
+          Not[$CellContext`isRunning$$]],
         Evaluator->Automatic,
         Method->"Queued"]},
+      {
+       DynamicBox[ToBoxes[
+         If[
+          Or[$CellContext`isRunning$$, $CellContext`progress$$ > 0], 
+          Column[{
+            ProgressIndicator[
+             Dynamic[$CellContext`progress$$/100], {0, 1}], 
+            Style[
+             Dynamic[$CellContext`progressLabel$$], Gray, 12]}], ""], 
+         StandardForm],
+        ImageSizeCache->{0., {0., 3.2109375}}]},
       {
        DynamicBox[ToBoxes[
          If[$CellContext`mostFreqCharWord$$ === "", "", 
@@ -2134,7 +2173,7 @@ $CellContext`SYLLABLECOUNT$$ + 2]]]; $CellContext`newAvgWordsPhonetics =
              Row[{"Neural network phonetic words: ", 
                Style[
                 Row[
-                 Riffle[$CellContext`newAvgWordsPhonetics, ", "]], 
+                 Riffle[$CellContext`newAvgWordsPhonetics$$, ", "]], 
                 RGBColor[0.6, 0.2, 0.8], Bold]}]}]]], StandardForm],
         ImageSizeCache->{0., {0., 3.2109375}}]}
      },
@@ -2143,11 +2182,63 @@ $CellContext`SYLLABLECOUNT$$ + 2]]]; $CellContext`newAvgWordsPhonetics =
      GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
     "Column"]],
   DynamicModuleValues:>{}]], "Output",
- CellChangeTimes->{
-  3.9609801447417507`*^9, 3.9609804536150017`*^9, {3.960980687384364*^9, 
-   3.96098070890394*^9}, 3.960981003741456*^9},
+ CellChangeTimes->{3.960989222657269*^9},
  CellLabel->
-  "Out[586]=",ExpressionUUID->"baf0d679-562e-47b2-9b68-c76db11ab1bf"]
+  "Out[188]=",ExpressionUUID->"2a0873e5-b4dc-4613-9229-5d283e18e4dd"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part", "partd", 
+   "\"Part specification \\!\\(\\*RowBox[{\\\"evolutionResults$535310\\\", \\\
+\"\[LeftDoubleBracket]\\\", \\\"1\\\", \\\"\[RightDoubleBracket]\\\"}]\\) is \
+longer than depth of object.\"", 2, 189, 5, 26408870535716887731, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.9609892435639477`*^9},
+ CellLabel->"",ExpressionUUID->"c0f32465-a597-49fa-b633-2ef703a4804c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part", "partd", 
+   "\"Part specification \\!\\(\\*RowBox[{\\\"evolutionResults$535310\\\", \\\
+\"\[LeftDoubleBracket]\\\", \\\"2\\\", \\\"\[RightDoubleBracket]\\\"}]\\) is \
+longer than depth of object.\"", 2, 189, 6, 26408870535716887731, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.960989243616488*^9},
+ CellLabel->"",ExpressionUUID->"c6c524a9-0d17-414b-8c61-dd47084b120e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part", "partd", 
+   "\"Part specification \\!\\(\\*RowBox[{\\\"evolutionResults$535310\\\", \\\
+\"\[LeftDoubleBracket]\\\", \\\"3\\\", \\\"\[RightDoubleBracket]\\\"}]\\) is \
+longer than depth of object.\"", 2, 189, 7, 26408870535716887731, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.960989243632321*^9},
+ CellLabel->"",ExpressionUUID->"c3d3ba19-693d-4dba-9375-1ec035537646"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Part\\\", \\\"::\\\", \
+\\\"partd\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 189, 8, 26408870535716887731, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.9609892436464777`*^9},
+ CellLabel->"",ExpressionUUID->"ec669819-d78d-41b8-87ea-a997bfbaefbc"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "$RecursionLimit", "reclim", 
+   "\"Recursion depth of \\!\\(\\*RowBox[{\\\"1024\\\"}]\\) exceeded.\"", 2, 
+   189, 9, 26408870535716887731, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.9609892446501017`*^9},
+ CellLabel->"",ExpressionUUID->"fe3413ab-c00e-423f-a6e3-2f7b39b26579"]
 }, Open  ]]
 },
 WindowSize->{1080, 625.5},
@@ -2169,16 +2260,13 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[576, 22, 1647, 41, 65, "Input",ExpressionUUID->"9095374d-ad4d-4ad6-863d-a1a1e3126936"],
-Cell[2226, 65, 868, 14, 37, "Output",ExpressionUUID->"08b72c1d-0e8a-43c2-a0ad-94830198166e"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[3131, 84, 3558, 94, 138, "Input",ExpressionUUID->"2c9ea3e4-b0b3-4493-97de-c09a5b02af50"],
-Cell[6692, 180, 353, 7, 23, "Output",ExpressionUUID->"0df3cca6-b833-4e86-924d-35943b609930"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[7082, 192, 61747, 1328, 2448, "Input",ExpressionUUID->"d85c8d7f-6b4e-4298-8b3b-cb5735bc4a20"],
-Cell[68832, 1522, 29826, 627, 84, "Output",ExpressionUUID->"baf0d679-562e-47b2-9b68-c76db11ab1bf"]
+Cell[576, 22, 68597, 1472, 2588, "Input",ExpressionUUID->"499fbc62-9a0c-4a87-ac09-291835adf0f8"],
+Cell[69176, 1496, 33112, 690, 92, "Output",ExpressionUUID->"2a0873e5-b4dc-4613-9229-5d283e18e4dd"],
+Cell[102291, 2188, 451, 9, 18, "Message",ExpressionUUID->"c0f32465-a597-49fa-b633-2ef703a4804c"],
+Cell[102745, 2199, 449, 9, 18, "Message",ExpressionUUID->"c6c524a9-0d17-414b-8c61-dd47084b120e"],
+Cell[103197, 2210, 449, 9, 18, "Message",ExpressionUUID->"c3d3ba19-693d-4dba-9375-1ec035537646"],
+Cell[103649, 2221, 431, 9, 18, "Message",ExpressionUUID->"ec669819-d78d-41b8-87ea-a997bfbaefbc"],
+Cell[104083, 2232, 350, 8, 18, "Message",ExpressionUUID->"fe3413ab-c00e-423f-a6e3-2f7b39b26579"]
 }, Open  ]]
 }
 ]
