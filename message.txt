@@ -1,4 +1,4 @@
-Hendry: 
+Hendry:
 instead of saying "a" and "b" are 1 apart, it would be nice to have a pronunciation distance
 
 most words for water are probably longer than 1 or 2 digrams?
@@ -11,7 +11,7 @@ for a 4gram, you can enumerate them all and calc which is the closest. compute t
 
 done a lot of good stuff here! (sw's voice went high = impressed)
 
-use more languages. weight the languages based on number of speakers if that's what you want. 
+use more languages. weight the languages based on number of speakers if that's what you want.
 
 start with nn that's changed for english, post-training it with other languages, loss goes down, replacing prediction layer with something that generates more letters.
 
