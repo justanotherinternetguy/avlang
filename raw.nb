@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     62240,       1391]
-NotebookOptionsPosition[     60724,       1361]
-NotebookOutlinePosition[     61148,       1378]
-CellTagsIndexPosition[     61105,       1375]
+NotebookDataLength[     62226,       1391]
+NotebookOptionsPosition[     60710,       1361]
+NotebookOutlinePosition[     61134,       1378]
+CellTagsIndexPosition[     61091,       1375]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -610,79 +610,79 @@ Cell[BoxData[
         RowBox[{"findDifferingIndices", "[", 
          RowBox[{"str1_", ",", "str2_"}], "]"}], ":=", 
         RowBox[{
-         RowBox[{"Module", "[", 
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{"minLen", ",", "diffs"}], "}"}], ",", 
-           RowBox[{
-            RowBox[{"minLen", "=", 
-             RowBox[{"Min", "[", 
-              RowBox[{
-               RowBox[{"StringLength", "[", "str1", "]"}], ",", 
-               RowBox[{"StringLength", "[", "str2", "]"}]}], "]"}]}], ";", 
-            "\[IndentingNewLine]", 
-            RowBox[{"diffs", "=", 
-             RowBox[{"Select", "[", 
-              RowBox[{
-               RowBox[{"Range", "[", "minLen", "]"}], ",", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{"StringTake", "[", 
-                  RowBox[{"str1", ",", 
-                   RowBox[{"{", "#", "}"}]}], "]"}], "=!=", 
-                 RowBox[{"StringTake", "[", 
-                  RowBox[{"str2", ",", 
-                   RowBox[{"{", "#", "}"}]}], "]"}]}], "&"}]}], "]"}]}], ";", 
-            "\[IndentingNewLine]", "diffs"}]}], "]"}], "\n", "\n", 
          RowBox[{
-          RowBox[{"layoutTestWords", "[", 
-           RowBox[{"baseWord_", ",", " ", "testList_"}], "]"}], " ", ":=", 
-          " ", "\n", "  ", 
           RowBox[{"Module", "[", 
            RowBox[{
             RowBox[{"{", 
-             RowBox[{"angles", ",", " ", "positions"}], "}"}], ",", " ", "\n",
-             "   ", 
+             RowBox[{"minLen", ",", "diffs"}], "}"}], ",", 
             RowBox[{
-             RowBox[{"angles", " ", "=", " ", 
-              RowBox[{
-               RowBox[{"Subdivide", "[", 
-                RowBox[{"0", ",", " ", 
-                 RowBox[{"2", "*", "Pi"}], ",", " ", 
-                 RowBox[{"Length", "[", "testList", "]"}]}], "]"}], "[", 
-               RowBox[{"[", 
-                RowBox[{"1", " ", ";;", " ", 
-                 RowBox[{"-", "2"}]}], "]"}], "]"}]}], ";", "\n", "   ", 
-             RowBox[{"positions", " ", "=", " ", 
-              RowBox[{"Table", "[", "\n", "     ", 
+             RowBox[{"minLen", "=", 
+              RowBox[{"Min", "[", 
                RowBox[{
-                RowBox[{"With", "[", 
+                RowBox[{"StringLength", "[", "str1", "]"}], ",", 
+                RowBox[{"StringLength", "[", "str2", "]"}]}], "]"}]}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{"diffs", "=", 
+              RowBox[{"Select", "[", 
+               RowBox[{
+                RowBox[{"Range", "[", "minLen", "]"}], ",", 
+                RowBox[{
                  RowBox[{
-                  RowBox[{"{", 
-                   RowBox[{"dist", " ", "=", " ", 
-                    RowBox[{"EditDistance", "[", 
+                  RowBox[{"StringTake", "[", 
+                   RowBox[{"str1", ",", 
+                    RowBox[{"{", "#", "}"}]}], "]"}], "=!=", 
+                  RowBox[{"StringTake", "[", 
+                   RowBox[{"str2", ",", 
+                    RowBox[{"{", "#", "}"}]}], "]"}]}], "&"}]}], "]"}]}], ";",
+              "\[IndentingNewLine]", "diffs"}]}], "]"}], "\n", "\n", 
+          RowBox[{"layoutTestWords", "[", 
+           RowBox[{"baseWord_", ",", " ", "testList_"}], "]"}]}], " ", ":=", 
+         " ", "\n", "  ", 
+         RowBox[{"Module", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"angles", ",", " ", "positions"}], "}"}], ",", " ", "\n", 
+           "   ", 
+           RowBox[{
+            RowBox[{"angles", " ", "=", " ", 
+             RowBox[{
+              RowBox[{"Subdivide", "[", 
+               RowBox[{"0", ",", " ", 
+                RowBox[{"2", "*", "Pi"}], ",", " ", 
+                RowBox[{"Length", "[", "testList", "]"}]}], "]"}], "[", 
+              RowBox[{"[", 
+               RowBox[{"1", " ", ";;", " ", 
+                RowBox[{"-", "2"}]}], "]"}], "]"}]}], ";", "\n", "   ", 
+            RowBox[{"positions", " ", "=", " ", 
+             RowBox[{"Table", "[", "\n", "     ", 
+              RowBox[{
+               RowBox[{"With", "[", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"dist", " ", "=", " ", 
+                   RowBox[{"EditDistance", "[", 
                     RowBox[{"baseWord", ",", " ", 
                     RowBox[{"testList", "[", 
                     RowBox[{"[", "i", "]"}], "]"}]}], "]"}]}], "}"}], ",", 
-                  "\n", "      ", 
-                  RowBox[{"{", 
-                   RowBox[{
-                    RowBox[{"testList", "[", 
+                 "\n", "      ", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"testList", "[", 
                     RowBox[{"[", "i", "]"}], "]"}], ",", " ", "\n", "       ", 
-                    RowBox[{
+                   RowBox[{
                     RowBox[{"Cos", "[", 
                     RowBox[{"angles", "[", 
                     RowBox[{"[", "i", "]"}], "]"}], "]"}], "*", "dist"}], ",",
-                     " ", "\n", "       ", 
-                    RowBox[{
+                    " ", "\n", "       ", 
+                   RowBox[{
                     RowBox[{"Sin", "[", 
                     RowBox[{"angles", "[", 
                     RowBox[{"[", "i", "]"}], "]"}], "]"}], "*", "dist"}]}], 
-                   "}"}]}], "\n", "      ", "]"}], ",", " ", 
-                RowBox[{"{", 
-                 RowBox[{"i", ",", " ", "1", ",", " ", 
-                  RowBox[{"Length", "[", "testList", "]"}]}], "}"}]}], 
-               "]"}]}], ";", "\n", "   ", "positions"}]}], "]"}]}]}]}], ";", 
+                  "}"}]}], "\n", "      ", "]"}], ",", " ", 
+               RowBox[{"{", 
+                RowBox[{"i", ",", " ", "1", ",", " ", 
+                 RowBox[{"Length", "[", "testList", "]"}]}], "}"}]}], "]"}]}],
+             ";", "\n", "   ", "positions"}]}], "]"}]}]}], ";", 
        "\[IndentingNewLine]", "\[IndentingNewLine]", 
        RowBox[{
         RowBox[{"calculateCharFrequencies", "[", "wordList_", "]"}], ":=", 
@@ -1381,18 +1381,18 @@ Cell[CellGroupData[{
 Cell[576, 22, 338, 7, 21, "Input",ExpressionUUID->"c02e0d16-b385-43eb-8f3f-d37867dc013e"],
 Cell[917, 31, 266, 6, 23, "Output",ExpressionUUID->"bdb07400-de68-44d5-bde2-66ed6baf2e2b"]
 }, Open  ]],
-Cell[1198, 40, 48616, 1111, 5553, "Input",ExpressionUUID->"8affeddc-7013-4905-b146-fb8a295fad82"],
+Cell[1198, 40, 48602, 1111, 5583, "Input",ExpressionUUID->"8affeddc-7013-4905-b146-fb8a295fad82"],
 Cell[CellGroupData[{
-Cell[49839, 1155, 443, 12, 48, "Input",ExpressionUUID->"e543ebb1-e1d4-4e8f-82d0-5d8dfbb35e33"],
-Cell[50285, 1169, 453, 11, 18, "Message",ExpressionUUID->"5fc1d8c0-7926-40ac-8614-4992e9ef510a"],
-Cell[50741, 1182, 3906, 57, 82, "Message",ExpressionUUID->"300713e6-f2f0-4ee2-94ec-0d2e5a2e5de9"],
-Cell[54650, 1241, 764, 15, 45, "Message",ExpressionUUID->"61063350-e5e8-486e-a5eb-1e0f11fd771d"],
-Cell[55417, 1258, 764, 15, 45, "Message",ExpressionUUID->"0f0550eb-a38f-42ee-a42a-5686aa3163f5"],
-Cell[56184, 1275, 1632, 27, 71, "Message",ExpressionUUID->"95863753-177f-4d3c-9c22-9c91b2b2334b"],
-Cell[57819, 1304, 1632, 27, 71, "Message",ExpressionUUID->"66ecb94f-970b-4ff4-9f97-0f07786c2321"],
-Cell[59454, 1333, 1104, 20, 57, "Message",ExpressionUUID->"ea9929fb-51e7-4c40-bf42-e4ba4b2fe890"]
+Cell[49825, 1155, 443, 12, 48, "Input",ExpressionUUID->"e543ebb1-e1d4-4e8f-82d0-5d8dfbb35e33"],
+Cell[50271, 1169, 453, 11, 18, "Message",ExpressionUUID->"5fc1d8c0-7926-40ac-8614-4992e9ef510a"],
+Cell[50727, 1182, 3906, 57, 82, "Message",ExpressionUUID->"300713e6-f2f0-4ee2-94ec-0d2e5a2e5de9"],
+Cell[54636, 1241, 764, 15, 45, "Message",ExpressionUUID->"61063350-e5e8-486e-a5eb-1e0f11fd771d"],
+Cell[55403, 1258, 764, 15, 45, "Message",ExpressionUUID->"0f0550eb-a38f-42ee-a42a-5686aa3163f5"],
+Cell[56170, 1275, 1632, 27, 71, "Message",ExpressionUUID->"95863753-177f-4d3c-9c22-9c91b2b2334b"],
+Cell[57805, 1304, 1632, 27, 71, "Message",ExpressionUUID->"66ecb94f-970b-4ff4-9f97-0f07786c2321"],
+Cell[59440, 1333, 1104, 20, 57, "Message",ExpressionUUID->"ea9929fb-51e7-4c40-bf42-e4ba4b2fe890"]
 }, Open  ]],
-Cell[60573, 1356, 147, 3, 34, "Input",ExpressionUUID->"dac03de9-f659-4b15-9e6a-1fda5d7a4e5f"]
+Cell[60559, 1356, 147, 3, 34, "Input",ExpressionUUID->"dac03de9-f659-4b15-9e6a-1fda5d7a4e5f"]
 }
 ]
 *)
