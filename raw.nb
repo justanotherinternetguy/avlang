@@ -1,0 +1,1399 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     62240,       1391]
+NotebookOptionsPosition[     60724,       1361]
+NotebookOutlinePosition[     61148,       1378]
+CellTagsIndexPosition[     61105,       1375]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"keywords", "=", 
+  RowBox[{"{", 
+   RowBox[{"\"\<sun\>\"", ",", " ", "\"\<moon\>\"", ",", " ", "\"\<fire\>\"", 
+    ",", " ", "\"\<water\>\""}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.961041808298959*^9, 3.9610418189428997`*^9}},
+ CellLabel->
+  "In[376]:=",ExpressionUUID->"c02e0d16-b385-43eb-8f3f-d37867dc013e"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"sun\"\>", ",", "\<\"moon\"\>", ",", "\<\"fire\"\>", 
+   ",", "\<\"water\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{3.961041930575231*^9},
+ CellLabel->
+  "Out[376]=",ExpressionUUID->"bdb07400-de68-44d5-bde2-66ed6baf2e2b"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"GenerateWordVariants", "[", "keyWord_String", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"languages", "=", 
+        RowBox[{
+         RowBox[{"EntityClass", "[", 
+          RowBox[{"\"\<Language\>\"", ",", 
+           RowBox[{"{", 
+            RowBox[{"\"\<TotalSpeakers\>\"", "->", 
+             RowBox[{"TakeLargest", "[", "100", "]"}]}], "}"}]}], "]"}], "//",
+          "EntityList"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"rawTranslations", " ", "=", " ", 
+        RowBox[{"KeyValueMap", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"#1", "->", 
+            RowBox[{"First", "[", "#2", "]"}]}], "&"}], ",", 
+          RowBox[{"WordTranslation", "[", 
+           RowBox[{"keyWord", ",", " ", "languages"}], "]"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"translatedList", "=", 
+        RowBox[{"DeleteCases", "[", 
+         RowBox[{
+          RowBox[{"DeleteDuplicates", "[", 
+           RowBox[{"ToLowerCase", "[", 
+            RowBox[{"Select", "[", 
+             RowBox[{
+              RowBox[{"Transliterate", "[", 
+               RowBox[{"Values", "[", "rawTranslations", "]"}], "]"}], ",", 
+              RowBox[{
+               RowBox[{"StringMatchQ", "[", 
+                RowBox[{"#", ",", 
+                 RowBox[{
+                  RowBox[{"CharacterRange", "[", 
+                   RowBox[{"\"\<A\>\"", ",", "\"\<z\>\""}], "]"}], ".."}]}], 
+                "]"}], "&"}]}], "]"}], "]"}], "]"}], ",", 
+          " ", "\"\<notavailable\>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{"charLists", " ", "=", " ", 
+        RowBox[{"Characters", " ", "/@", " ", "translatedList"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"avgLen", "=", 
+        RowBox[{"Round", "[", 
+         RowBox[{"Mean", "[", 
+          RowBox[{"Length", "/@", "charLists"}], "]"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"augmentedLists", "=", "\[IndentingNewLine]", 
+        RowBox[{"Map", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Function", "[", 
+           RowBox[{"chars", ",", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Length", "[", "chars", "]"}], ">", "avgLen"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"Take", "[", 
+               RowBox[{"chars", ",", "avgLen"}], "]"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"PadRight", "[", 
+               RowBox[{"chars", ",", "avgLen", ",", "\"\<-\>\""}], "]"}]}], 
+             "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], ",",
+           "charLists"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{"transposed", "=", 
+        RowBox[{"Transpose", "[", "augmentedLists", "]"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"mostFreqChar", "=", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"DeleteCases", "[", 
+               RowBox[{"#", ",", "\"\<-\>\""}], "]"}], "===", 
+              RowBox[{"{", "}"}]}], ",", "\"\<-\>\"", ",", 
+             RowBox[{"SortBy", "[", 
+              RowBox[{
+               RowBox[{"Tally", "@", 
+                RowBox[{"DeleteCases", "[", 
+                 RowBox[{"#", ",", "\"\<-\>\""}], "]"}]}], ",", 
+               RowBox[{
+                RowBox[{"-", 
+                 RowBox[{"Last", "[", "#", "]"}]}], "&"}]}], "]"}]}], "]"}], "[", 
+           RowBox[{"[", 
+            RowBox[{"1", ",", " ", "1"}], "]"}], "]"}], "&"}], "/@", 
+         "transposed"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       
+       RowBox[{"mostFreqCharWord", "=", 
+        RowBox[{"StringJoin", "[", 
+         RowBox[{"DeleteCases", "[", 
+          RowBox[{"mostFreqChar", ",", "\"\<-\>\""}], "]"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"SYLLABLECOUNT", " ", "=", " ", 
+        RowBox[{"Round", "[", 
+         RowBox[{"Mean", "[", 
+          RowBox[{"Length", "/@", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{
+               "ResourceFunction", "[", "\"\<WordSyllables\>\"", "]"}], "[", 
+               "#", "]"}], "&"}], "/@", "translatedList"}], ")"}]}], "]"}], 
+         "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"positionedDigrams", "=", 
+        RowBox[{"Flatten", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Table", "[", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"If", "[", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"StringLength", "[", "word", "]"}], ">=", 
+               RowBox[{"pos", "+", "1"}]}], ",", "\[IndentingNewLine]", 
+              RowBox[{"{", 
+               RowBox[{"pos", ",", 
+                RowBox[{"StringTake", "[", 
+                 RowBox[{"word", ",", 
+                  RowBox[{"{", 
+                   RowBox[{"pos", ",", 
+                    RowBox[{"pos", "+", "1"}]}], "}"}]}], "]"}]}], "}"}], ",",
+               "\[IndentingNewLine]", "Nothing"}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"word", ",", "translatedList"}], "}"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"pos", ",", 
+              RowBox[{
+               RowBox[{"StringLength", "[", "word", "]"}], "-", "1"}]}], 
+             "}"}]}], "\[IndentingNewLine]", "]"}], ",", "1"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"groupedByPosition", "=", 
+        RowBox[{"GroupBy", "[", 
+         RowBox[{"positionedDigrams", ",", 
+          RowBox[{"First", "->", "Last"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"countsByPosition", "=", 
+        RowBox[{"AssociationMap", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Counts", "[", 
+            RowBox[{"groupedByPosition", "[", "#", "]"}], "]"}], "&"}], ",", 
+          RowBox[{"Keys", "[", "groupedByPosition", "]"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"topDigramsByPosition", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Keys", "@", 
+           RowBox[{"TakeLargestBy", "[", 
+            RowBox[{
+             RowBox[{"countsByPosition", "[", "pos", "]"}], ",", "Identity", ",", 
+             RowBox[{"UpTo", "[", "1", "]"}]}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"pos", ",", 
+            RowBox[{"Sort", "@", 
+             RowBox[{"Keys", "[", "countsByPosition", "]"}]}]}], "}"}]}], 
+         "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"generateWord", "[", "]"}], ":=", 
+        RowBox[{
+         RowBox[{"Module", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"numSyllables", ",", "selectedLists", ",", "syllables"}], 
+            "}"}], ",", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"numSyllables", ":=", 
+             RowBox[{"RandomInteger", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Max", "[", 
+                 RowBox[{"1", ",", " ", 
+                  RowBox[{"SYLLABLECOUNT", "-", "2"}]}], "]"}], ",", " ", 
+                RowBox[{"Min", "[", 
+                 RowBox[{
+                  RowBox[{"Length", "[", "topDigramsByPosition", "]"}], ",", 
+                  " ", 
+                  RowBox[{"SYLLABLECOUNT", "+", "2"}]}], "]"}]}], "}"}], 
+              "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"selectedLists", "=", 
+             RowBox[{"Take", "[", 
+              RowBox[{"topDigramsByPosition", ",", "numSyllables"}], "]"}]}], 
+            ";", "\[IndentingNewLine]", 
+            RowBox[{"syllables", "=", 
+             RowBox[{"RandomChoice", "/@", "selectedLists"}]}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"StringJoin", "[", "syllables", "]"}]}]}], 
+          "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"mostDigramGenerated", "=", 
+          RowBox[{"DeleteDuplicates", "[", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"generateWord", "[", "]"}], ",", 
+             RowBox[{"{", "7", "}"}]}], "]"}], "]"}]}]}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"Clear", "[", 
+        RowBox[{
+        "populationSize", ",", " ", "generations", ",", " ", "mutationRate", ",",
+          " ", "topDigramsByPosition", ",", " ", "fitnessFunction", ",", " ", 
+         "population", ",", " ", "randomString", ",", " ", "allBest"}], "]"}],
+        ";", "\n", 
+       RowBox[{"populationSize", " ", "=", " ", "100"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"generations", " ", "=", " ", "5"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"mutationRate", " ", "=", " ", "0.2"}], ";", "\n", 
+       RowBox[{"topDigramsByPosition", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Keys", "@", 
+           RowBox[{"TakeLargestBy", "[", 
+            RowBox[{
+             RowBox[{"countsByPosition", "[", "pos", "]"}], ",", "Identity", ",", 
+             RowBox[{"UpTo", "[", "5", "]"}]}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"pos", ",", 
+            RowBox[{"Sort", "@", 
+             RowBox[{"Keys", "[", "countsByPosition", "]"}]}]}], "}"}]}], 
+         "]"}]}], ";", "\n", 
+       RowBox[{"allBest", " ", "=", " ", 
+        RowBox[{"{", "}"}]}], ";", "\n", 
+       RowBox[{"words", " ", "=", " ", "translatedList"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"charSet", " ", "=", " ", 
+        RowBox[{"Flatten", "[", "topDigramsByPosition", "]"}]}], ";", "\n", 
+       RowBox[{"MAXLENGTH", " ", "=", " ", 
+        RowBox[{"Round", "[", 
+         RowBox[{"Mean", "[", 
+          RowBox[{"StringLength", "/@", " ", "words"}], "]"}], "]"}]}], ";", 
+       "\n", 
+       RowBox[{"allPopulations", " ", "=", " ", 
+        RowBox[{"{", "}"}]}], ";", "\n", 
+       RowBox[{"avgFitnessPerGen", " ", "=", " ", 
+        RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"phoneticDifference", "[", 
+         RowBox[{"word1_String", ",", "word2_String"}], "]"}], ":=", 
+        RowBox[{"Module", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"soundex1", ",", "soundex2"}], "}"}], ",", 
+          RowBox[{
+           RowBox[{"soundex1", "=", 
+            RowBox[{
+             RowBox[{"ResourceFunction", "[", "\"\<Soundex\>\"", "]"}], "[", 
+             "word1", "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"soundex2", "=", 
+            RowBox[{
+             RowBox[{"ResourceFunction", "[", "\"\<Soundex\>\"", "]"}], "[", 
+             "word2", "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"soundex1", "===", "soundex2"}], ",", "0", ",", 
+             RowBox[{"EditDistance", "[", 
+              RowBox[{"soundex1", ",", "soundex2"}], "]"}]}], "]"}]}]}], 
+         "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"fitnessFunction", "[", "candidate_String", "]"}], ":=", 
+        RowBox[{"Module", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+           "maxEditDistance", ",", "maxPhoneticDistance", ",", "editScore", ",",
+             "phoneticScore"}], "}"}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"maxEditDistance", "=", 
+            RowBox[{"Max", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"EditDistance", "[", 
+                RowBox[{"candidate", ",", "#"}], "]"}], "&"}], "/@", 
+              "words"}], "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"maxPhoneticDistance", "=", 
+            RowBox[{"Max", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"phoneticDifference", "[", 
+                RowBox[{"candidate", ",", "#"}], "]"}], "&"}], "/@", 
+              "words"}], "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"editScore", "=", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"maxEditDistance", ">", "0"}], ",", 
+              RowBox[{"1", "-", 
+               RowBox[{"N", "[", 
+                RowBox[{
+                 RowBox[{"Mean", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"EditDistance", "[", 
+                    RowBox[{"candidate", ",", "#"}], "]"}], "&"}], "/@", 
+                   "words"}], "]"}], "/", "maxEditDistance"}], "]"}]}], ",", 
+              "1"}], "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"phoneticScore", "=", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"maxPhoneticDistance", ">", "0"}], ",", 
+              RowBox[{"1", "-", 
+               RowBox[{"N", "[", 
+                RowBox[{
+                 RowBox[{"Mean", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"phoneticDifference", "[", 
+                    RowBox[{"candidate", ",", "#"}], "]"}], "&"}], "/@", 
+                   "words"}], "]"}], "/", "maxPhoneticDistance"}], "]"}]}], ",",
+               "1"}], "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"0.5", "*", "editScore"}], "+", 
+            RowBox[{"0.5", "*", "phoneticScore"}]}]}]}], 
+         "\[IndentingNewLine]", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"randomString", "[", "]"}], ":=", 
+        RowBox[{"StringJoin", "@", 
+         RowBox[{"RandomChoice", "[", 
+          RowBox[{
+           RowBox[{"Flatten", "[", "topDigramsByPosition", "]"}], ",", 
+           RowBox[{"RandomInteger", "[", 
+            RowBox[{"{", 
+             RowBox[{"SYLLABLECOUNT", ",", 
+              RowBox[{"SYLLABLECOUNT", "+", "2"}]}], "}"}], "]"}]}], 
+          "]"}]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"population", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"randomString", "[", "]"}], ",", 
+          RowBox[{"{", "populationSize", "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"lengthVaryTwoPointCrossover", "[", 
+         RowBox[{"p1_", ",", "p2_"}], "]"}], ":=", 
+        RowBox[{"Module", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+           "len1", ",", "len2", ",", "minLen", ",", "pt1", ",", "pt2", ",", 
+            "c1", ",", "c2", ",", "child"}], "}"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"len1", "=", 
+            RowBox[{"StringLength", "[", "p1", "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"len2", "=", 
+            RowBox[{"StringLength", "[", "p2", "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"minLen", "=", 
+            RowBox[{"Min", "[", 
+             RowBox[{"len1", ",", "len2"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"pt1", ",", "pt2"}], "}"}], "=", 
+            RowBox[{"Sort", "@", 
+             RowBox[{"RandomSample", "[", 
+              RowBox[{
+               RowBox[{"Range", "[", "minLen", "]"}], ",", "2"}], "]"}]}]}], ";",
+            "\[IndentingNewLine]", 
+           RowBox[{"c1", "=", 
+            RowBox[{"Characters", "[", "p1", "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"c2", "=", 
+            RowBox[{"Characters", "[", "p2", "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"child", "=", 
+            RowBox[{"Join", "[", 
+             RowBox[{
+              RowBox[{"Take", "[", 
+               RowBox[{"c1", ",", 
+                RowBox[{"pt1", "-", "1"}]}], "]"}], ",", 
+              RowBox[{"Take", "[", 
+               RowBox[{"c2", ",", 
+                RowBox[{"{", 
+                 RowBox[{"pt1", ",", "pt2"}], "}"}]}], "]"}], ",", 
+              RowBox[{"Drop", "[", 
+               RowBox[{"c1", ",", "pt2"}], "]"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"If", "[", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Length", "[", "child", "]"}], ">", 
+              "\[IndentingNewLine]", "MAXLENGTH"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"child", "=", 
+              RowBox[{"Take", "[", 
+               RowBox[{"child", ",", "MAXLENGTH"}], "]"}]}]}], 
+            "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"StringJoin", "[", "child", "]"}]}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"mutate", "[", "str_", "]"}], ":=", 
+        RowBox[{"StringJoin", "@", "\[IndentingNewLine]", 
+         RowBox[{"Table", "[", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"RandomReal", "[", "]"}], "<", "mutationRate"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"RandomChoice", "[", "charSet", "]"}], ",", 
+             "\[IndentingNewLine]", "c"}], "\[IndentingNewLine]", "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"{", 
+            RowBox[{"c", ",", 
+             RowBox[{"Characters", "[", "str", "]"}]}], "}"}]}], 
+          "\[IndentingNewLine]", "]"}]}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{"allBest", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"fitnesses", "=", 
+            RowBox[{"fitnessFunction", "/@", "population"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"bestCandidate", "=", 
+            RowBox[{"population", "[", 
+             RowBox[{"[", 
+              RowBox[{"First", "@", 
+               RowBox[{"Ordering", "[", 
+                RowBox[{"fitnesses", ",", 
+                 RowBox[{"-", "1"}]}], "]"}]}], "]"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"avgF", "=", 
+            RowBox[{"N", "[", 
+             RowBox[{"Mean", "[", "fitnesses", "]"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"avgFitnessPerGen", ",", "avgF"}], "]"}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"allPopulations", ",", "population"}], "]"}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"parents", "=", 
+            RowBox[{
+             RowBox[{"TakeLargestBy", "[", 
+              RowBox[{
+               RowBox[{"Transpose", "[", 
+                RowBox[{"{", 
+                 RowBox[{"population", ",", "fitnesses"}], "}"}], "]"}], ",", 
+               "Last", ",", 
+               RowBox[{"Ceiling", "[", 
+                RowBox[{"populationSize", "/", "2"}], "]"}]}], "]"}], "[", 
+             RowBox[{"[", 
+              RowBox[{"All", ",", "1"}], "]"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"population", "=", 
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{"mutate", "@", 
+               RowBox[{"lengthVaryTwoPointCrossover", "[", 
+                RowBox[{
+                 RowBox[{"RandomChoice", "[", "parents", "]"}], ",", 
+                 RowBox[{"RandomChoice", "[", "parents", "]"}]}], "]"}]}], ",", 
+              RowBox[{"{", "populationSize", "}"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", "bestCandidate"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"gen", ",", "1", ",", "generations"}], "}"}]}], 
+         "\[IndentingNewLine]", "]"}]}], ";", "\n", "\[IndentingNewLine]", 
+       RowBox[{"AppendTo", "[", 
+        RowBox[{"allPopulations", ",", "population"}], "]"}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"bestWordGeneticPool", "=", 
+        RowBox[{"First", "@", 
+         RowBox[{"MaximalBy", "[", 
+          RowBox[{"allBest", ",", "fitnessFunction"}], "]"}]}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"Clear", "[", 
+        RowBox[{
+        "baseWord", ",", " ", "testList", ",", " ", "padChar", ",", " ", 
+         "baseWordStates", ",", " ", "targetWords", ",", "GENERATIONS"}], 
+        "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"baseWord", "=", 
+        RowBox[{"StringJoin", "@", 
+         RowBox[{"RandomChoice", "[", 
+          RowBox[{
+           RowBox[{"CharacterRange", "[", 
+            RowBox[{"\"\<a\>\"", ",", " ", "\"\<z\>\""}], "]"}], ",", " ", 
+           "5"}], "]"}]}]}], ";", "\n", 
+       RowBox[{"startingWord", " ", "=", " ", "baseWord"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"testList", "=", "translatedList"}], ";", "\n", 
+       RowBox[{"padChar", "=", "\"\<_\>\""}], ";", "\[IndentingNewLine]", 
+       RowBox[{"baseWordStates", "=", 
+        RowBox[{"{", "baseWord", "}"}]}], ";", "\n", 
+       RowBox[{"targetWords", "=", 
+        RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"GENERATIONS", "=", "1000"}], ";", "\n", 
+       RowBox[{"averageLength", "=", 
+        RowBox[{"Round", "[", 
+         RowBox[{"Mean", "[", 
+          RowBox[{"StringLength", " ", "/@", " ", "testList"}], "]"}], 
+         "]"}]}], ";", "\n", "\n", 
+       RowBox[{
+        RowBox[{"getAllChars", "[", "wordList_", "]"}], ":=", 
+        RowBox[{"Module", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"maxLen", ",", "paddedWords", ",", "allChars"}], "}"}], ",",
+           "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"maxLen", "=", 
+            RowBox[{"Max", "[", 
+             RowBox[{"StringLength", "/@", "wordList"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"paddedWords", "=", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"StringPadRight", "[", 
+               RowBox[{"#", ",", "maxLen", ",", "padChar"}], "]"}], "&"}], "/@",
+              "wordList"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"allChars", "=", 
+            RowBox[{"Union", "[", 
+             RowBox[{"Flatten", "[", 
+              RowBox[{"Characters", "/@", "paddedWords"}], "]"}], "]"}]}], ";",
+            "\[IndentingNewLine]", "allChars"}]}], "\[IndentingNewLine]", 
+         "]"}]}], ";", "\n", "\n", 
+       RowBox[{
+        RowBox[{"pad", "[", 
+         RowBox[{"w1_", ",", "w2_"}], "]"}], ":=", 
+        RowBox[{"Module", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"maxLen", ",", "p1", ",", "p2"}], "}"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"maxLen", "=", 
+            RowBox[{"Max", "[", 
+             RowBox[{
+              RowBox[{"StringLength", "[", "w1", "]"}], ",", 
+              RowBox[{"StringLength", "[", "w2", "]"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"StringPadRight", "[", 
+              RowBox[{"w1", ",", "maxLen", ",", "padChar"}], "]"}], ",", 
+             RowBox[{"StringPadRight", "[", 
+              RowBox[{"w2", ",", "maxLen", ",", "padChar"}], "]"}]}], 
+            "}"}]}]}], "\[IndentingNewLine]", "]"}]}], ";", "\n", "\n", 
+       RowBox[{
+        RowBox[{"mostDifferentWord", "[", 
+         RowBox[{"base_", ",", "list_"}], "]"}], ":=", 
+        RowBox[{"Module", "[", 
+         RowBox[{
+          RowBox[{"{", "diffs", "}"}], ",", 
+          RowBox[{
+           RowBox[{"diffs", "=", 
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"word", ",", 
+                RowBox[{"EditDistance", "[", 
+                 RowBox[{"base", ",", "word"}], "]"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"word", ",", "list"}], "}"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"First", "@", 
+            RowBox[{"MaximalBy", "[", 
+             RowBox[{"diffs", ",", "Last"}], "]"}]}]}]}], "]"}]}], ";", "\n", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"findDifferingIndices", "[", 
+         RowBox[{"str1_", ",", "str2_"}], "]"}], ":=", 
+        RowBox[{
+         RowBox[{"Module", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"minLen", ",", "diffs"}], "}"}], ",", 
+           RowBox[{
+            RowBox[{"minLen", "=", 
+             RowBox[{"Min", "[", 
+              RowBox[{
+               RowBox[{"StringLength", "[", "str1", "]"}], ",", 
+               RowBox[{"StringLength", "[", "str2", "]"}]}], "]"}]}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"diffs", "=", 
+             RowBox[{"Select", "[", 
+              RowBox[{
+               RowBox[{"Range", "[", "minLen", "]"}], ",", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"StringTake", "[", 
+                  RowBox[{"str1", ",", 
+                   RowBox[{"{", "#", "}"}]}], "]"}], "=!=", 
+                 RowBox[{"StringTake", "[", 
+                  RowBox[{"str2", ",", 
+                   RowBox[{"{", "#", "}"}]}], "]"}]}], "&"}]}], "]"}]}], ";", 
+            "\[IndentingNewLine]", "diffs"}]}], "]"}], "\n", "\n", 
+         RowBox[{
+          RowBox[{"layoutTestWords", "[", 
+           RowBox[{"baseWord_", ",", " ", "testList_"}], "]"}], " ", ":=", 
+          " ", "\n", "  ", 
+          RowBox[{"Module", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"angles", ",", " ", "positions"}], "}"}], ",", " ", "\n",
+             "   ", 
+            RowBox[{
+             RowBox[{"angles", " ", "=", " ", 
+              RowBox[{
+               RowBox[{"Subdivide", "[", 
+                RowBox[{"0", ",", " ", 
+                 RowBox[{"2", "*", "Pi"}], ",", " ", 
+                 RowBox[{"Length", "[", "testList", "]"}]}], "]"}], "[", 
+               RowBox[{"[", 
+                RowBox[{"1", " ", ";;", " ", 
+                 RowBox[{"-", "2"}]}], "]"}], "]"}]}], ";", "\n", "   ", 
+             RowBox[{"positions", " ", "=", " ", 
+              RowBox[{"Table", "[", "\n", "     ", 
+               RowBox[{
+                RowBox[{"With", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"dist", " ", "=", " ", 
+                    RowBox[{"EditDistance", "[", 
+                    RowBox[{"baseWord", ",", " ", 
+                    RowBox[{"testList", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}]}], "]"}]}], "}"}], ",", 
+                  "\n", "      ", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"testList", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], ",", " ", "\n", "       ", 
+                    RowBox[{
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"angles", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], "]"}], "*", "dist"}], ",",
+                     " ", "\n", "       ", 
+                    RowBox[{
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"angles", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], "]"}], "*", "dist"}]}], 
+                   "}"}]}], "\n", "      ", "]"}], ",", " ", 
+                RowBox[{"{", 
+                 RowBox[{"i", ",", " ", "1", ",", " ", 
+                  RowBox[{"Length", "[", "testList", "]"}]}], "}"}]}], 
+               "]"}]}], ";", "\n", "   ", "positions"}]}], "]"}]}]}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"calculateCharFrequencies", "[", "wordList_", "]"}], ":=", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Module", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"maxLen", ",", "paddedWords", ",", "freqTables"}], "}"}],
+             ",", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"maxLen", "=", 
+              RowBox[{"Max", "[", 
+               RowBox[{"StringLength", "/@", "wordList"}], "]"}]}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{"paddedWords", "=", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"StringPadRight", "[", 
+                 RowBox[{"#", ",", "maxLen", ",", "padChar"}], "]"}], "&"}], "/@",
+                "wordList"}]}], ";", "\[IndentingNewLine]", 
+             RowBox[{"freqTables", "=", 
+              RowBox[{"Table", "[", 
+               RowBox[{
+                RowBox[{"Counts", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"StringTake", "[", 
+                    RowBox[{"#", ",", 
+                    RowBox[{"{", "pos", "}"}]}], "]"}], "&"}], "/@", 
+                  "paddedWords"}], "]"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"pos", ",", "1", ",", "maxLen"}], "}"}]}], "]"}]}], ";",
+              "\[IndentingNewLine]", "freqTables"}]}], "\[IndentingNewLine]", 
+           "]"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"normalizeFrequencies", "[", "freqTable_", "]"}]}], ":=", 
+         RowBox[{
+          RowBox[{"Module", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"nonZeroEntries", ",", "total"}], "}"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"nonZeroEntries", "=", 
+              RowBox[{"Select", "[", 
+               RowBox[{"freqTable", ",", 
+                RowBox[{
+                 RowBox[{"#", ">", "0"}], "&"}]}], "]"}]}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{"total", "=", 
+              RowBox[{"Total", "[", 
+               RowBox[{"Values", "[", "nonZeroEntries", "]"}], "]"}]}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{"If", "[", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"total", "==", "0"}], ",", "\[IndentingNewLine]", 
+               "freqTable", ",", "\[IndentingNewLine]", 
+               RowBox[{"Association", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"#", "->", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"freqTable", "[", "#", "]"}], ">", "0"}], ",", 
+                    RowBox[{"N", "[", 
+                    RowBox[{
+                    RowBox[{"freqTable", "[", "#", "]"}], "/", "total"}], 
+                    "]"}], ",", "0"}], "]"}]}], "&"}], "/@", 
+                 RowBox[{"Keys", "[", "freqTable", "]"}]}], "]"}]}], 
+              "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "]"}], 
+          "\[IndentingNewLine]", 
+          RowBox[{"allPossibleChars", "=", 
+           RowBox[{"getAllChars", "[", "testList", "]"}]}]}]}]}], ";", "\n", 
+       RowBox[{"rawFrequencies", "=", 
+        RowBox[{"calculateCharFrequencies", "[", "testList", "]"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"charFreqWeights", "=", 
+        RowBox[{"Map", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"normalizeFrequencies", "[", 
+            RowBox[{"AssociationThread", "[", 
+             RowBox[{"allPossibleChars", ",", 
+              RowBox[{"Lookup", "[", 
+               RowBox[{"#", ",", "allPossibleChars", ",", "0"}], "]"}]}], 
+             "]"}], "]"}], "&"}], ",", "rawFrequencies"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"weightedRandomTarget", "[", 
+         RowBox[{"base_", ",", "list_"}], "]"}], ":=", 
+        RowBox[{"Module", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"diffs", ",", "total", ",", "weights"}], "}"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"diffs", "=", 
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"word", ",", 
+                RowBox[{"EditDistance", "[", 
+                 RowBox[{"base", ",", "word"}], "]"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"word", ",", "list"}], "}"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"total", "=", 
+            RowBox[{"Total", "[", 
+             RowBox[{"diffs", "[", 
+              RowBox[{"[", 
+               RowBox[{"All", ",", "2"}], "]"}], "]"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"total", "==", "0"}], ",", "\[IndentingNewLine]", 
+             "\[IndentingNewLine]", 
+             RowBox[{"RandomChoice", "[", "list", "]"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"weights", "=", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"diffs", "[", 
+                   RowBox[{"[", 
+                    RowBox[{"All", ",", "2"}], "]"}], "]"}], "^", "3"}], 
+                 ")"}], "/", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"diffs", "[", 
+                   RowBox[{"[", 
+                    RowBox[{"All", ",", "2"}], "]"}], "]"}], "^", "3"}], 
+                 "]"}]}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"RandomChoice", "[", 
+               RowBox[{"weights", "->", 
+                RowBox[{"diffs", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"All", ",", "1"}], "]"}], "]"}]}], "]"}]}]}], 
+            "]"}]}]}], "\[IndentingNewLine]", "]"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"randomMutation", "[", 
+         RowBox[{"word_", ",", 
+          RowBox[{"rate_", ":", "0.05"}]}], "]"}], ":=", 
+        RowBox[{"Module", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"chars", ",", "mutated"}], "}"}], ",", 
+          RowBox[{
+           RowBox[{"chars", "=", 
+            RowBox[{"Characters", "[", "word", "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"mutated", "=", 
+            RowBox[{"Map", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"RandomReal", "[", "]"}], "<", "rate"}], ",", 
+                 RowBox[{"RandomChoice", "[", 
+                  RowBox[{
+                   RowBox[{"CharacterRange", "[", 
+                    RowBox[{"\"\<a\>\"", ",", "\"\<z\>\""}], "]"}], "~", 
+                   "Join", "~", 
+                   RowBox[{"{", "padChar", "}"}]}], "]"}], ",", "#"}], "]"}], 
+               "&"}], ",", "chars"}], "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"StringJoin", "[", "mutated", "]"}]}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"evolveTowardWeighted", "[", 
+         RowBox[{"base_", ",", "target_"}], "]"}], ":=", 
+        RowBox[{"Module", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+           "basePadded", ",", "targetPadded", ",", "diffIndices", ",", "i", ",",
+             "targetChar", ",", "baseChar", ",", "weight"}], "}"}], ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"basePadded", ",", "targetPadded"}], "}"}], "=", 
+            RowBox[{"pad", "[", 
+             RowBox[{"base", ",", "target"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"diffIndices", "=", 
+            RowBox[{"findDifferingIndices", "[", 
+             RowBox[{"basePadded", ",", "targetPadded"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"diffIndices", "===", 
+              RowBox[{"{", "}"}]}], ",", "basePadded", ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"i", "=", 
+               RowBox[{"RandomChoice", "[", "diffIndices", "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"targetChar", "=", 
+               RowBox[{"StringTake", "[", 
+                RowBox[{"targetPadded", ",", 
+                 RowBox[{"{", 
+                  RowBox[{"i", ",", "i"}], "}"}]}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"baseChar", "=", 
+               RowBox[{"StringTake", "[", 
+                RowBox[{"basePadded", ",", 
+                 RowBox[{"{", 
+                  RowBox[{"i", ",", "i"}], "}"}]}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"weight", "=", "\[IndentingNewLine]", 
+               RowBox[{"If", "[", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"i", "<=", 
+                  RowBox[{"Length", "[", "charFreqWeights", "]"}]}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{
+                  RowBox[{"chars", "=", 
+                   RowBox[{"Keys", "[", 
+                    RowBox[{"charFreqWeights", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], "]"}]}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"weights", " ", "=", " ", 
+                   RowBox[{"Values", "[", 
+                    RowBox[{"charFreqWeights", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], "]"}]}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"choice", " ", "=", " ", 
+                   RowBox[{"RandomChoice", "[", 
+                    RowBox[{"weights", "->", "chars"}], "]"}]}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"StringReplacePart", "[", 
+                   RowBox[{"basePadded", ",", " ", "choice", ",", " ", 
+                    RowBox[{"{", 
+                    RowBox[{"i", ",", " ", "i"}], "}"}]}], "]"}]}], ",", " ", 
+                 "basePadded"}], "]"}]}]}]}], "]"}]}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"baseWordStates", "=", 
+        RowBox[{"{", "baseWord", "}"}]}], ";", "\n", 
+       RowBox[{"targetWords", "=", 
+        RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"bestWord", "=", "baseWord"}], ";", "\n", 
+       RowBox[{"bestDistance", "=", 
+        RowBox[{"Mean", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"EditDistance", "[", 
+            RowBox[{"baseWord", ",", "#"}], "]"}], "&"}], "/@", "testList"}], 
+         "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"evolutionStep", "[", 
+         RowBox[{"{", 
+          RowBox[{
+          "currentWord_", ",", "currentBest_", ",", "bestDist_", ",", 
+           "targetHist_", ",", "stateHist_"}], "}"}], "]"}], ":=", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Module", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"target", ",", "newWord", ",", "newDist"}], "}"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"target", "=", 
+            RowBox[{"weightedRandomTarget", "[", 
+             RowBox[{"currentWord", ",", "testList"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"newWord", "=", 
+            RowBox[{"StringReplace", "[", 
+             RowBox[{
+              RowBox[{"evolveTowardWeighted", "[", 
+               RowBox[{"currentWord", ",", "target"}], "]"}], ",", 
+              RowBox[{"\"\<_\>\"", "->", "\"\<\>\""}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"newDist", "=", 
+            RowBox[{"Mean", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"EditDistance", "[", 
+                RowBox[{"newWord", ",", "#"}], "]"}], "&"}], "/@", 
+              "testList"}], "\[IndentingNewLine]", "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"If", "[", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"newDist", "<", "bestDist"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{"newWord", ",", "newWord", ",", "newDist", ",", 
+               RowBox[{"Append", "[", 
+                RowBox[{"targetHist", ",", "target"}], "]"}], ",", 
+               RowBox[{"Append", "[", 
+                RowBox[{"stateHist", ",", "newWord"}], "]"}]}], "}"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{"newWord", ",", "currentBest", ",", "bestDist", ",", 
+               RowBox[{"Append", "[", 
+                RowBox[{"targetHist", ",", "target"}], "]"}], ",", 
+               RowBox[{"Append", "[", 
+                RowBox[{"stateHist", ",", "newWord"}], "]"}]}], "}"}]}], 
+            "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"initialState", "=", 
+        RowBox[{"{", 
+         RowBox[{"baseWord", ",", "baseWord", ",", 
+          RowBox[{"Mean", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"EditDistance", "[", 
+              RowBox[{"baseWord", ",", "#"}], "]"}], "&"}], "/@", 
+            "testList"}], "]"}], ",", 
+          RowBox[{"{", "}"}], ",", 
+          RowBox[{"{", "baseWord", "}"}]}], "}"}]}], ";", "\n", 
+       RowBox[{"evolutionResults", "=", 
+        RowBox[{"NestList", "[", 
+         RowBox[{"evolutionStep", ",", "initialState", ",", "GENERATIONS"}], 
+         "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+         "finalWord", ",", "bestWord", ",", "bestDistance", ",", 
+          "targetWords", ",", "baseWordStates"}], "}"}], "=", 
+        RowBox[{"Last", "[", "evolutionResults", "]"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", "\n", 
+       RowBox[{"testPositions", "=", 
+        RowBox[{"layoutTestWords", "[", 
+         RowBox[{
+          RowBox[{"baseWordStates", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], ",", "testList"}], "]"}]}], ";", 
+       "\n", 
+       RowBox[{"positionDict", "=", 
+        RowBox[{"Association", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"#", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], "->", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"#", "[", 
+               RowBox[{"[", "2", "]"}], "]"}], ",", 
+              RowBox[{"#", "[", 
+               RowBox[{"[", "3", "]"}], "]"}]}], "}"}]}], "&"}], "/@", 
+          "testPositions"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"bestWord", "=", 
+        RowBox[{"StringReplace", "[", 
+         RowBox[{"bestWord", ",", 
+          RowBox[{"\"\<_\>\"", "->", "\"\<\>\""}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"net", "=", 
+        RowBox[{"NetModel", "[", 
+         RowBox[{"\"\<Wolfram English Character-Level Language Model V1\>\"", 
+          ",", "\"\<TrainingNet\>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{"vocabulary", "=", 
+        RowBox[{
+        "Characters", 
+         "[", "\"\<\\t\\n \
+!\\\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\\]^_`\
+abcdefghijklmnopqrstuvwxyz{}\[EAcute]\>\"", "]"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"net", "=", 
+        RowBox[{"NetReplacePart", "[", 
+         RowBox[{"net", ",", 
+          RowBox[{"\"\<Input\>\"", "\[Rule]", 
+           RowBox[{"NetEncoder", "[", 
+            RowBox[{"{", 
+             RowBox[{"\"\<Characters\>\"", ",", 
+              RowBox[{"{", 
+               RowBox[{"vocabulary", ",", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"StartOfString", ",", "EndOfString"}], "}"}], "\[Rule]",
+                  "97"}]}], "}"}]}], "}"}], "]"}]}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"results", " ", "=", " ", "\n", " ", 
+        RowBox[{"NetTrain", "[", 
+         RowBox[{"net", ",", " ", 
+          RowBox[{"<|", 
+           RowBox[{"\"\<Input\>\"", " ", "\[Rule]", " ", "translatedList"}], 
+           "|>"}], ",", " ", "All", ",", " ", 
+          RowBox[{"LossFunction", " ", "\[Rule]", " ", "\"\<Loss\>\""}], ",", 
+          " ", " ", " ", 
+          RowBox[{"MaxTrainingRounds", " ", "\[Rule]", "500"}]}], "]"}]}], ";",
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"trainednet", "=", 
+        RowBox[{"results", "[", "\"\<TrainedNet\>\"", "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"generator", "=", 
+        RowBox[{"NetReplacePart", "[", 
+         RowBox[{
+          RowBox[{"NetExtract", "[", 
+           RowBox[{"trainednet", ",", "\"\<predict\>\""}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\"\<Input\>\"", "\[Rule]", 
+             RowBox[{"NetEncoder", "[", 
+              RowBox[{"{", 
+               RowBox[{"\"\<Characters\>\"", ",", 
+                RowBox[{"{", 
+                 RowBox[{"vocabulary", ",", "EndOfString"}], "}"}], ",", 
+                RowBox[{"\"\<TargetLength\>\"", "\[Rule]", "1"}]}], "}"}], 
+              "]"}]}], ",", 
+            RowBox[{"\"\<Output\>\"", "\[Rule]", 
+             RowBox[{"NetDecoder", "[", 
+              RowBox[{"{", 
+               RowBox[{"\"\<Class\>\"", ",", 
+                RowBox[{"Append", "[", 
+                 RowBox[{"vocabulary", ",", "\"\<\>\""}], "]"}]}], "}"}], 
+              "]"}]}]}], "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"wordz", "[", "]"}], ":=", 
+        RowBox[{"With", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"obj", "=", 
+            RowBox[{"NetStateObject", "[", "generator", "]"}]}], "}"}], ",", 
+          RowBox[{"StringJoin", "@", 
+           RowBox[{"NestWhileList", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"obj", "[", 
+               RowBox[{
+                RowBox[{"Last", "[", "#", "]"}], 
+                ",", "\"\<RandomSample\>\""}], "]"}], "&"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<\>\"", ",", "\"\<\>\""}], "}"}], ",", 
+             RowBox[{
+              RowBox[{"#", "=!=", 
+               RowBox[{"{", "\"\<\>\"", "}"}]}], "&"}], ",", "SYLLABLECOUNT", 
+             ",", 
+             RowBox[{"SYLLABLECOUNT", "+", "2"}]}], "]"}]}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"newAvgWords", "=", 
+        RowBox[{"Sort", "@", 
+         RowBox[{"Complement", "[", 
+          RowBox[{
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"wordz", "[", "]"}], ",", "15"}], "]"}], ",", 
+           "translatedList"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{"allPossibleWords", " ", "=", " ", 
+        RowBox[{"Flatten", "[", 
+         RowBox[{"Join", "[", 
+          RowBox[{"{", 
+           RowBox[{
+           "newAvgWords", ",", " ", "bestWordGeneticPool", ",", " ", 
+            "mostDigramGenerated", ",", "\n", "     ", "mostFreqCharWord", ",",
+             " ", "bestWord"}], "}"}], "]"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"<|", 
+        RowBox[{
+         RowBox[{"\"\<KeyWord\>\"", "->", "keyWord"}], ",", 
+         RowBox[{"\"\<MostFreqCharWord\>\"", "->", "mostFreqCharWord"}], ",", 
+         
+         RowBox[{"\"\<GeneticBest\>\"", "->", "bestWordGeneticPool"}], ",", 
+         RowBox[{"\"\<MostDigramWords\>\"", "->", "mostDigramGenerated"}], ",", 
+         RowBox[{"\"\<BestEvolvedWord\>\"", "->", "bestWord"}], ",", 
+         RowBox[{"\"\<NeuralGenerated\>\"", "->", "newAvgWords"}], ",", 
+         RowBox[{"\"\<AllGeneratedWords\>\"", "->", "allPossibleWords"}]}], 
+        "|>"}]}]}], "\n", "]"}]}], ";"}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.961041307812364*^9, 3.961041575231217*^9}, {
+  3.9610416460226088`*^9, 3.961041648765502*^9}, {3.9610417807434893`*^9, 
+  3.961041797549995*^9}, {3.961041900668804*^9, 3.9610419147531223`*^9}, {
+  3.9610419828500843`*^9, 
+  3.961041982986527*^9}},ExpressionUUID->"8affeddc-7013-4905-b146-\
+fb8a295fad82"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"keywords", "=", 
+   RowBox[{"{", "\"\<sun\>\"", "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"results", "=", 
+   RowBox[{"AssociationMap", "[", 
+    RowBox[{"GenerateWordVariants", ",", "keywords"}], "]"}]}], 
+  ";"}], "\n"}], "Input",
+ CellChangeTimes->{{3.96104192392568*^9, 3.961041923925704*^9}, 
+   3.961041966259552*^9},
+ CellLabel->
+  "In[380]:=",ExpressionUUID->"e543ebb1-e1d4-4e8f-82d0-5d8dfbb35e33"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Pattern\\\", \\\"[\\\", \
+\\\"]\\\"}]\\) is not a valid Association or a list of rules.\"", 2, 381, 15, 
+   26409201652973737610, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.96104195106223*^9, 3.961041984420743*^9},
+ CellLabel->
+  "During evaluation of \
+In[380]:=",ExpressionUUID->"5fc1d8c0-7926-40ac-8614-4992e9ef510a"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "SetDelayed", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"Times\\\"}]\\) in \
+\\!\\(\\*RowBox[{RowBox[{\\\"If\\\", \\\"[\\\", \
+RowBox[{RowBox[{RowBox[{\\\"Total\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \
+\\\"[\\\", RowBox[{\\\"Pattern\\\", \\\"[\\\", \\\"]\\\"}], \\\"]\\\"}], \
+\\\"]\\\"}], \\\"\[Equal]\\\", \\\"0\\\"}], \\\",\\\", \\\"freqTable_\\\", \\\
+\",\\\", RowBox[{\\\"Association\\\", \\\"[\\\", RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"#1\\\", \\\"\[Rule]\\\", RowBox[{\\\"If\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"Greater\\\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"2\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \\\",\\\", \
+RowBox[{\\\"N\\\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \
+\\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \\\",\\\", \\\"0\\\"}], \
+\\\"]\\\"}]}], \\\"&\\\"}], \\\")\\\"}], \\\"/@\\\", RowBox[{\\\"Keys\\\", \\\
+\"[\\\", \\\"freqTable_\\\", \\\"]\\\"}]}], \\\"]\\\"}]}], \\\"]\\\"}], \\\" \
+\\\", RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"\[LeftAssociation]\\\", \
+RowBox[{RowBox[{\\\"\\\\\\\"s\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"17\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"m\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"1\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"r\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"2\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"j\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"1\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"n\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"1\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"g\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"1\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"k\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"1\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"t\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"2\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"p\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"2\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"a\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"4\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"i\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"1\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"z\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"1\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"q\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"1\\\"}]}], \
+\\\"\[RightAssociation]\\\"}], \\\",\\\", RowBox[{\\\"\[LeftAssociation]\\\", \
+RowBox[{RowBox[{\\\"\\\\\\\"u\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"8\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"h\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"2\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"o\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"10\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"a\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"6\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"w\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"1\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"i\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"1\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"r\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"2\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"l\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"2\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"n\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"1\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"f\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"1\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"d\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"1\\\"}]}], \
+\\\"\[RightAssociation]\\\"}], \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\
+\"7\\\", \\\"\[RightSkeleton]\\\"}], \\\",\\\", \
+RowBox[{\\\"\[LeftAssociation]\\\", \
+RowBox[{RowBox[{\\\"\\\\\\\"_\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"34\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"t\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"1\\\"}]}], \
+\\\"\[RightAssociation]\\\"}], \\\",\\\", RowBox[{\\\"\[LeftAssociation]\\\", \
+RowBox[{RowBox[{\\\"\\\\\\\"_\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"34\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"y\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"1\\\"}]}], \
+\\\"\[RightAssociation]\\\"}]}], \\\"}\\\"}]}]\\) is Protected.\"", 2, 381, 
+   16, 26409201652973737610, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.96104195106223*^9, 3.96104198443461*^9},
+ CellLabel->
+  "During evaluation of \
+In[380]:=",ExpressionUUID->"300713e6-f2f0-4ee2-94ec-0d2e5a2e5de9"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "StringTake", "mseqs", 
+   "\"Sequence specification (+n, -n, {+n}, {-n}, {m, n}, or {m, n, s}) or a \
+list of sequence specifications expected at position \\!\\(\\*RowBox[{\\\"2\\\
+\"}]\\) in \\!\\(\\*RowBox[{\\\"StringTake\\\", \\\"[\\\", RowBox[{\\\"\\\\\\\
+\"slonce\\\\\\\"\\\", \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"5\\\", \\\" \\\", \\\"Null\\\"}], \\\",\\\", \
+RowBox[{\\\"5\\\", \\\" \\\", \\\"Null\\\"}]}], \\\"}\\\"}]}], \
+\\\"]\\\"}]\\).\"", 2, 381, 17, 26409201652973737610, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.96104195106223*^9, 3.961041984445118*^9},
+ CellLabel->
+  "During evaluation of \
+In[380]:=",ExpressionUUID->"61063350-e5e8-486e-a5eb-1e0f11fd771d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "StringTake", "mseqs", 
+   "\"Sequence specification (+n, -n, {+n}, {-n}, {m, n}, or {m, n, s}) or a \
+list of sequence specifications expected at position \\!\\(\\*RowBox[{\\\"2\\\
+\"}]\\) in \\!\\(\\*RowBox[{\\\"StringTake\\\", \\\"[\\\", RowBox[{\\\"\\\\\\\
+\"jbpvt_\\\\\\\"\\\", \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"5\\\", \\\" \\\", \\\"Null\\\"}], \\\",\\\", \
+RowBox[{\\\"5\\\", \\\" \\\", \\\"Null\\\"}]}], \\\"}\\\"}]}], \
+\\\"]\\\"}]\\).\"", 2, 381, 18, 26409201652973737610, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.96104195106223*^9, 3.961041984459358*^9},
+ CellLabel->
+  "During evaluation of \
+In[380]:=",ExpressionUUID->"0f0550eb-a38f-42ee-a42a-5686aa3163f5"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "StringReplace", "strse", 
+   "\"String or list of strings expected at position \\!\\(\\*RowBox[{\\\"1\\\
+\"}]\\) in \\!\\(\\*RowBox[{\\\"StringReplace\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"If\\\", \\\"[\\\", RowBox[{RowBox[{RowBox[{\\\"5\\\", \
+\\\" \\\", \\\"Null\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{\\\"chars\\\", \\\"=\\\", RowBox[{\\\"Keys\\\", \\\"[\\\", \
+RowBox[{\\\"charFreqWeights\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"i$1513093\\\", \\\"\[RightDoubleBracket]\\\"}], \\\"]\\\"}]}], \\\";\\\", \
+RowBox[{\\\"weights\\\", \\\"=\\\", RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"charFreqWeights\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"i$1513093\\\", \\\"\[RightDoubleBracket]\\\"}], \\\"]\\\"}]}], \\\";\\\", \
+RowBox[{\\\"choice\\\", \\\"=\\\", RowBox[{\\\"RandomChoice\\\", \\\"[\\\", \
+RowBox[{\\\"weights\\\", \\\"\[Rule]\\\", \\\"chars\\\"}], \\\"]\\\"}]}], \
+\\\";\\\", RowBox[{\\\"StringReplacePart\\\", \\\"[\\\", \
+RowBox[{\\\"basePadded$1513093\\\", \\\",\\\", \\\"choice\\\", \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"i$1513093\\\", \\\",\\\", \\\"i$1513093\\\"}], \
+\\\"}\\\"}]}], \\\"]\\\"}]}], \\\",\\\", \\\"basePadded$1513093\\\"}], \
+\\\"]\\\"}], \\\",\\\", RowBox[{\\\"\\\\\\\"_\\\\\\\"\\\", \\\"\[Rule]\\\", \
+\\\"\\\\\\\"\\\\\\\"\\\"}]}], \\\"]\\\"}]\\).\"", 2, 381, 19, 
+   26409201652973737610, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.96104195106223*^9, 3.961041984468954*^9},
+ CellLabel->
+  "During evaluation of \
+In[380]:=",ExpressionUUID->"95863753-177f-4d3c-9c22-9c91b2b2334b"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "StringReplace", "strse", 
+   "\"String or list of strings expected at position \\!\\(\\*RowBox[{\\\"1\\\
+\"}]\\) in \\!\\(\\*RowBox[{\\\"StringReplace\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"If\\\", \\\"[\\\", RowBox[{RowBox[{RowBox[{\\\"5\\\", \
+\\\" \\\", \\\"Null\\\"}], \\\"\[LessEqual]\\\", \\\"0\\\"}], \\\",\\\", \
+RowBox[{RowBox[{\\\"chars\\\", \\\"=\\\", RowBox[{\\\"Keys\\\", \\\"[\\\", \
+RowBox[{\\\"charFreqWeights\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"i$1513093\\\", \\\"\[RightDoubleBracket]\\\"}], \\\"]\\\"}]}], \\\";\\\", \
+RowBox[{\\\"weights\\\", \\\"=\\\", RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"charFreqWeights\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"i$1513093\\\", \\\"\[RightDoubleBracket]\\\"}], \\\"]\\\"}]}], \\\";\\\", \
+RowBox[{\\\"choice\\\", \\\"=\\\", RowBox[{\\\"RandomChoice\\\", \\\"[\\\", \
+RowBox[{\\\"weights\\\", \\\"\[Rule]\\\", \\\"chars\\\"}], \\\"]\\\"}]}], \
+\\\";\\\", RowBox[{\\\"StringReplacePart\\\", \\\"[\\\", \
+RowBox[{\\\"basePadded$1513093\\\", \\\",\\\", \\\"choice\\\", \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"i$1513093\\\", \\\",\\\", \\\"i$1513093\\\"}], \
+\\\"}\\\"}]}], \\\"]\\\"}]}], \\\",\\\", \\\"basePadded$1513093\\\"}], \
+\\\"]\\\"}], \\\",\\\", RowBox[{\\\"\\\\\\\"_\\\\\\\"\\\", \\\"\[Rule]\\\", \
+\\\"\\\\\\\"\\\\\\\"\\\"}]}], \\\"]\\\"}]\\).\"", 2, 381, 20, 
+   26409201652973737610, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.96104195106223*^9, 3.961041984491131*^9},
+ CellLabel->
+  "During evaluation of \
+In[380]:=",ExpressionUUID->"66ecb94f-970b-4ff4-9f97-0f07786c2321"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set", "shape", 
+   "\"Lists \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"finalWord\\\", \\\",\\\", \
+\\\"bestWord\\\", \\\",\\\", \\\"bestDistance\\\", \\\",\\\", \\\"targetWords\
+\\\", \\\",\\\", \\\"baseWordStates\\\"}], \\\"}\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"evolutionStep\\\", \\\"[\\\", \
+RowBox[{\\\"evolutionStep\\\", \\\"[\\\", RowBox[{\\\"evolutionStep\\\", \
+\\\"[\\\", RowBox[{\\\"evolutionStep\\\", \\\"[\\\", \
+RowBox[{\\\"evolutionStep\\\", \\\"[\\\", RowBox[{\\\"evolutionStep\\\", \
+\\\"[\\\", RowBox[{\\\"evolutionStep\\\", \\\"[\\\", \
+RowBox[{\\\"evolutionStep\\\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\
+\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}], \
+\\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) are not \
+the same shape.\"", 2, 381, 21, 26409201652973737610, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.96104195106223*^9, 3.961041984503356*^9},
+ CellLabel->
+  "During evaluation of \
+In[380]:=",ExpressionUUID->"ea9929fb-51e7-4c40-bf42-e4ba4b2fe890"]
+}, Open  ]],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{
+  3.961041968155238*^9},ExpressionUUID->"dac03de9-f659-4b15-9e6a-\
+1fda5d7a4e5f"]
+},
+WindowSize->{405.75, 625.5},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+Magnification:>0.7 Inherited,
+FrontEndVersion->"14.2 for Linux x86 (64-bit) (March 16, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"5d474c7a-390f-4f66-90da-08931b6f4e21"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 338, 7, 21, "Input",ExpressionUUID->"c02e0d16-b385-43eb-8f3f-d37867dc013e"],
+Cell[917, 31, 266, 6, 23, "Output",ExpressionUUID->"bdb07400-de68-44d5-bde2-66ed6baf2e2b"]
+}, Open  ]],
+Cell[1198, 40, 48616, 1111, 5553, "Input",ExpressionUUID->"8affeddc-7013-4905-b146-fb8a295fad82"],
+Cell[CellGroupData[{
+Cell[49839, 1155, 443, 12, 48, "Input",ExpressionUUID->"e543ebb1-e1d4-4e8f-82d0-5d8dfbb35e33"],
+Cell[50285, 1169, 453, 11, 18, "Message",ExpressionUUID->"5fc1d8c0-7926-40ac-8614-4992e9ef510a"],
+Cell[50741, 1182, 3906, 57, 82, "Message",ExpressionUUID->"300713e6-f2f0-4ee2-94ec-0d2e5a2e5de9"],
+Cell[54650, 1241, 764, 15, 45, "Message",ExpressionUUID->"61063350-e5e8-486e-a5eb-1e0f11fd771d"],
+Cell[55417, 1258, 764, 15, 45, "Message",ExpressionUUID->"0f0550eb-a38f-42ee-a42a-5686aa3163f5"],
+Cell[56184, 1275, 1632, 27, 71, "Message",ExpressionUUID->"95863753-177f-4d3c-9c22-9c91b2b2334b"],
+Cell[57819, 1304, 1632, 27, 71, "Message",ExpressionUUID->"66ecb94f-970b-4ff4-9f97-0f07786c2321"],
+Cell[59454, 1333, 1104, 20, 57, "Message",ExpressionUUID->"ea9929fb-51e7-4c40-bf42-e4ba4b2fe890"]
+}, Open  ]],
+Cell[60573, 1356, 147, 3, 34, "Input",ExpressionUUID->"dac03de9-f659-4b15-9e6a-1fda5d7a4e5f"]
+}
+]
+*)
+
